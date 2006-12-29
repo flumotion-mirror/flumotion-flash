@@ -28,5 +28,5 @@ __toplevel = os.path.normpath(os.path.join(__thisdir, '..', '..'))
 pythondir = __toplevel
 localedatadir = os.path.join(__toplevel)
 if not os.path.exists(os.path.join(localedatadir, 'locale')):
-    localedatadir = '/usr/local/share'
-version = '0.1.0'
+    localedatadir = '@DATADIR@'
+version = '@VERSION@'
