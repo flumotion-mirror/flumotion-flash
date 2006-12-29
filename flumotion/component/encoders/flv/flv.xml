@@ -1,0 +1,40 @@
+<registry>
+
+  <components>
+    <component type="flv-encoder"
+               base="flumotion/component/encoders/flv">
+      <source location="flumotion.component.encoders.flv.flv" />
+
+      <eater name="default" />
+      <feeder name="default" />
+
+      <entries>
+        <entry type="component" location="flv.py"
+               function="FLVEncoder" />
+      </entries>
+
+      <properties>
+        <property name="bitrate" type="int" />
+      </properties>
+
+    </component>
+  </components>
+
+  <bundles>
+
+    <bundle project="flash" name="flv-component">
+        <dependencies>
+            <dependency name="component" />
+        </dependencies>
+
+        <directories>
+            <directory name="flumotion/component/encoders/flv">
+                <filename location="__init__.py" />
+                <filename location="flv.py" />
+            </directory>
+        </directories>
+    </bundle>
+
+  </bundles>
+
+</registry> 

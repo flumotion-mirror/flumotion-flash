@@ -1,0 +1,40 @@
+<registry>
+
+  <components>
+    <component type="mp3-encoder"
+               base="flumotion/component/encoders/mp3">
+      <source location="flumotion.component.encoders.mp3.mp3" />
+
+      <eater name="default" />
+      <feeder name="default" />
+
+      <entries>
+        <entry type="component" location="mp3.py"
+               function="MP3Encoder" />
+      </entries>
+
+      <properties>
+        <property name="bitrate" type="int" />
+      </properties>
+
+    </component>
+  </components>
+
+  <bundles>
+
+    <bundle project="flash" name="mp3-component">
+        <dependencies>
+            <dependency name="component" />
+        </dependencies>
+
+        <directories>
+            <directory name="flumotion/component/encoders/mp3">
+                <filename location="__init__.py" />
+                <filename location="mp3.py" />
+            </directory>
+        </directories>
+    </bundle>
+
+  </bundles>
+
+</registry> 
