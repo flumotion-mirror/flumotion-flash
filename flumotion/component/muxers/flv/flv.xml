@@ -18,7 +18,7 @@
 
   <bundles>
 
-    <bundle project="flash" name="flv-component">
+    <bundle project="flash" name="flvmuxer-component">
         <dependencies>
             <dependency name="component" />
         </dependencies>
