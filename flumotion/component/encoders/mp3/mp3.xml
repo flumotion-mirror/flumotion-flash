@@ -15,6 +15,7 @@
 
       <properties>
         <property name="bitrate" type="int" />
+        <property name="rate" type="int" />
       </properties>
 
     </component>

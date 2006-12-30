@@ -1,3 +1,9 @@
+2006-12-30  Julien MOUTTE  <julien@moutte.net>
+
+	* flumotion/component/encoders/mp3/mp3.py:
+	* flumotion/component/encoders/mp3/mp3.xml: Add an audiorate
+	property.
+
 2006-12-29  Julien MOUTTE  <julien@moutte.net>
 
 	* flumotion/component/muxers/flv/flv.xml: Components have to
