@@ -1,3 +1,9 @@
+2007-02-06  Michael Smith  <msmith@fluendo.com>
+
+	* flumotion/component/muxers/flv/flv.py:
+	  Change FLV muxer to use MultiInputParseLaunchComponent, so this
+	  isn't deadlock-prone.
+
 2007-01-05  Julien MOUTTE  <julien@moutte.net>
 
 	* flumotion-flash.spec.in: Remove noarch from spec.
