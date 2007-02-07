@@ -1,3 +1,9 @@
+2007-02-07  Michael Smith  <msmith@fluendo.com>
+
+	* flumotion/test/Makefile.am:
+	* misc/Makefile.am:
+	  Cargo-cult some more autotools magic to make setup.py work right.
+
 === release 0.2.0 ===
 
 2007-02-06  Michael Smith  <msmith@fluendo.com>
