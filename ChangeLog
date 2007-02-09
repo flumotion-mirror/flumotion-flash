@@ -1,3 +1,11 @@
+
+=== release 0.4.0 ===
+
+2007-02-09  Michael Smith  <msmith@fluendo.com>
+
+	* configure.ac:
+	  Release 0.4.0
+
 2007-02-07  Michael Smith  <msmith@fluendo.com>
 
 	* flumotion/test/Makefile.am:

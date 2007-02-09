@@ -1,6 +1,6 @@
 AC_INIT(README)
 
-AS_VERSION(flumotion-flash, FW, 0, 2, 0, 1)
+AS_VERSION(flumotion-flash, FW, 0, 4, 0, 0)
 AC_SUBST(RELEASE, $FW_RELEASE)
 
 AC_SUBST_FILE(AUTHORS)
