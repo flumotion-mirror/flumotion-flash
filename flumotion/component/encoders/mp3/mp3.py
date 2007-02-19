@@ -16,10 +16,8 @@ from flumotion.component import feedcomponent
 
 class MP3Encoder(feedcomponent.ParseLaunchComponent):
     def get_pipeline_string(self, properties):
-        if properties.has_key('rate'):
-            return "audioconvert ! audioresample ! audio/x-raw-int,rate=%d ! lame name=encoder ! mp3parse" % properties['rate']
-        else:
-            return "audioconvert ! audioresample ! audio/x-raw-int,rate=44100 ! lame name=encoder ! mp3parse"
+        rate = properties.get('rate', 44100)
+        return "audioconvert ! audioresample ! audio/x-raw-int,rate=%d ! audiorate ! lame name=encoder ! mp3parse" % rate
 
     def configure_pipeline(self, pipeline, properties):
         element = pipeline.get_by_name('encoder')

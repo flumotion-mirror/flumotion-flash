@@ -1,3 +1,13 @@
+2007-02-19  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion/component/encoders/mp3/mp3.py:
+	  Remove unneeded if statement.
+	  Add audiorate, to compensate for lame's inability to deal with
+	  dropped audio frames until lame gets fixed.
+	  Tested with flumotion-launch audiotest-producer ! mp3-encoder !
+	  flv-muxer ! disk-consumer directory=. rotate-type=none
+	  to verify that it negotiates correctly.
+
 2007-02-09  Michael Smith  <msmith@fluendo.com>
 
 	* Makefile.am:
