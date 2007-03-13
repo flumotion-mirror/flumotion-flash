@@ -1,3 +1,10 @@
+2007-03-13  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion/component/encoders/flv/flv.py:
+	* flumotion/component/encoders/mp3/mp3.py:
+	* flumotion/component/muxers/flv/flv.py:
+	  check timestamps/offsets
+
 2007-02-19  Thomas Vander Stichele  <thomas at apestaart dot org>
 
 	* flumotion/component/encoders/mp3/mp3.py:

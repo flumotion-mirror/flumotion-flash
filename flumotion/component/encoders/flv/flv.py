@@ -15,6 +15,9 @@
 from flumotion.component import feedcomponent
 
 class FLVEncoder(feedcomponent.ParseLaunchComponent):
+    checkTimestamp = True
+    checkOffset = True
+
     def get_pipeline_string(self, properties):
         return "ffmpegcolorspace ! ffenc_flv name=encoder" 
 

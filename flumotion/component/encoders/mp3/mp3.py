@@ -15,6 +15,9 @@
 from flumotion.component import feedcomponent
 
 class MP3Encoder(feedcomponent.ParseLaunchComponent):
+    checkTimestamp = True
+    checkOffset = True
+
     def get_pipeline_string(self, properties):
         rate = properties.get('rate', 44100)
         return "audioconvert ! audioresample ! audio/x-raw-int,rate=%d ! audiorate ! lame name=encoder ! mp3parse" % rate

@@ -15,6 +15,7 @@
 from flumotion.component import feedcomponent
 
 class FLVMuxer(feedcomponent.MultiInputParseLaunchComponent):
+    checkOffset = True
+
     def get_muxer_string(self, properties):
         return 'fluflvmux broadcast=true name=muxer'
-
