@@ -12,7 +12,12 @@
 
 # Headers in this file shall remain intact.
 
+import os
+
 from flumotion.component import feedcomponent
+from flumotion.common import messages, errors
+from flumotion.common.messages import N_
+T_ = messages.gettexter('flumotion')
 
 class VP6Encoder(feedcomponent.ParseLaunchComponent):
     checkTimestamp = True
@@ -23,5 +28,19 @@ class VP6Encoder(feedcomponent.ParseLaunchComponent):
 
     def configure_pipeline(self, pipeline, properties):
         element = pipeline.get_by_name('encoder')
-        if properties.has_key('config'):
-            element.set_property('config', properties['config'])
+        if properties.has_key('encoder-state'):
+            element.set_property('encoder-state', properties['encoder-state'])
+
+    def do_setup(self):
+        if self.config['properties'].has_key('encoder-state'):
+            encoderState = self.config['properties']['encoder-state']
+
+            # validate encoder state file first
+            if not os.path.exists(encoderState):
+                m = messages.Error(T_(N_(
+                  "The configuration property 'encoder-state' should be set to "
+                  "an absolute path to an existing MCF configuration file. "
+                  "Please fix the configuration, %s does not exist."),
+                  encoderState), id='encoder-state')
+                self.addMessage(m)
+                raise errors.ComponentSetupHandledError()

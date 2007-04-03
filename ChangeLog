@@ -1,5 +1,12 @@
 2007-04-03  Julien MOUTTE  <julien@moutte.net>
 
+	* flumotion/component/encoders/flv/flv.xml: Rename the property
+	to please thomasvs.
+	* flumotion/component/encoders/flv/vp6.py: Check for the 
+	encoder state configuration file in do_setup.
+
+2007-04-03  Julien MOUTTE  <julien@moutte.net>
+
 	* flumotion/component/encoders/flv/Makefile.am:
 	* flumotion/component/encoders/flv/flv.py:
 	* flumotion/component/encoders/flv/flv.xml:
