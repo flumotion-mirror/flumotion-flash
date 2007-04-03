@@ -1,3 +1,11 @@
+2007-04-03  Julien MOUTTE  <julien@moutte.net>
+
+	* flumotion/component/encoders/flv/Makefile.am:
+	* flumotion/component/encoders/flv/flv.py:
+	* flumotion/component/encoders/flv/flv.xml:
+	* flumotion/component/encoders/flv/vp6.py: Add a VP6 encoder
+	component.
+
 2007-03-14  Thomas Vander Stichele  <thomas at apestaart dot org>
 
 	* flumotion/component/encoders/mp3/mp3.py:

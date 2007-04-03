@@ -18,6 +18,23 @@
       </properties>
 
     </component>
+    <component type="vp6-encoder"
+               base="flumotion/component/encoders/flv">
+      <source location="flumotion.component.encoders.flv.vp6" />
+
+      <eater name="default" />
+      <feeder name="default" />
+
+      <entries>
+        <entry type="component" location="vp6.py"
+               function="VP6Encoder" />
+      </entries>
+
+      <properties>
+        <property name="config" type="string" />
+      </properties>
+
+    </component>
   </components>
 
   <bundles>
@@ -31,6 +48,7 @@
             <directory name="flumotion/component/encoders/flv">
                 <filename location="__init__.py" />
                 <filename location="flv.py" />
+                <filename location="vp6.py" />
             </directory>
         </directories>
     </bundle>
