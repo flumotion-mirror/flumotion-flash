@@ -19,8 +19,7 @@ class FLVEncoder(feedcomponent.ParseLaunchComponent):
     checkOffset = True
 
     def get_pipeline_string(self, properties):
-#       return "ffmpegcolorspace ! ffenc_flv name=encoder" 
-        return "ffmpegcolorspace ! vfwenc_vp6vfwv6 name=encoder" 
+        return "ffmpegcolorspace ! ffenc_flv name=encoder" 
 
     def configure_pipeline(self, pipeline, properties):
         element = pipeline.get_by_name('encoder')

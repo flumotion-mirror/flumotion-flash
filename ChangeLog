@@ -1,5 +1,10 @@
 2007-04-03  Julien MOUTTE  <julien@moutte.net>
 
+	* flumotion/component/encoders/flv/flv.py: Stupid me !
+	Fix Flash 7.
+
+2007-04-03  Julien MOUTTE  <julien@moutte.net>
+
 	* flumotion/component/encoders/flv/vp6.py: We need to chain
 	up in do_setup. Thanks Mike ;-)
 
