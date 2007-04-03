@@ -44,3 +44,5 @@ class VP6Encoder(feedcomponent.ParseLaunchComponent):
                   encoderState), id='encoder-state')
                 self.addMessage(m)
                 raise errors.ComponentSetupHandledError()
+        return feedcomponent.ParseLaunchComponent.do_setup(self)
+
