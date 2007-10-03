@@ -1,3 +1,10 @@
+2007-10-03  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion/component/encoders/mp3/mp3.py:
+	  Bitrate should be specified in bit/sec.
+	  Add a warning message if it is specified wrongly so admins
+	  can fix their config, but still accept it for now.
+
 2007-04-03  Julien MOUTTE  <julien@moutte.net>
 
 	* flumotion/component/encoders/flv/flv.py: Stupid me !
