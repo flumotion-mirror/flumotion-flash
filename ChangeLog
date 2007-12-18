@@ -1,5 +1,10 @@
 2007-12-18  Thomas Vander Stichele  <thomas at apestaart dot org>
 
+	* flumotion/test/Makefile.am:
+	  Set TRIAL_ENV to make testsuite work again.
+
+2007-12-18  Thomas Vander Stichele  <thomas at apestaart dot org>
+
 	* flumotion/component/encoders/mp3/mp3.py:
 	  Also specify sample rate on the src pad of lame; we don't want
 	  lame to resample for us, it's annoying when we want to respect
