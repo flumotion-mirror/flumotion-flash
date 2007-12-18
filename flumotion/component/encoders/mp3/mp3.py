@@ -25,7 +25,9 @@ class MP3Encoder(feedcomponent.ParseLaunchComponent):
 
     def get_pipeline_string(self, properties):
         rate = properties.get('rate', 44100)
-        return "audioconvert ! audioresample ! audio/x-raw-int,rate=%d ! lame name=encoder ! mp3parse" % rate
+        return "audioconvert ! audioresample " \
+            "! audio/x-raw-int,rate=%d ! lame name=encoder " \
+            "! audio/mpeg,rate=%d ! mp3parse" % (rate, rate)
 
     def configure_pipeline(self, pipeline, properties):
         self.debug('configure_pipeline')

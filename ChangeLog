@@ -1,3 +1,10 @@
+2007-12-18  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion/component/encoders/mp3/mp3.py:
+	  Also specify sample rate on the src pad of lame; we don't want
+	  lame to resample for us, it's annoying when we want to respect
+	  the allowed Flash sample rates.
+
 2007-10-03  Thomas Vander Stichele  <thomas at apestaart dot org>
 
 	* flumotion/component/encoders/mp3/mp3.py:
