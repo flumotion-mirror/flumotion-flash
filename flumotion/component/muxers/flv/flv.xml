@@ -13,6 +13,13 @@
                function="FLVMuxer" />
       </entries>
 
+      <wizard _description="FLV" type="muxer" 
+              feeder="default" eater="default">
+        <accept-format media-type="flv"/>
+        <accept-format media-type="vp6"/>
+        <accept-format media-type="mp3"/>
+      </wizard>
+
     </component>
   </components>
 

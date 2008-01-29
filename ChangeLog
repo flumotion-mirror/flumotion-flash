@@ -1,3 +1,19 @@
+2008-01-29  Johan Dahlin  <johan@gnome.org>
+
+	* flumotion/component/encoders/flv/Makefile.am:
+	* flumotion/component/encoders/flv/flv-wizard.glade:
+	* flumotion/component/encoders/flv/flv.xml:
+	* flumotion/component/encoders/flv/flv_wizard.py:
+	* flumotion/component/encoders/flv/vp6-wizard.glade:
+	* flumotion/component/encoders/flv/vp6.py:
+	* flumotion/component/encoders/flv/vp6_wizard.py:
+	* flumotion/component/encoders/mp3/Makefile.am:
+	* flumotion/component/encoders/mp3/mp3.xml:
+	* flumotion/component/encoders/mp3/mp3_wizard.py:
+	* flumotion/component/muxers/flv/flv.xml:
+
+	Add initial flv, mp3 and vp6 encoders and flx muxer wizard support
+
 2007-12-18  Thomas Vander Stichele  <thomas at apestaart dot org>
 
 	* flumotion/test/Makefile.am:

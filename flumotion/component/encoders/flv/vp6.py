@@ -24,12 +24,14 @@ class VP6Encoder(feedcomponent.ParseLaunchComponent):
     checkOffset = True
 
     def get_pipeline_string(self, properties):
-        return "ffmpegcolorspace ! videoflip method=5 ! vfwenc_vp6vfwv6 name=encoder" 
+        return "ffmpegcolorspace ! videoflip method=5 ! fluvp6enc name=encoder"
 
     def configure_pipeline(self, pipeline, properties):
         element = pipeline.get_by_name('encoder')
         if properties.has_key('encoder-state'):
             element.set_property('encoder-state', properties['encoder-state'])
+        if properties.has_key('bitrate'):
+            element.set_property('bitrate', properties['bitrate'])
 
     def do_setup(self):
         if self.config['properties'].has_key('encoder-state'):
@@ -44,5 +46,6 @@ class VP6Encoder(feedcomponent.ParseLaunchComponent):
                   encoderState), id='encoder-state')
                 self.addMessage(m)
                 raise errors.ComponentSetupHandledError()
+
         return feedcomponent.ParseLaunchComponent.do_setup(self)
 

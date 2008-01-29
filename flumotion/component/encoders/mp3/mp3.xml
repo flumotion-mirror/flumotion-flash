@@ -11,7 +11,14 @@
       <entries>
         <entry type="component" location="mp3.py"
                function="MP3Encoder" />
+        <entry type="wizard" location="mp3_wizard.py"
+               function="MP3WizardPlugin" />
       </entries>
+
+      <wizard _description="MP3" type="audio-encoder" 
+              feeder="default" eater="default">
+        <provide-format media-type="mp3"/>
+      </wizard>
 
       <properties>
         <property name="bitrate" type="int" />
@@ -32,6 +39,19 @@
             <directory name="flumotion/component/encoders/mp3">
                 <filename location="__init__.py" />
                 <filename location="mp3.py" />
+            </directory>
+        </directories>
+    </bundle>
+
+    <bundle project="flash" name="mp3-wizard">
+        <dependencies>
+            <dependency name="component" />
+            <dependency name="mp3-component" />
+        </dependencies>
+
+        <directories>
+            <directory name="flumotion/component/encoders/mp3">
+                <filename location="mp3_wizard.py" />
             </directory>
         </directories>
     </bundle>
