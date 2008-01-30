@@ -1,3 +1,10 @@
+2008-01-30  Johan Dahlin  <johan@gnome.org>
+
+	* flumotion/component/encoders/flv/flv_wizard.py:
+	* flumotion/component/encoders/flv/vp6_wizard.py:
+	* flumotion/component/encoders/mp3/mp3_wizard.py:
+	Update to new wizard API
+
 2008-01-29  Johan Dahlin  <johan@gnome.org>
 
 	* flumotion/component/encoders/flv/Makefile.am:

@@ -64,5 +64,5 @@ class FLVWizardPlugin(object):
         self.wizard = wizard
         self.model = FLVVideoEncoder()
 
-    def get_conversion_step(self):
+    def getConversionStep(self):
         return FLVStep(self.wizard, self.model)

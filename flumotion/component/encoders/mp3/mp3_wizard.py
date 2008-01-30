@@ -64,5 +64,5 @@ class MP3WizardPlugin(object):
         self.wizard = wizard
         self.model = MP3AudioEncoder()
 
-    def get_conversion_step(self):
+    def getConversionStep(self):
         return MP3Step(self.wizard, self.model)

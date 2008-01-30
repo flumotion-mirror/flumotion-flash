@@ -64,5 +64,5 @@ class VP6WizardPlugin(object):
         self.wizard = wizard
         self.model = VP6VideoEncoder()
 
-    def get_conversion_step(self):
+    def getConversionStep(self):
         return VP6Step(self.wizard, self.model)
