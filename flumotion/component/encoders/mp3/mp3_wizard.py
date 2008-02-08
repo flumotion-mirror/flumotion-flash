@@ -54,9 +54,9 @@ class MP3Step(AudioEncoderStep):
 
         self.add_proxy(self.model.properties, ['bitrate'])
 
-    def worker_changed(self):
-        self.model.worker = self.worker
-        self.wizard.require_elements(self.worker, 'mp3parse')
+    def worker_changed(self, worker):
+        self.model.worker = worker
+        self.wizard.require_elements(worker, 'mp3parse')
 
 
 class MP3WizardPlugin(object):

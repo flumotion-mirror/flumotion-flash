@@ -54,9 +54,9 @@ class FLVStep(VideoEncoderStep):
     def get_next(self):
         return self.wizard.get_step('Encoding').get_audio_page()
 
-    def worker_changed(self):
-        self.model.worker = self.worker
-        self.wizard.require_elements(self.worker, 'ffenc_flv')
+    def worker_changed(self, worker):
+        self.model.worker = worker
+        self.wizard.require_elements(worker, 'ffenc_flv')
 
 
 class FLVWizardPlugin(object):
