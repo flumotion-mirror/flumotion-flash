@@ -15,10 +15,12 @@
                function="FLVWizardPlugin" />
       </entries>
 
+      <!--
       <wizard _description="FLV" type="video-encoder" 
               feeder="default" eater="default">
         <provide-format media-type="flv"/>
       </wizard>
+      -->
 
       <properties>
         <property name="bitrate" type="int" />

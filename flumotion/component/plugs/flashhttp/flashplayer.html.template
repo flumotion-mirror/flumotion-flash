@@ -1,0 +1,13 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Flumotion Flash Player</title>
+  <script src="fluflashembed.js"></script>
+</head>
+<body>
+  <center>
+    <script type="text/javascript">flashControl("%(m3u-url)s");</script>
+  </center>
+</body>
+</html>
+

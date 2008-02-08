@@ -1,3 +1,22 @@
+2008-02-08  Johan Dahlin  <johan@gnome.org>
+
+	* configure.ac:
+	* flumotion/component/Makefile.am:
+	* flumotion/component/encoders/flv/flv.xml:
+	* flumotion/component/plugs/Makefile.am:
+	* flumotion/component/plugs/__init__.py:
+	* flumotion/component/plugs/flashhttp/Makefile.am:
+	* flumotion/component/plugs/flashhttp/__init__.py:
+	* flumotion/component/plugs/flashhttp/flashhttp.py:
+	* flumotion/component/plugs/flashhttp/flashhttp.xml:
+	* flumotion/component/plugs/flashhttp/flashplayer.html.template:
+	* flumotion/component/plugs/flashhttp/flashplayer_location.py.in:
+	* flumotion/component/plugs/flashhttp/fluflashembed.js:
+	Add a dependency of flumotion-flash-player.
+	Disable flv video encoder in the wizard, only support vp6 for now.
+	Add a flashhttp plug with a js/html/m3u and flash file served.
+	Work in progress, is not quite working yet.
+
 2008-01-30  Johan Dahlin  <johan@gnome.org>
 
 	* flumotion/component/encoders/flv/flv_wizard.py:

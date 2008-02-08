@@ -1,0 +1,36 @@
+<registry>
+  <plugs>
+    <plug socket="flumotion.component.plugs.lifecycle.ComponentLifecycle"
+          type="flash-http-plug">
+      <entry location="flumotion/component/plugs/flashhttp/flashhttp.py"
+             function="FlashHTTPPlug" />
+      <properties>
+        <property name="html-template" type="string" 
+                  description="HTML template to use to serve the flash" />
+        <property name="index" type="string" 
+                  description="The name of the index file, default is index.html" />
+        <property name="has-audio" type="bool" required="true"  
+                  description="If audio should be streamed" />
+        <property name="has-video" type="bool" required="true"  
+                  description="If video should be streamed" />
+        <property name="stream-url" type="string" required="true"  
+                  description="url to the stream we're displaying" />
+      </properties>
+    </plug>
+  </plugs>
+  <bundles>
+    <bundle project="flash" name="flash-http-plug">
+      <dependencies>
+        <dependency name="base-plugs" />
+      </dependencies>
+      <directories>
+        <directory name="flumotion/component/plugs/flashhttp">
+          <filename location="__init__.py" />
+          <filename location="flashhttp.py" />
+          <filename location="flashplayer.html.template" />
+          <filename location="fluflashembed.js" />
+        </directory>
+      </directories>
+    </bundle>
+  </bundles>
+</registry>
