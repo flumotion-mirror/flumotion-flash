@@ -1,3 +1,11 @@
+2008-02-22  Johan Dahlin  <jdahlin@async.com.br>
+
+	* flumotion/component/plugs/flashhttp/Makefile.am:
+	* flumotion/component/plugs/flashhttp/flashhttp.py:
+	* flumotion/component/plugs/flashhttp/flashhttp.xml:
+	* flumotion/component/plugs/flashhttp/flashhttp_wizard.py:
+	Add a proper flumotion http consumer wizard plugin
+
 2008-02-12  Johan Dahlin  <johan@gnome.org>
 
 	* flumotion/component/muxers/flv/flv.xml: Add

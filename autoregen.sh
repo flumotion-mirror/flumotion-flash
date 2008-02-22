@@ -1,1 +1,1 @@
-./autogen.sh 
+./autogen.sh --prefix /home/jdahlin/.local

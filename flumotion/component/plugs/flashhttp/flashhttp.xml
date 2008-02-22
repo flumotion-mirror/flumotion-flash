@@ -2,8 +2,20 @@
   <plugs>
     <plug socket="flumotion.component.plugs.lifecycle.ComponentLifecycle"
           type="flash-http-plug">
-      <entry location="flumotion/component/plugs/flashhttp/flashhttp.py"
-             function="FlashHTTPPlug" />
+      <entries>
+        <entry type="default"
+               location="flumotion/component/plugs/flashhttp/flashhttp.py"
+               function="FlashHTTPPlug" />
+        <entry type="wizard"
+               location="flumotion/component/plugs/flashhttp/flashhttp_wizard.py"
+               function="FlashHTTPWizardPlugin" />
+      </entries>
+      <wizard _description="Stream to Flash" type="http-consumer" 
+              feeder="default" eater="default">
+        <accept-format media-type="muxer:flv"/>
+        <accept-format media-type="audio:mp3"/>
+        <accept-format media-type="video:vp6"/>
+      </wizard>
       <properties>
         <property name="html-template" type="string" 
                   description="HTML template to use to serve the flash" />
@@ -27,6 +39,7 @@
         <directory name="flumotion/component/plugs/flashhttp">
           <filename location="__init__.py" />
           <filename location="flashhttp.py" />
+          <filename location="flashhttp_wizard.py" />
           <filename location="flashplayer.html.template" />
           <filename location="fluflashembed.js" />
         </directory>

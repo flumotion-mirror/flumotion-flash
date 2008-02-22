@@ -5,11 +5,12 @@ flashhttpplugdir = $(libdir)/flumotion/python/flumotion/component/misc/flashhttp
 flashhttpplug_PYTHON = 		\
 	__init__.py 		\
 	flashhttp.py 		\
+	flashhttp_wizard.py	\
 	flashplayer_location.py 
 
-flashhttpplug_DATA = 			\
-	flashhttp.xml			\
-	fluflashembed.js		\
+flashhttpplug_DATA = 		\
+	flashhttp.xml		\
+	fluflashembed.js	\
 	flashplayer.html.template
 
 TAGS_FILES = $(flashhttpplug_PYTHON)
