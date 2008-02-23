@@ -19,7 +19,7 @@ from twisted.web.static import Data, File
 
 from flumotion.common import log
 from flumotion.common.errors import ComponentStartError
-from flumotion.component.misc.httpfile.httpfile import HTTPFileStreamer
+from flumotion.component.misc.httpserver.httpserver import HTTPFileStreamer
 from flumotion.component.plugs.base import ComponentPlug
 
 # FIXME: nested import
