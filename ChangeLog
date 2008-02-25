@@ -1,3 +1,8 @@
+2008-02-25  Johan Dahlin  <jdahlin@async.com.br>
+
+	* flumotion/component/plugs/flashhttp/flashhttp_wizard.py:
+	Remove the now unused socket class attribute.
+
 2008-02-22  Johan Dahlin  <jdahlin@async.com.br>
 
 	* flumotion/component/plugs/flashhttp/Makefile.am:

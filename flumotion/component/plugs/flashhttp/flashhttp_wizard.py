@@ -32,7 +32,6 @@ class FlashHTTPPlug(HTTPPlug):
     Flash HTTP streaming plug.
     """
     plug_type = "flash-http-plug"
-    socket = "flumotion.component.misc.cortado.cortado.FlashPlug"
 
     # Component
 
