@@ -1,5 +1,17 @@
 2008-02-25  Johan Dahlin  <jdahlin@async.com.br>
 
+	* configure.ac:
+	* flumotion/component/plugs/flashhttp/Makefile.am:
+	* flumotion/component/plugs/flashhttp/flashhttp.py:
+	* flumotion/component/plugs/flashhttp/flashhttp.xml:
+	* flumotion/component/plugs/flashhttp/flashhttp_wizard.py:
+	* flumotion/component/plugs/flashhttp/flashplayer_location.py.in:
+	* flumotion/component/plugs/flashhttp/workercheck.py:
+	Do not require flumotion-flash-player at configure time.
+	Instead check for it at runtime.
+
+2008-02-25  Johan Dahlin  <jdahlin@async.com.br>
+
 	* flumotion/component/plugs/flashhttp/flashhttp_wizard.py:
 	Remove the now unused socket class attribute.
 

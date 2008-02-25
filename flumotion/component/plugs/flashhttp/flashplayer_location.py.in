@@ -12,5 +12,25 @@
 
 # Headers in this file shall remain intact.
 
-FFP_AUDIO_FILENAME = "@FFP_SWFDIR@/flu-player-audio.swf"
-FFP_VIDEO_FILENAME = "@FFP_SWFDIR@/flu-player-video.swf"
+import os
+
+FFP_PREFIX = "@FFP_PREFIX@"
+
+def getFlashFilename(kind):
+    if kind not in ['audio', 'video']:
+        raise ValueError("kind must be audio or video, not %s" % (kind,))
+
+    directories = ['/usr/local', '/usr']
+    prefix = FFP_PREFIX[:]
+    if prefix:
+        if prefix.endswith('/'):
+            prefix = prefix[1:]
+        directories.insert(0, FFP_PREFIX)
+    for directory in directories:
+        # ant install_applet
+        name = os.path.join(directory, 'share', 'flumotion-flash-player',
+                            'swf',
+                            'flu-player-%s.swf' % (kind,))
+        if os.path.exists(name):
+            return name
+    return None

@@ -30,14 +30,25 @@
       </properties>
     </plug>
   </plugs>
+
   <bundles>
-    <bundle project="flash" name="flash-http-plug">
-      <dependencies>
-        <dependency name="base-plugs" />
-      </dependencies>
+
+    <bundle project="flash" name="flash-http-base">
       <directories>
         <directory name="flumotion/component/plugs/flashhttp">
           <filename location="__init__.py" />
+          <filename location="flashplayer_location.py" />
+        </directory>
+      </directories>
+    </bundle>
+
+    <bundle project="flash" name="flash-http-plug">
+      <dependencies>
+        <dependency name="base-plugs" />
+        <dependency name="flash-http-base" />
+      </dependencies>
+      <directories>
+        <directory name="flumotion/component/plugs/flashhttp">
           <filename location="flashhttp.py" />
           <filename location="flashhttp_wizard.py" />
           <filename location="flashplayer.html.template" />
@@ -45,5 +56,18 @@
         </directory>
       </directories>
     </bundle>
+
+    <bundle project="flash" name="flash-worker-checks">
+      <dependencies>
+        <dependency name="flash-http-base" />
+      </dependencies>
+      <directories>
+        <directory name="flumotion/component/plugs/flashhttp">
+          <filename location="workercheck.py" />
+        </directory>
+      </directories>
+    </bundle>
+
   </bundles>
+
 </registry>

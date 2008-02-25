@@ -64,12 +64,12 @@ sys.exit(0)
   AC_MSG_ERROR([You need at least version 1.3.0 of Twisted])
 )
 
-dnl check for flumotion flash player
-AC_MSG_CHECKING(swfdec dir)
-PKG_CHECK_MODULES(FFP, flumotion-flash-player >= 0.1.0)
-FFP_SWFDIR="`$PKG_CONFIG --variable=swfdir flumotion-flash-player`"
-AC_SUBST(FFP_SWFDIR)
-AC_MSG_RESULT($FFP_SWFDIR)
+dnl Flumotion Flash Player
+AC_ARG_WITH(flashplayer_prefix,
+           AC_HELP_STRING(--with-flashplayer-prefix=<dir>, where flumotion flash player can be found))
+
+FFP_PREFIX="$with_flashplayer_prefix"
+AC_SUBST(FFP_PREFIX)
 
 dnl check for flumotion
 PKG_CHECK_MODULES(FLUMOTION, flumotion >= $FLU_REQ)

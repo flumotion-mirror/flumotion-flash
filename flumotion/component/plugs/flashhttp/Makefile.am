@@ -6,7 +6,8 @@ flashhttpplug_PYTHON = 		\
 	__init__.py 		\
 	flashhttp.py 		\
 	flashhttp_wizard.py	\
-	flashplayer_location.py 
+	flashplayer_location.py \
+	workercheck.py
 
 flashhttpplug_DATA = 		\
 	flashhttp.xml		\

@@ -91,6 +91,16 @@ class FlashHTTPWizardPlugin(object):
     def __init__(self, wizard):
         self.wizard = wizard
 
+    def worker_changed(self, worker):
+        d = self.wizard.run_in_worker(
+            worker,
+            'flumotion.component.plugs.flashhttp.workercheck',
+            'checkFlashPlayer')
+        def check(found):
+            return bool(found)
+        d.addCallback(check)
+        return d
+
     def getConsumer(self, streamer, audio_producer, video_producer):
         return FlashHTTPServer(streamer, audio_producer,
                                video_producer, "/flash/")

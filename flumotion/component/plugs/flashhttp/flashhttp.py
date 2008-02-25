@@ -23,8 +23,7 @@ from flumotion.component.misc.httpserver.httpserver import HTTPFileStreamer
 from flumotion.component.plugs.base import ComponentPlug
 
 # FIXME: nested import
-from flashplayer_location import \
-     FFP_AUDIO_FILENAME, FFP_VIDEO_FILENAME
+from flashplayer_location import getFlashFilename
 
 __version__ = "$Rev$"
 
@@ -73,9 +72,9 @@ class FlashDirectoryResource(Resource):
 
     def _getSWFResource(self):
         if self._hasVideo():
-            filename = FFP_VIDEO_FILENAME
+            filename = getFlashFilename('video')
         else:
-            filename = FFP_AUDIO_FILENAME
+            filename = getFlashFilename('audio')
         return File(filename, 'application/x-shockwave-flash')
 
     def _getM3UResource(self):
