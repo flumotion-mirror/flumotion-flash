@@ -38,8 +38,8 @@ class VP6VideoEncoder(VideoEncoder):
 
 
 class VP6Step(VideoEncoderStep):
-    name = 'Windows Media Video Encoder'
-    sidebar_name = 'Windows Media Video'
+    name = 'Flash VP6 Video Encoder'
+    sidebar_name = 'Flash VP6 Video'
     glade_file = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                               'vp6-wizard.glade')
     component_type = 'vp6'
