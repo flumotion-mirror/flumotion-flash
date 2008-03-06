@@ -15,7 +15,10 @@
 import gettext
 import os
 
+from zope.interface import implements
+
 from flumotion.wizard.basesteps import VideoEncoderStep
+from flumotion.wizard.interfaces import IEncoderPlugin
 from flumotion.wizard.models import VideoEncoder
 
 __version__ = "$Rev$"
@@ -60,6 +63,7 @@ class FLVStep(VideoEncoderStep):
 
 
 class FLVWizardPlugin(object):
+    implements(IEncoderPlugin)
     def __init__(self, wizard):
         self.wizard = wizard
         self.model = FLVVideoEncoder()
