@@ -1,6 +1,6 @@
 include $(top_srcdir)/common/python.mk
 
-flashhttpplugdir = $(libdir)/flumotion/python/flumotion/component/misc/flashhttpplug
+flashhttpplugdir = $(libdir)/flumotion/python/flumotion/component/plugs/flashhttp
 
 flashhttpplug_PYTHON = 		\
 	__init__.py 		\

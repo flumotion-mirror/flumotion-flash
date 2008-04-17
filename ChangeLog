@@ -1,3 +1,16 @@
+2008-04-17  Johan Dahlin  <jdahlin@async.com.br>
+
+	* Makefile.am:
+	* autoregen.sh:
+	* pkg/debian-common/rules:
+	* pkg/ubuntu-gutsy/changelog:
+	* pkg/ubuntu-gutsy/control:
+	Add initial ubuntu gutsy package
+
+	* flumotion/component/plugs/flashhttp/Makefile.am:
+	Install in the right location plugs/flashhttp instead of
+	misc/flashhttpplug
+
 2008-04-03  Thomas Vander Stichele  <thomas at apestaart dot org>
 
 	* flumotion/component/encoders/flv/flv-wizard.glade:
