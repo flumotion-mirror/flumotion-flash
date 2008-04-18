@@ -1,3 +1,9 @@
+flumotion-flash (0.4.0.1-1flu1~gutsy5) gutsy; urgency=low
+
+  * Rebuild, with #923 fix adapted for flash committed
+
+ -- Johan Dahlin <johan@flumotion.com>  Fri, 18 Apr 2008 10:38:00 -0300
+
 flumotion-flash (0.4.0.1-1flu1~gutsy4) gutsy; urgency=low
 
   * Add gst-plugins-ugly-multiverse too, for lame.
