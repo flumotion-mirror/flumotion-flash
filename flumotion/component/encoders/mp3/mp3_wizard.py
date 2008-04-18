@@ -12,10 +12,18 @@
 
 # Headers in this file shall remain intact.
 
+import gettext
+
+from twisted.internet import defer
+
+from flumotion.common import errors
+from flumotion.common.messages import ngettext, gettexter, Warning
 from flumotion.wizard.basesteps import AudioEncoderStep
 from flumotion.wizard.models import AudioEncoder
 
 __version__ = "$Rev$"
+_ = gettext.gettext
+T_ = gettexter('flumotion')
 
 
 class MP3AudioEncoder(AudioEncoder):
@@ -49,7 +57,25 @@ class MP3Step(AudioEncoderStep):
 
     def worker_changed(self, worker):
         self.model.worker = worker
-        self.wizard.require_elements(worker, 'mp3parse')
+        def checkElements(elements):
+            if elements:
+                element_str = "', '".join(elements)
+                f = ngettext("Worker '%s' is missing GStreamer element '%s'.",
+                    "Worker '%s' is missing GStreamer elements '%s'.",
+                    len(elements))
+                message = Warning(
+                    T_(f, self.worker, element_str), id='flashmp3')
+                self.wizard.add_msg(message)
+                self.wizard.taskFinished(True)
+                return defer.fail(errors.FlumotionError('missing %s element(s)' % (
+                    element_str,)))
+
+            self.wizard.clear_msg('flashmp3')
+            self.wizard.taskFinished()
+
+        self.wizard.waitForTask('mp3 elements check')
+        d = self.wizard.require_elements(worker, 'mp3parse', 'lame')
+        d.addCallback(checkElements)
 
 
 class MP3WizardPlugin(object):
