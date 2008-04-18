@@ -78,7 +78,7 @@ class FlashHTTPServer(HTTPServer):
         """Returns the base of directory of the applet
         @returns: directory
         """
-        return 'http://%s:%d%s' % (self.worker,
+        return 'http://%s:%d%s' % (self.streamer.hostname,
                                    self.properties.port,
                                    self.properties.mount_point)
 

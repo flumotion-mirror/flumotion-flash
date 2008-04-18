@@ -1,3 +1,9 @@
+2008-04-18  Johan Dahlin  <johan@flumotion.com>
+
+	* flumotion/component/plugs/flashhttp/flashhttp_wizard.py:
+	Now when #923 is fixed, do the same here, reuse the hostname from
+	the streamer
+
 2008-04-17  Johan Dahlin  <jdahlin@async.com.br>
 
 	* Makefile.am:
