@@ -54,12 +54,9 @@ class FLVStep(VideoEncoderStep):
 
         self.add_proxy(self.model.properties, ['bitrate'])
 
-    def get_next(self):
-        return self.wizard.get_step('Encoding').get_audio_page()
-
-    def worker_changed(self, worker):
+    def workerChanged(self, worker):
         self.model.worker = worker
-        self.wizard.require_elements(worker, 'ffenc_flv')
+        self.wizard.requireElements(worker, 'ffenc_flv')
 
 
 class FLVWizardPlugin(object):

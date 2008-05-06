@@ -47,31 +47,31 @@ class FlashHTTPServer(HTTPServer):
     Most of the interesting logic here is actually in a plug.
     """
     component_type = 'http-server'
-    def __init__(self, streamer, audio_producer, video_producer, mount_point):
+    def __init__(self, streamer, audioProducer, videoProducer, mountPoint):
         """
         @param streamer: streamer
         @type  streamer: L{HTTPStreamer}
-        @param audio_producer: audio producer
-        @type  audio_producer: L{flumotion.wizard.models.AudioProducer}
+        @param audioProducer: audio producer
+        @type  audioProducer: L{flumotion.wizard.models.AudioProducer}
            subclass or None
-        @param video_producer: video producer
-        @type  video_producer: L{flumotion.wizard.models.VideoProducer}
+        @param videoProducer: video producer
+        @type  videoProducer: L{flumotion.wizard.models.VideoProducer}
            subclass or None
-        @param mount_point:
-        @type  mount_point:
+        @param mountPoint:
+        @type  mountPoint:
         """
         self.streamer = streamer
 
-        super(FlashHTTPServer, self).__init__(mount_point=mount_point,
+        super(FlashHTTPServer, self).__init__(mountPoint=mountPoint,
                                               worker=streamer.worker)
 
-        self.properties.porter_socket_path = streamer.socket_path
+        self.properties.porter_socketPath = streamer.socketPath
         self.properties.porter_username = streamer.porter_username
         self.properties.porter_password = streamer.porter_password
         self.properties.port = streamer.properties.port
         self.properties.type = 'slave'
 
-        plug = FlashHTTPPlug(self, streamer, audio_producer, video_producer)
+        plug = FlashHTTPPlug(self, streamer, audioProducer, videoProducer)
         self.addPlug(plug)
 
     def getCodebase(self):
@@ -80,7 +80,7 @@ class FlashHTTPServer(HTTPServer):
         """
         return 'http://%s:%d%s' % (self.streamer.hostname,
                                    self.properties.port,
-                                   self.properties.mount_point)
+                                   self.properties.mountPoint)
 
 
 class FlashHTTPWizardPlugin(object):
@@ -88,8 +88,8 @@ class FlashHTTPWizardPlugin(object):
     def __init__(self, wizard):
         self.wizard = wizard
 
-    def worker_changed(self, worker):
-        d = self.wizard.run_in_worker(
+    def workerChanged(self, worker):
+        d = self.wizard.runInWorker(
             worker,
             'flumotion.component.plugs.flashhttp.workercheck',
             'checkFlashPlayer')
@@ -98,6 +98,6 @@ class FlashHTTPWizardPlugin(object):
         d.addCallback(check)
         return d
 
-    def getConsumer(self, streamer, audio_producer, video_producer):
-        return FlashHTTPServer(streamer, audio_producer,
-                               video_producer, "/flash/")
+    def getConsumer(self, streamer, audioProducer, videoProducer):
+        return FlashHTTPServer(streamer, audioProducer,
+                               videoProducer, "/flash/")

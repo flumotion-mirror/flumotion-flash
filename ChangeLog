@@ -1,7 +1,15 @@
-2008-04-18  Johan Dahlin  <johan@gnome.org>
+2008-05-06  Johan Dahlin  <johan@flumotion.com>
+
+	* flumotion/component/encoders/flv/flv_wizard.py:
+	* flumotion/component/encoders/mp3/mp3_wizard.py:
+	* flumotion/component/plugs/flashhttp/flashhttp_wizard.py:
+	Update to latest wizard API
+
+2008-04-18  Johan Dahlin  <johan@flumotion.com>
 
 	* flumotion/component/encoders/mp3/mp3_wizard.py
-	(MP3Step.worker_changed.checkElements): Add a message and check for lame as well
+	(MP3Step.worker_changed.checkElements): Add a message and check for 
+	lame as well
 	here.
 
 2008-04-18  Johan Dahlin  <johan@flumotion.com>
@@ -10,7 +18,7 @@
 	Now when #923 is fixed, do the same here, reuse the hostname from
 	the streamer
 
-2008-04-17  Johan Dahlin  <jdahlin@async.com.br>
+2008-04-17  Johan Dahlin  <johan@flumotion.com>
 
 	* Makefile.am:
 	* autoregen.sh:
@@ -28,7 +36,7 @@
 	* flumotion/component/encoders/flv/flv-wizard.glade:
 	  Add kbit/s in the UI.
 
-2008-03-06  Johan Dahlin  <jdahlin@async.com.br>
+2008-03-06  Johan Dahlin  <johan@flumotion.com>
 
 	* flumotion/component/encoders/flv/flv_wizard.py:
 	* flumotion/component/encoders/flv/vp6_wizard.py:
@@ -37,12 +45,12 @@
 	Add a docstring,
 	remove GPL header.
 
-2008-02-29  Johan Dahlin  <jdahlin@async.com.br>
+2008-02-29  Johan Dahlin  <johan@flumotion.com>
 
 	* flumotion/component/encoders/flv/vp6_wizard.py:
 	The steps should not be called windows media!
 
-2008-02-25  Johan Dahlin  <jdahlin@async.com.br>
+2008-02-25  Johan Dahlin  <johan@flumotion.com>
 
 	* configure.ac:
 	* flumotion/component/plugs/flashhttp/Makefile.am:
@@ -54,12 +62,12 @@
 	Do not require flumotion-flash-player at configure time.
 	Instead check for it at runtime.
 
-2008-02-25  Johan Dahlin  <jdahlin@async.com.br>
+2008-02-25  Johan Dahlin  <johan@flumotion.com>
 
 	* flumotion/component/plugs/flashhttp/flashhttp_wizard.py:
 	Remove the now unused socket class attribute.
 
-2008-02-22  Johan Dahlin  <jdahlin@async.com.br>
+2008-02-22  Johan Dahlin  <johan@flumotion.com>
 
 	* flumotion/component/plugs/flashhttp/Makefile.am:
 	* flumotion/component/plugs/flashhttp/flashhttp.py:
@@ -67,12 +75,12 @@
 	* flumotion/component/plugs/flashhttp/flashhttp_wizard.py:
 	Add a proper flumotion http consumer wizard plugin
 
-2008-02-12  Johan Dahlin  <johan@gnome.org>
+2008-02-12  Johan Dahlin  <johan@flumotion.com>
 
 	* flumotion/component/muxers/flv/flv.xml: Add
 	a provided-format.
 
-2008-02-08  Johan Dahlin  <johan@gnome.org>
+2008-02-08  Johan Dahlin  <johan@flumotion.com>
 
 	* configure.ac:
 	* flumotion/component/Makefile.am:
@@ -91,14 +99,14 @@
 	Add a flashhttp plug with a js/html/m3u and flash file served.
 	Work in progress, is not quite working yet.
 
-2008-01-30  Johan Dahlin  <johan@gnome.org>
+2008-01-30  Johan Dahlin  <johan@flumotion.com>
 
 	* flumotion/component/encoders/flv/flv_wizard.py:
 	* flumotion/component/encoders/flv/vp6_wizard.py:
 	* flumotion/component/encoders/mp3/mp3_wizard.py:
 	Update to new wizard API
 
-2008-01-29  Johan Dahlin  <johan@gnome.org>
+2008-01-29  Johan Dahlin  <johan@flumotion.com>
 
 	* flumotion/component/encoders/flv/Makefile.am:
 	* flumotion/component/encoders/flv/flv-wizard.glade:

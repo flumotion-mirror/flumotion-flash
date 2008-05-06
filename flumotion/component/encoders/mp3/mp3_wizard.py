@@ -55,7 +55,7 @@ class MP3Step(AudioEncoderStep):
 
         self.add_proxy(self.model.properties, ['bitrate'])
 
-    def worker_changed(self, worker):
+    def workerChanged(self, worker):
         self.model.worker = worker
         def checkElements(elements):
             if elements:
@@ -74,7 +74,7 @@ class MP3Step(AudioEncoderStep):
             self.wizard.taskFinished()
 
         self.wizard.waitForTask('mp3 elements check')
-        d = self.wizard.require_elements(worker, 'mp3parse', 'lame')
+        d = self.wizard.requireElements(worker, 'mp3parse', 'lame')
         d.addCallback(checkElements)
 
 
