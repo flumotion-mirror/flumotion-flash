@@ -21,7 +21,8 @@
       </wizard>
 
       <properties>
-        <property name="bitrate" type="int" />
+        <property name="bitrate" type="int"
+                  description="Bitrate to encode at (in bps)" />
         <property name="rate" type="int" />
       </properties>
 
