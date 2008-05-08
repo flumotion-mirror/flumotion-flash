@@ -27,7 +27,7 @@ T_ = gettexter('flumotion')
 
 
 class MP3AudioEncoder(AudioEncoder):
-    component_type = 'mp3-encoder'
+    componentType = 'mp3-encoder'
 
     def __init__(self):
         super(MP3AudioEncoder, self).__init__()
@@ -43,7 +43,7 @@ class MP3AudioEncoder(AudioEncoder):
 class MP3Step(AudioEncoderStep):
     name = 'MP3 encoder'
     sidebarName = 'MP3'
-    component_type = 'mp3'
+    componentType = 'mp3'
 
     # WizardStep
 

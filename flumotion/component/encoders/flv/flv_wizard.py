@@ -26,7 +26,7 @@ _ = gettext.gettext
 
 
 class FLVVideoEncoder(VideoEncoder):
-    component_type = 'flv-encoder'
+    componentType = 'flv-encoder'
     def __init__(self):
         super(FLVVideoEncoder, self).__init__()
         self.has_quality = True
@@ -45,7 +45,7 @@ class FLVStep(VideoEncoderStep):
     sidebarName = 'FLV'
     gladeFile = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                               'flv-wizard.glade')
-    component_type = 'flv'
+    componentType = 'flv'
 
     # WizardStep
 

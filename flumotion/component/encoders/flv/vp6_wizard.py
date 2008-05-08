@@ -26,7 +26,7 @@ _ = gettext.gettext
 
 
 class VP6VideoEncoder(VideoEncoder):
-    component_type = 'vp6-encoder'
+    componentType = 'vp6-encoder'
     def __init__(self):
         super(VP6VideoEncoder, self).__init__()
         self.has_quality = True
@@ -45,7 +45,7 @@ class VP6Step(VideoEncoderStep):
     sidebarName = 'Flash VP6 Video'
     gladeFile = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                               'vp6-wizard.glade')
-    component_type = 'vp6'
+    componentType = 'vp6'
 
     # WizardStep
 
@@ -54,12 +54,9 @@ class VP6Step(VideoEncoderStep):
 
         self.add_proxy(self.model.properties, ['bitrate'])
 
-    def get_next(self):
-        return self.wizard.get_step('Encoding').get_audio_page()
-
-    def worker_changed(self, worker):
+    def workerChanged(self, worker):
         self.model.worker = worker
-        self.wizard.require_elements(worker, 'fluvp6enc')
+        self.wizard.requireElements(worker, 'fluvp6enc')
 
 
 class VP6WizardPlugin(object):

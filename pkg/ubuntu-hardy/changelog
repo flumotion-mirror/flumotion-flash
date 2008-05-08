@@ -1,8 +1,15 @@
+flumotion-flash (0.4.0.1-1flu1~hardy2) hardy; urgency=low
+
+  * Rebuild for SVN 2008-05-08.
+  * Another update to latest wizard API
+
+ -- Johan Dahlin <johan@flumotion.com>  Thu, 08 May 2008 10:38:00 -0300
+
 flumotion-flash (0.4.0.1-1flu1~hardy1) hardy; urgency=low
 
   * Rebuild for hardy, update to latest wizard API
 
- -- Johan Dahlin <johan@flumotion.com>  Fri, 06 May 2008 10:38:00 -0300
+ -- Johan Dahlin <johan@flumotion.com>  Fri, 01 May 2008 10:38:00 -0300
 
 flumotion-flash (0.4.0.1-1flu1~gutsy5) gutsy; urgency=low
 

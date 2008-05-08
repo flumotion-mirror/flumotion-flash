@@ -22,12 +22,25 @@ from flumotion.wizard.models import HTTPServer, HTTPPlug
 
 __version__ = "$Rev$"
 
+# Copied from posixpath.py
+def slashjoin(a, *p):
+    """Join two or more pathname components, inserting '/' as needed"""
+    path = a
+    for b in p:
+        if b.startswith('/'):
+            path = b
+        elif path == '' or path.endswith('/'):
+            path +=  b
+        else:
+            path += '/' + b
+    return path
+
 
 class FlashHTTPPlug(HTTPPlug):
     """I am a model representing the configuration file for a
     Flash HTTP streaming plug.
     """
-    plug_type = "flash-http-plug"
+    plugType = "flash-http-plug"
 
     # Component
 
@@ -35,8 +48,8 @@ class FlashHTTPPlug(HTTPPlug):
         p = super(FlashHTTPPlug, self).getProperties()
 
         p['stream-url'] = self.streamer.getURL()
-        p['has-video'] = self.video_producer is not None
-        p['has-audio'] = self.audio_producer is not None
+        p['has-video'] = self.videoProducer is not None
+        p['has-audio'] = self.audioProducer is not None
 
         return p
 
@@ -46,7 +59,7 @@ class FlashHTTPServer(HTTPServer):
     HTTP server component which will be used to serve a flash file.
     Most of the interesting logic here is actually in a plug.
     """
-    component_type = 'http-server'
+    componentType = 'http-server'
     def __init__(self, streamer, audioProducer, videoProducer, mountPoint):
         """
         @param streamer: streamer
@@ -65,10 +78,11 @@ class FlashHTTPServer(HTTPServer):
         super(FlashHTTPServer, self).__init__(mountPoint=mountPoint,
                                               worker=streamer.worker)
 
-        self.properties.porter_socketPath = streamer.socketPath
-        self.properties.porter_username = streamer.porter_username
-        self.properties.porter_password = streamer.porter_password
-        self.properties.port = streamer.properties.port
+        porter = streamer.getPorter()
+        self.properties.porter_socket_path = porter.getSocketPath()
+        self.properties.porter_username = porter.getUsername()
+        self.properties.porter_password = porter.getPassword()
+        self.properties.port = porter.getPort()
         self.properties.type = 'slave'
 
         plug = FlashHTTPPlug(self, streamer, audioProducer, videoProducer)
@@ -99,5 +113,7 @@ class FlashHTTPWizardPlugin(object):
         return d
 
     def getConsumer(self, streamer, audioProducer, videoProducer):
+        mountPoint = slashjoin(streamer.properties.mount_point,
+                                "flash/")
         return FlashHTTPServer(streamer, audioProducer,
-                               videoProducer, "/flash/")
+                               videoProducer, mountPoint)
