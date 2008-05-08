@@ -42,7 +42,7 @@ class MP3AudioEncoder(AudioEncoder):
 
 class MP3Step(AudioEncoderStep):
     name = 'MP3 encoder'
-    sidebar_name = 'MP3'
+    sidebarName = 'MP3'
     component_type = 'mp3'
 
     # WizardStep
