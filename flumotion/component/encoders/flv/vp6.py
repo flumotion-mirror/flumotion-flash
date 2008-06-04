@@ -2,7 +2,7 @@
 # vi:si:et:sw=4:sts=4:ts=4
 #
 # Flumotion - a streaming media server
-# Copyright (C) 2004,2005,2006 Fluendo, S.L. (www.fluendo.com).
+# Copyright (C) 2004,2005,2006,2008 Fluendo, S.L. (www.fluendo.com).
 # All rights reserved.
 
 # Licensees having purchased or holding a valid Flumotion Advanced
@@ -14,10 +14,12 @@
 
 import os
 
+from flumotion.common.i18n import gettexter, N_
+from flumotion.common import errors, messages
 from flumotion.component import feedcomponent
-from flumotion.common import messages, errors
-from flumotion.common.messages import N_
-T_ = messages.gettexter('flumotion')
+
+T_ = gettexter('flumotion')
+
 
 class VP6Encoder(feedcomponent.ParseLaunchComponent):
     checkTimestamp = True

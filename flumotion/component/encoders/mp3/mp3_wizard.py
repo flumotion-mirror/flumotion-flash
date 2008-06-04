@@ -17,7 +17,8 @@ import gettext
 from twisted.internet import defer
 
 from flumotion.common import errors
-from flumotion.common.messages import ngettext, gettexter, Warning
+from flumotion.common.i18n import gettexter, ngettext
+from flumotion.common.messages import Warning
 from flumotion.wizard.basesteps import AudioEncoderStep
 from flumotion.wizard.models import AudioEncoder
 

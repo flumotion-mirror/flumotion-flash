@@ -1,3 +1,10 @@
+2008-06-04  Johan Dahlin  <johan@flumotion.com>
+
+	* flumotion/component/encoders/flv/vp6.py:
+	* flumotion/component/encoders/mp3/mp3.py:
+	* flumotion/component/encoders/mp3/mp3_wizard.py:
+	Update to the lastest flumotion import changes
+
 2008-05-08  Johan Dahlin  <johan@flumotion.com>
 
 	* flumotion/component/encoders/flv/flv_wizard.py:
