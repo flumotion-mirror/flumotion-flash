@@ -14,6 +14,7 @@
               feeder="default" eater="default">
         <accept-format media-type="muxer:flv"/>
         <accept-format media-type="audio:mp3"/>
+        <accept-format media-type="audio:aac"/>
         <accept-format media-type="video:vp6"/>
       </wizard>
       <properties>

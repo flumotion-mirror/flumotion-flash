@@ -2,7 +2,8 @@ include $(top_srcdir)/common/python.mk
 
 SUBDIRS = \
 	flv \
-	mp3
+	mp3 \
+	aac
 
 # We do not install __init__.py since it would override flumotion's
 EXTRA_DIST = __init__.py

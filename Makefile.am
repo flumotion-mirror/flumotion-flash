@@ -19,4 +19,5 @@ PYCHECKER_BLACKLIST =
 COVERAGE_MODULES = \
 	flumotion.component.muxers.flv \
 	flumotion.component.encoders.mp3 \
+	flumotion.component.encoders.aac \
 	flumotion.component.encoders.flv

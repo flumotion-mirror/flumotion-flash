@@ -18,6 +18,7 @@
         <accept-format media-type="flv"/>
         <accept-format media-type="vp6"/>
         <accept-format media-type="mp3"/>
+        <accept-format media-type="aac"/>
         <provide-format media-type="flv"/>
       </wizard>
 

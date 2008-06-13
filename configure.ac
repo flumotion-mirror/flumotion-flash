@@ -94,6 +94,7 @@ flumotion/component/Makefile
 flumotion/component/encoders/Makefile
 flumotion/component/encoders/flv/Makefile
 flumotion/component/encoders/mp3/Makefile
+flumotion/component/encoders/aac/Makefile
 flumotion/component/muxers/Makefile
 flumotion/component/muxers/flv/Makefile
 flumotion/component/plugs/Makefile

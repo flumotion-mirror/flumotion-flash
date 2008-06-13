@@ -1,3 +1,17 @@
+2008-06-13  Julien Moutte  <julien@fluendo.com>
+
+	* Makefile.am:
+	* configure.ac:
+	* flumotion/component/encoders/Makefile.am:
+	* flumotion/component/encoders/aac/Makefile.am:
+	* flumotion/component/encoders/aac/__init__.py:
+	* flumotion/component/encoders/aac/aac.py:
+	* flumotion/component/encoders/aac/aac.xml:
+	* flumotion/component/encoders/aac/aac_wizard.py:
+	* flumotion/component/muxers/flv/flv.xml:
+	* flumotion/component/plugs/flashhttp/flashhttp.xml: Initial 
+	import of AAC encoder component.
+
 2008-06-04  Johan Dahlin  <johan@flumotion.com>
 
 	* flumotion/component/encoders/flv/vp6.py:

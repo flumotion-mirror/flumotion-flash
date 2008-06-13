@@ -1,0 +1,62 @@
+<registry>
+
+  <components>
+    <component type="aac-encoder"
+               base="flumotion/component/encoders/aac">
+      <source location="flumotion.component.encoders.aac.aac" />
+
+      <eater name="default" />
+      <feeder name="default" />
+
+      <entries>
+        <entry type="component" location="aac.py"
+               function="AACEncoder" />
+        <entry type="wizard" location="aac_wizard.py"
+               function="AACWizardPlugin" />
+      </entries>
+
+      <wizard _description="AAC" type="audio-encoder" 
+              feeder="default" eater="default">
+        <provide-format media-type="aac"/>
+      </wizard>
+
+      <properties>
+        <property name="bitrate" type="int"
+                  description="Bitrate to encode at (in bps)" />
+        <property name="rate" type="int" />
+      </properties>
+
+    </component>
+  </components>
+
+  <bundles>
+
+    <bundle project="flash" name="aac-component">
+        <dependencies>
+            <dependency name="component" />
+        </dependencies>
+
+        <directories>
+            <directory name="flumotion/component/encoders/aac">
+                <filename location="__init__.py" />
+                <filename location="aac.py" />
+            </directory>
+        </directories>
+    </bundle>
+
+    <bundle project="flash" name="aac-wizard">
+        <dependencies>
+            <dependency name="component" />
+            <dependency name="aac-component" />
+        </dependencies>
+
+        <directories>
+            <directory name="flumotion/component/encoders/aac">
+                <filename location="aac_wizard.py" />
+            </directory>
+        </directories>
+    </bundle>
+
+  </bundles>
+
+</registry> 
