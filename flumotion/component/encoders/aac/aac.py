@@ -18,7 +18,6 @@ from flumotion.component import feedcomponent
 
 T_ = gettexter('flumotion-flash')
 
-
 class AACEncoder(feedcomponent.ParseLaunchComponent):
     checkTimestamp = True
     checkOffset = True
@@ -38,19 +37,6 @@ class AACEncoder(feedcomponent.ParseLaunchComponent):
             self.debug('No bitrate set, using default')
             return
 
-        # the flumcaacenc element accepts bitrate in bits/sec, integer
-        # Flumotion handles bitrate in bits/sec, but since there are
-        # wrong configs, we accept both and convert as needed
-        if bitrate < 1000:
-            # assume bitrate is specified in kbit/sec
-            m = Warning(
-                T_(N_("The configuration specifies the bitrate in kbit/sec "
-                    "with a value of '%d'. "
-                    "Please update the configuration and specify "
-                    "bitrate in bit/sec with a value of '%d'."), bitrate,
-                    bitrate * 1000))
-            self.addMessage(m)
-            bitrate *= 1000
-
+        # the flumcaacenc element accepts bitrate in bits/sec
         self.debug('setting bitrate to %d' % bitrate)
         element.set_property('bitrate', bitrate)

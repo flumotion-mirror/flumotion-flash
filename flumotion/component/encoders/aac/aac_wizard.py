@@ -23,9 +23,9 @@ from flumotion.wizard.basesteps import AudioEncoderStep
 from flumotion.wizard.models import AudioEncoder
 
 __version__ = "$Rev$"
+
 _ = gettext.gettext
 T_ = gettexter('flumotion')
-
 
 class AACAudioEncoder(AudioEncoder):
     componentType = 'aac-encoder'

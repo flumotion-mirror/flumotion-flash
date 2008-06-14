@@ -1,3 +1,11 @@
+2008-06-14  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion/component/encoders/aac/aac.py:
+	  Remove backwards compatibility code as there is nothing to
+	  be backwards-compatible with.
+	* flumotion/component/encoders/aac/aac_wizard.py:
+	  Simple cleanups.
+
 2008-06-13  Julien Moutte  <julien@fluendo.com>
 
 	* Makefile.am:
