@@ -12,11 +12,7 @@
 
 # Headers in this file shall remain intact.
 
-from flumotion.common.i18n import gettexter, N_
-from flumotion.common.messages import Warning
 from flumotion.component import feedcomponent
-
-T_ = gettexter('flumotion-flash')
 
 class AACEncoder(feedcomponent.ParseLaunchComponent):
     checkTimestamp = True
