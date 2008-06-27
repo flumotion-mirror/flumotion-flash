@@ -1,3 +1,9 @@
+2008-06-27  Julien Moutte  <julien@fluendo.com>
+
+	* flumotion/component/encoders/aac/aac.py: AAC+ v1 and v2 are
+	supported by the Flash Player, let's use v2 right away in the
+	component.
+
 2008-06-14  Thomas Vander Stichele  <thomas at apestaart dot org>
 
 	* flumotion/component/encoders/aac/aac.py:

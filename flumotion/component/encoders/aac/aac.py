@@ -22,7 +22,7 @@ class AACEncoder(feedcomponent.ParseLaunchComponent):
         rate = properties.get('rate', 44100)
         return "audioconvert ! audioresample " \
             "! audio/x-raw-int,rate=%d " \
-            "! flumcaacenc header-type=0 name=encoder " \
+            "! flumcaacenc header-type=0 he=2 name=encoder " \
             "! audio/mpeg,rate=%d" % (rate, rate)
 
     def configure_pipeline(self, pipeline, properties):
