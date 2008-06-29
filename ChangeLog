@@ -1,3 +1,8 @@
+2008-06-29  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion/component/encoders/flv/vp6-wizard.glade:
+	  Add the unit.
+
 2008-06-27  Julien Moutte  <julien@fluendo.com>
 
 	* flumotion/component/encoders/aac/aac.py: AAC+ v1 and v2 are
