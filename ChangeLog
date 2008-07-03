@@ -1,3 +1,10 @@
+2008-07-02  Johan Dahlin  <johan@flumotion.com>
+
+	* flumotion/component/encoders/aac/aac_wizard.py:
+	* flumotion/component/encoders/mp3/mp3_wizard.py:
+	Do not add a warning, requireElement is already
+	adding an error.
+
 2008-06-29  Thomas Vander Stichele  <thomas at apestaart dot org>
 
 	* flumotion/component/encoders/flv/vp6-wizard.glade:
