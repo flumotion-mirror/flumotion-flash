@@ -1,3 +1,12 @@
+2008-07-18  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* Makefile.am:
+	* configure.ac:
+	* flumotion/test/Makefile.am:
+	* env.in (added):
+	* env (deleted):
+	  Generate.
+
 2008-07-02  Johan Dahlin  <johan@flumotion.com>
 
 	* flumotion/component/encoders/aac/aac_wizard.py:
