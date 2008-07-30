@@ -1,0 +1,46 @@
+<registry>
+    <component type="vp6-encoder"
+               base="flumotion/component/encoders/vp6">
+      <source location="flumotion.component.encoders.vp6.vp6" />
+
+      <eater name="default" />
+      <feeder name="default" />
+
+      <entries>
+        <entry type="component" location="vp6.py"
+               function="VP6Encoder" />
+        <entry type="wizard" location="wizard_gtk.py"
+               function="VP6WizardPlugin" />
+      </entries>
+
+      <wizard _description="VP6" type="video-encoder" 
+              feeder="default" eater="default">
+        <provide-format media-type="vp6" />
+      </wizard>
+
+      <properties>
+        <property name="bitrate" type="int" />
+        <property name="encoder-state" type="string" />
+      </properties>
+
+    </component>
+  </components>
+
+  <bundles>
+    <bundle project="flash" name="vp6-wizard">
+        <dependencies>
+            <dependency name="component" />
+            <dependency name="vp6-component" />
+        </dependencies>
+
+        <directories>
+            <directory name="flumotion/component/encoders/vp6">
+                <filename location="wizard_gtk.py" />
+                <filename location="vp6-wizard.glade" />
+            </directory>
+        </directories>
+    </bundle>
+
+  </bundles>
+
+</registry> 
