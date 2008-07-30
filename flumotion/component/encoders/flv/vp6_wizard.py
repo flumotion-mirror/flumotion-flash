@@ -41,8 +41,9 @@ class VP6VideoEncoder(VideoEncoder):
 
 
 class VP6Step(VideoEncoderStep):
-    name = 'Flash VP6 Video Encoder'
-    sidebarName = 'Flash VP6 Video'
+    name = 'FlashVP6VideoEncoder'
+    title = _('Flash VP6 Video Encoder')
+    sidebarName = _('Flash VP6 Video')
     gladeFile = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                               'vp6-wizard.glade')
     componentType = 'vp6'

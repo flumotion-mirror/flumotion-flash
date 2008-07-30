@@ -1,3 +1,10 @@
+2008-07-31  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion/component/encoders/flv/flv_wizard.py:
+	* flumotion/component/encoders/flv/vp6_wizard.py:
+	* flumotion/component/encoders/mp3/mp3_wizard.py:
+	  Fix title and translation.
+
 2008-07-18  Thomas Vander Stichele  <thomas at apestaart dot org>
 
 	* Makefile.am:

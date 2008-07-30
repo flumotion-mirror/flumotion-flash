@@ -41,8 +41,9 @@ class FLVVideoEncoder(VideoEncoder):
 
 
 class FLVStep(VideoEncoderStep):
-    name = 'FLV Encoder'
-    sidebarName = 'FLV'
+    name = 'FLVEncoder'
+    title = _('FLV Encoder')
+    sidebarName = _('FLV')
     gladeFile = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                               'flv-wizard.glade')
     componentType = 'flv'
