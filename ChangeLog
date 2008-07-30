@@ -1,5 +1,14 @@
 2008-07-31  Thomas Vander Stichele  <thomas at apestaart dot org>
 
+	* configure.ac:
+	* flumotion/component/encoders/Makefile.am:
+	* flumotion/component/encoders/flv/Makefile.am:
+	* flumotion/component/encoders/vp6/Makefile.am:
+	* flumotion/component/encoders/vp6 (added):
+	  First pass at splitting off vp6 from flv dir.
+
+2008-07-31  Thomas Vander Stichele  <thomas at apestaart dot org>
+
 	* flumotion/component/encoders/aac/Makefile.am:
 	* flumotion/component/encoders/aac/aac.xml:
 	* flumotion/component/encoders/mp3/Makefile.am:
