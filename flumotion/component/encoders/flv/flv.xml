@@ -11,7 +11,7 @@
       <entries>
         <entry type="component" location="flv.py"
                function="FLVEncoder" />
-        <entry type="wizard" location="flv_wizard.py"
+        <entry type="wizard" location="admin_gtk.py"
                function="FLVWizardPlugin" />
       </entries>
 
@@ -25,37 +25,10 @@
       <properties>
         <property name="bitrate" type="int" />
       </properties>
-
-    </component>
-    <component type="vp6-encoder"
-               base="flumotion/component/encoders/flv">
-      <source location="flumotion.component.encoders.flv.vp6" />
-
-      <eater name="default" />
-      <feeder name="default" />
-
-      <entries>
-        <entry type="component" location="vp6.py"
-               function="VP6Encoder" />
-        <entry type="wizard" location="vp6_wizard.py"
-               function="VP6WizardPlugin" />
-      </entries>
-
-      <wizard _description="VP6" type="video-encoder" 
-              feeder="default" eater="default">
-        <provide-format media-type="vp6"/>
-      </wizard>
-
-      <properties>
-        <property name="bitrate" type="int" />
-        <property name="encoder-state" type="string" />
-      </properties>
-
     </component>
   </components>
 
   <bundles>
-
     <bundle project="flash" name="flv-component">
         <dependencies>
             <dependency name="component" />
@@ -70,7 +43,6 @@
         </directories>
     </bundle>
 
-
     <bundle project="flash" name="flv-wizard">
         <dependencies>
             <dependency name="component" />
@@ -79,26 +51,11 @@
 
         <directories>
             <directory name="flumotion/component/encoders/flv">
-                <filename location="flv_wizard.py" />
+                <filename location="admin_gtk.py" />
                 <filename location="flv-wizard.glade" />
             </directory>
         </directories>
     </bundle>
-
-    <bundle project="flash" name="vp6-wizard">
-        <dependencies>
-            <dependency name="component" />
-            <dependency name="flv-component" />
-        </dependencies>
-
-        <directories>
-            <directory name="flumotion/component/encoders/flv">
-                <filename location="vp6_wizard.py" />
-                <filename location="vp6-wizard.glade" />
-            </directory>
-        </directories>
-    </bundle>
-
   </bundles>
 
 </registry> 

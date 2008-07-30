@@ -1,5 +1,13 @@
 2008-07-31  Thomas Vander Stichele  <thomas at apestaart dot org>
 
+	* flumotion/component/encoders/flv/flv.xml:
+	* flumotion/component/encoders/flv/vp6.py (deleted):
+	* flumotion/component/encoders/flv/vp6_wizard.py (deleted):
+	* flumotion/component/encoders/flv/vp6-wizard.glade (deleted):
+	  Further splitting/cutting/renaming
+
+2008-07-31  Thomas Vander Stichele  <thomas at apestaart dot org>
+
 	* flumotion/component/encoders/vp6/vp6.xml:
 	* flumotion/component/encoders/vp6/admin_gtk.py (added):
 	* flumotion/component/encoders/vp6/vp6.xml (added):
