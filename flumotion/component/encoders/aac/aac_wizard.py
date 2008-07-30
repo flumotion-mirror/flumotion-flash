@@ -38,8 +38,9 @@ class AACAudioEncoder(AudioEncoder):
 
 
 class AACStep(AudioEncoderStep):
-    name = 'AAC encoder'
-    sidebarName = 'AAC'
+    name = 'AACEncoder'
+    title = _('AAC encoder')
+    sidebarName = _('AAC')
     componentType = 'aac'
 
     # WizardStep
