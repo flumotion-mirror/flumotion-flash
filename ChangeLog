@@ -1,5 +1,10 @@
 2008-07-31  Thomas Vander Stichele  <thomas at apestaart dot org>
 
+	* flumotion/component/encoders/mp3/mp3.py:
+	  Check for lame element.
+
+2008-07-31  Thomas Vander Stichele  <thomas at apestaart dot org>
+
 	* flumotion/component/encoders/flv/flv_wizard.py:
 	* flumotion/component/encoders/flv/vp6_wizard.py:
 	* flumotion/component/encoders/mp3/mp3_wizard.py:

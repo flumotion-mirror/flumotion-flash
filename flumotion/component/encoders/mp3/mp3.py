@@ -16,14 +16,18 @@ from flumotion.common.i18n import gettexter, N_
 from flumotion.common.messages import Warning
 from flumotion.component import feedcomponent
 
-T_ = gettexter('flumotion-flash')
+from flumotion.common import errors, gstreamer
 
+T_ = gettexter('flumotion-flash')
 
 class MP3Encoder(feedcomponent.ParseLaunchComponent):
     checkTimestamp = True
     checkOffset = True
 
     def get_pipeline_string(self, properties):
+        if not gstreamer.element_factory_exists('lame'):
+            raise errors.MissingElementError('lame')
+
         rate = properties.get('rate', 44100)
         return "audioconvert ! audioresample " \
             "! audio/x-raw-int,rate=%d ! lame name=encoder " \
