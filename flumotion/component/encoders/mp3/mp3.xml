@@ -11,7 +11,7 @@
       <entries>
         <entry type="component" location="mp3.py"
                function="MP3Encoder" />
-        <entry type="wizard" location="mp3_wizard.py"
+        <entry type="wizard" location="wizard_gtk.py"
                function="MP3WizardPlugin" />
       </entries>
 
@@ -52,7 +52,7 @@
 
         <directories>
             <directory name="flumotion/component/encoders/mp3">
-                <filename location="mp3_wizard.py" />
+                <filename location="wizard_gtk.py" />
             </directory>
         </directories>
     </bundle>

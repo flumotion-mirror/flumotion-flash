@@ -1,5 +1,17 @@
 2008-07-31  Thomas Vander Stichele  <thomas at apestaart dot org>
 
+	* flumotion/component/encoders/aac/Makefile.am:
+	* flumotion/component/encoders/aac/aac.xml:
+	* flumotion/component/encoders/mp3/Makefile.am:
+	* flumotion/component/encoders/mp3/mp3.xml:
+	* flumotion/component/encoders/mp3/wizard_gtk.py (added):
+	* flumotion/component/encoders/aac/wizard_gtk.py (added):
+	* flumotion/component/encoders/mp3/mp3_wizard.py (deleted):
+	* flumotion/component/encoders/aac/aac_wizard.py (deleted):
+	  rename to wizard_gtk.py
+
+2008-07-31  Thomas Vander Stichele  <thomas at apestaart dot org>
+
 	* flumotion/component/encoders/aac/aac_wizard.py:
 	  Fix title and translation.
 

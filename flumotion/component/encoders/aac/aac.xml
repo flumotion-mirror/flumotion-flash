@@ -11,7 +11,7 @@
       <entries>
         <entry type="component" location="aac.py"
                function="AACEncoder" />
-        <entry type="wizard" location="aac_wizard.py"
+        <entry type="wizard" location="wizard_gtk.py"
                function="AACWizardPlugin" />
       </entries>
 
@@ -52,7 +52,7 @@
 
         <directories>
             <directory name="flumotion/component/encoders/aac">
-                <filename location="aac_wizard.py" />
+                <filename location="wizard_gtk.py" />
             </directory>
         </directories>
     </bundle>
