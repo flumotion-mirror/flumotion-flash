@@ -1,5 +1,10 @@
 2008-07-31  Thomas Vander Stichele  <thomas at apestaart dot org>
 
+	* flumotion-flash.spec.in:
+	  Add requirements.
+
+2008-07-31  Thomas Vander Stichele  <thomas at apestaart dot org>
+
 	* flumotion/component/encoders/mp3/mp3.py:
 	  Check for lame element.
 
