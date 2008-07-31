@@ -2,7 +2,8 @@
 
   <components>
     <component type="flv-encoder"
-               base="flumotion/component/encoders/flv">
+               base="flumotion/component/encoders/flv"
+               _description="Encodes raw video to Flash Video">
       <source location="flumotion.component.encoders.flv.flv" />
 
       <eater name="default" />
@@ -23,7 +24,8 @@
       -->
 
       <properties>
-        <property name="bitrate" type="int" />
+        <property name="bitrate" type="int"
+                  _description="Bitrate to encode at (in bps)" />
       </properties>
     </component>
   </components>
@@ -38,7 +40,6 @@
             <directory name="flumotion/component/encoders/flv">
                 <filename location="__init__.py" />
                 <filename location="flv.py" />
-                <filename location="vp6.py" />
             </directory>
         </directories>
     </bundle>

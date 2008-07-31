@@ -2,7 +2,8 @@
 
   <components>
     <component type="aac-encoder"
-               base="flumotion/component/encoders/aac">
+               base="flumotion/component/encoders/aac"
+               _description="Encodes raw audio to AAC (Advanced Audio Codec)">
       <source location="flumotion.component.encoders.aac.aac" />
 
       <eater name="default" />
@@ -22,8 +23,9 @@
 
       <properties>
         <property name="bitrate" type="int"
-                  description="Bitrate to encode at (in bps)" />
-        <property name="rate" type="int" />
+                  _description="Bitrate to encode at (in bps)" />
+        <property name="samplerate" type="int"
+                  _description="Samplerate to encode at (in Hz; defaults to 44100 Hz)" />
       </properties>
 
     </component>

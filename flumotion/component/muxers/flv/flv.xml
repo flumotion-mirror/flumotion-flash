@@ -2,7 +2,8 @@
 
   <components>
     <component type="flv-muxer"
-               base="flumotion/component/muxers/flv">
+               base="flumotion/component/muxers/flv"
+               _description="Muxes FLV/VP6 video and MP3/AAC audio into Flash Video container">
       <source location="flumotion.component.muxers.flv.flv" />
 
       <eater name="default" multiple="yes" />

@@ -1,5 +1,14 @@
 2008-08-01  Thomas Vander Stichele  <thomas at apestaart dot org>
 
+	* flumotion/component/encoders/aac/aac.xml:
+	* flumotion/component/encoders/flv/flv.xml:
+	* flumotion/component/encoders/mp3/mp3.xml:
+	* flumotion/component/encoders/vp6/vp6.xml:
+	* flumotion/component/muxers/flv/flv.xml:
+	  Fix _description everywhere.
+
+2008-08-01  Thomas Vander Stichele  <thomas at apestaart dot org>
+
 	* flumotion/component/encoders/flv/admin_gtk.py (added):
 	* flumotion/component/encoders/flv/flv_wizard.py (deleted):
 	  Rename.

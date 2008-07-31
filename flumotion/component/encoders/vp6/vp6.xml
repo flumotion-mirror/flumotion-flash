@@ -1,6 +1,8 @@
 <registry>
+  <components>
     <component type="vp6-encoder"
-               base="flumotion/component/encoders/vp6">
+               base="flumotion/component/encoders/vp6"
+               _description="Encodes raw video to On2's VP6 codec">
       <source location="flumotion.component.encoders.vp6.vp6" />
 
       <eater name="default" />
@@ -19,8 +21,10 @@
       </wizard>
 
       <properties>
-        <property name="bitrate" type="int" />
-        <property name="encoder-state" type="string" />
+        <property name="bitrate" type="int"
+                  _description="Bitrate to encode at (in bps)" />
+        <property name="encoder-state" type="string"
+                  _description="Path to an .mcf file containing VP6 encoder settings" />
       </properties>
 
     </component>
