@@ -1,5 +1,17 @@
 2008-08-01  Thomas Vander Stichele  <thomas at apestaart dot org>
 
+	* flumotion/component/encoders/flv/Makefile.am:
+	  Fix admin_gtk.py
+	* flumotion/component/encoders/aac/aac.py:
+	* flumotion/component/encoders/mp3/mp3.py:
+	  Change rate property name to samplerate.
+	* flumotion/component/encoders/aac/wizard_gtk.py:
+	* flumotion/component/encoders/mp3/wizard_gtk.py:
+	* flumotion/component/encoders/vp6/wizard_gtk.py:
+	  Add pychecker suppressions for our widget magic.
+
+2008-08-01  Thomas Vander Stichele  <thomas at apestaart dot org>
+
 	* flumotion/component/encoders/aac/aac.xml:
 	* flumotion/component/encoders/flv/flv.xml:
 	* flumotion/component/encoders/mp3/mp3.xml:

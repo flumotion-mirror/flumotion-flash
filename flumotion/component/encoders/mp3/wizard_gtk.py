@@ -43,6 +43,11 @@ class MP3Step(AudioEncoderStep):
     sidebarName = _('MP3')
     componentType = 'mp3'
 
+    # don't complain about our glade magic
+    __pychecker__ = '--no-classattr'
+
+
+
     # WizardStep
 
     def setup(self):

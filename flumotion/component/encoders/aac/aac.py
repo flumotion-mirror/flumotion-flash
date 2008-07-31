@@ -19,11 +19,11 @@ class AACEncoder(feedcomponent.ParseLaunchComponent):
     checkOffset = True
 
     def get_pipeline_string(self, properties):
-        rate = properties.get('rate', 44100)
+        samplerate = properties.get('samplerate', 44100)
         return "audioconvert ! audioresample " \
             "! audio/x-raw-int,rate=%d " \
             "! flumcaacenc header-type=0 he=2 name=encoder " \
-            "! audio/mpeg,rate=%d" % (rate, rate)
+            "! audio/mpeg,rate=%d" % (samplerate, samplerate)
 
     def configure_pipeline(self, pipeline, properties):
         self.debug('configure_pipeline')

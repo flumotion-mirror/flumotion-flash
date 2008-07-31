@@ -48,6 +48,9 @@ class VP6Step(VideoEncoderStep):
                               'vp6-wizard.glade')
     componentType = 'vp6'
 
+    # don't complain about our glade magic
+    __pychecker__ = '--no-classattr'
+
     # WizardStep
 
     def setup(self):

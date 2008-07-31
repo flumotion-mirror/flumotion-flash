@@ -43,6 +43,9 @@ class AACStep(AudioEncoderStep):
     sidebarName = _('AAC')
     componentType = 'aac'
 
+    # don't complain about our glade magic
+    __pychecker__ = '--no-classattr'
+
     # WizardStep
 
     def setup(self):

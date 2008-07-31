@@ -1,6 +1,6 @@
 include $(top_srcdir)/common/python.mk
 
-component_PYTHON = __init__.py flv.py flv_wizard.py
+component_PYTHON = __init__.py flv.py admin_gtk.py
 componentdir = $(libdir)/flumotion/python/flumotion/component/encoders/flv
 component_DATA = \
 	flv.xml \
