@@ -1,3 +1,9 @@
+2008-08-01  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion/component/encoders/flv/admin_gtk.py (added):
+	* flumotion/component/encoders/flv/flv_wizard.py (deleted):
+	  Rename.
+
 2008-07-31  Thomas Vander Stichele  <thomas at apestaart dot org>
 
 	* configure.ac:
