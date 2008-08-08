@@ -1,3 +1,14 @@
+2008-08-08  Julien Moutte  <julien@fluendo.com>
+
+	* configure.ac:
+	* flumotion/component/encoders/Makefile.am:
+	* flumotion/component/encoders/h264/Makefile.am:
+	* flumotion/component/encoders/h264/h264-wizard.glade:
+	* flumotion/component/encoders/h264/h264.py:
+	* flumotion/component/encoders/h264/h264.xml:
+	* flumotion/component/encoders/h264/wizard_gtk.py:
+	* flumotion/component/muxers/flv/flv.xml: Add initial H.264 support.
+
 2008-08-08  Johan Dahlin  <johan@flumotion.com>
 
 	* flumotion/component/encoders/vp6/flv*:

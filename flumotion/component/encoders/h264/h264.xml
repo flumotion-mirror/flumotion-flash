@@ -1,0 +1,62 @@
+<registry>
+
+  <components>
+    <component type="h264-encoder"
+               base="flumotion/component/encoders/h264"
+               _description="Encodes raw video to H.264">
+      <source location="flumotion.component.encoders.h264.h264" />
+
+      <eater name="default" />
+      <feeder name="default" />
+
+      <entries>
+        <entry type="component" location="h264.py"
+               function="H264Encoder" />
+        <entry type="wizard" location="wizard_gtk.py"
+               function="H264WizardPlugin" />
+      </entries>
+
+      <wizard _description="H264" type="audio-encoder" 
+              feeder="default" eater="default">
+        <provide-format media-type="h264"/>
+      </wizard>
+
+      <properties>
+        <property name="bitrate" type="int"
+                  _description="Bitrate to encode at (in bps)" />
+      </properties>
+
+    </component>
+  </components>
+
+  <bundles>
+
+    <bundle project="flash" name="h264-component">
+        <dependencies>
+            <dependency name="component" />
+        </dependencies>
+
+        <directories>
+            <directory name="flumotion/component/encoders/h264">
+                <filename location="__init__.py" />
+                <filename location="h264.py" />
+            </directory>
+        </directories>
+    </bundle>
+
+    <bundle project="flash" name="h264-wizard">
+        <dependencies>
+            <dependency name="component" />
+            <dependency name="h264-component" />
+        </dependencies>
+
+        <directories>
+            <directory name="flumotion/component/encoders/h264">
+                <filename location="wizard_gtk.py" />
+            </directory>
+        </directories>
+    </bundle>
+
+  </bundles>
+
+</registry> 
