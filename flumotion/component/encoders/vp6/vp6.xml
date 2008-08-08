@@ -31,6 +31,18 @@
   </components>
 
   <bundles>
+    <bundle project="flash" name="vp6-component">
+        <dependencies>
+            <dependency name="component" />
+        </dependencies>
+
+        <directories>
+            <directory name="flumotion/component/encoders/vp6">
+                <filename location="__init__.py" />
+                <filename location="vp6.py" />
+            </directory>
+        </directories>
+    </bundle>
     <bundle project="flash" name="vp6-wizard">
         <dependencies>
             <dependency name="component" />
