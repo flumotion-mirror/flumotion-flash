@@ -1,3 +1,8 @@
+2008-08-18  Johan Dahlin  <johan@flumotion.com>
+
+	* flumotion/component/encoders/h264/h264.xml:
+	audio-encoder -> video-encoder
+
 2008-08-08  Julien Moutte  <julien@fluendo.com>
 
 	* configure.ac:

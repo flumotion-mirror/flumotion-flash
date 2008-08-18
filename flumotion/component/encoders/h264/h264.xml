@@ -16,7 +16,7 @@
                function="H264WizardPlugin" />
       </entries>
 
-      <wizard _description="H264" type="audio-encoder" 
+      <wizard _description="H264" type="video-encoder"
               feeder="default" eater="default">
         <provide-format media-type="h264"/>
       </wizard>
