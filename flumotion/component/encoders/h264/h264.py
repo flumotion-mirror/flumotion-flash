@@ -32,7 +32,7 @@ class H264Encoder(feedcomponent.ParseLaunchComponent):
         if not bitrate:
             self.debug('No bitrate set, using default')
             return
-       
+
         if bitrate < 10000:
             self.addMessage(
                 messages.Warning(T_(N_(

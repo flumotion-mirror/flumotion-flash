@@ -1,5 +1,17 @@
 2008-08-18  Johan Dahlin  <johan@flumotion.com>
 
+	* flumotion/component/encoders/aac/aac.py:
+	* flumotion/component/encoders/aac/wizard_gtk.py:
+	* flumotion/component/encoders/h264/h264.xml:
+	* flumotion/component/encoders/h264/wizard_gtk.py:
+	* flumotion/component/encoders/mp3/wizard_gtk.py:
+	* flumotion/component/encoders/vp6/wizard_gtk.py:
+	Port to the latest wizard changes.
+	Make the h264 plugin actually work by adding some
+	missing files to the bundle.
+
+2008-08-18  Johan Dahlin  <johan@flumotion.com>
+
 	* flumotion/component/encoders/h264/h264.xml:
 	audio-encoder -> video-encoder
 

@@ -19,6 +19,7 @@ class AACEncoder(feedcomponent.ParseLaunchComponent):
     checkOffset = True
 
     def get_pipeline_string(self, properties):
+        # v2 supports only 16000, 22050, 24000, 32000, 44100, 48000 KHz
         samplerate = properties.get('samplerate', 44100)
         return "audioconvert ! audioresample " \
             "! audio/x-raw-int,rate=%d " \

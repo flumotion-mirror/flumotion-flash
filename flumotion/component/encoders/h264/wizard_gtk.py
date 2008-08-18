@@ -17,9 +17,9 @@ import os
 
 from zope.interface import implements
 
+from flumotion.admin.assistant.models import VideoEncoder
+from flumotion.admin.assistant.interfaces import IEncoderPlugin
 from flumotion.wizard.basesteps import VideoEncoderStep
-from flumotion.wizard.interfaces import IEncoderPlugin
-from flumotion.wizard.models import VideoEncoder
 
 __version__ = "$Rev$"
 _ = gettext.gettext
@@ -45,7 +45,7 @@ class H264Step(VideoEncoderStep):
     title = _('Flash H264 Video Encoder')
     sidebarName = _('Flash H264 Video')
     gladeFile = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                              'x264-wizard.glade')
+                              'h264-wizard.glade')
     componentType = 'h264'
 
     # don't complain about our glade magic

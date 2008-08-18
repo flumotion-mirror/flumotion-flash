@@ -14,9 +14,12 @@
 
 import gettext
 
+from zope.interface import implements
+
 from flumotion.common.i18n import gettexter
 from flumotion.wizard.basesteps import AudioEncoderStep
-from flumotion.wizard.models import AudioEncoder
+from flumotion.admin.assistant.models import AudioEncoder
+from flumotion.admin.assistant.interfaces import IEncoderPlugin
 
 __version__ = "$Rev$"
 _ = gettext.gettext
@@ -64,6 +67,7 @@ class MP3Step(AudioEncoderStep):
 
 
 class MP3WizardPlugin(object):
+    implements(IEncoderPlugin)
     def __init__(self, wizard):
         self.wizard = wizard
         self.model = MP3AudioEncoder()

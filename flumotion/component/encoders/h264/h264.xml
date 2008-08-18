@@ -52,6 +52,7 @@
 
         <directories>
             <directory name="flumotion/component/encoders/h264">
+                <filename location="h264-wizard.glade" />
                 <filename location="wizard_gtk.py" />
             </directory>
         </directories>
