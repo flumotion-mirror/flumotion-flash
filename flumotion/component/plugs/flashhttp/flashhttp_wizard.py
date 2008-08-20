@@ -17,8 +17,8 @@
 
 from zope.interface import implements
 
-from flumotion.wizard.interfaces import IHTTPConsumerPlugin
-from flumotion.wizard.models import HTTPServer, HTTPPlug
+from flumotion.admin.gtk.interfaces import IHTTPConsumerPlugin
+from flumotion.admin.gtk.models import HTTPServer, HTTPPlug
 
 __version__ = "$Rev$"
 
@@ -65,10 +65,10 @@ class FlashHTTPServer(HTTPServer):
         @param streamer: streamer
         @type  streamer: L{HTTPStreamer}
         @param audioProducer: audio producer
-        @type  audioProducer: L{flumotion.wizard.models.AudioProducer}
+        @type  audioProducer: L{flumotion.admin.gtk.models.AudioProducer}
            subclass or None
         @param videoProducer: video producer
-        @type  videoProducer: L{flumotion.wizard.models.VideoProducer}
+        @type  videoProducer: L{flumotion.admin.gtk.models.VideoProducer}
            subclass or None
         @param mountPoint:
         @type  mountPoint:
