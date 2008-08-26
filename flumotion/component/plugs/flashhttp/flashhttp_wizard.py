@@ -96,6 +96,15 @@ class FlashHTTPServer(HTTPServer):
                                    self.properties.port,
                                    self.properties.mountPoint)
 
+    # Component
+
+    def getProperties(self):
+        properties = super(FlashHTTPServer, self).getProperties()
+        hostname = self.streamer.getHostname()
+        if hostname:
+            properties.hostname = hostname
+        return properties
+
 
 class FlashHTTPWizardPlugin(object):
     implements(IHTTPConsumerPlugin)

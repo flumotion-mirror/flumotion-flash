@@ -1,3 +1,9 @@
+2008-08-26  Johan Dahlin  <johan@flumotion.com>
+
+	* flumotion/component/plugs/flashhttp/flashhttp_wizard.py
+	(FlashHTTPServer.getProperties): If the streamer has a hostname
+	set, reuse that in the server.
+
 2008-08-18  Johan Dahlin  <johan@flumotion.com>
 
 	* flumotion/component/encoders/aac/aac.py:
