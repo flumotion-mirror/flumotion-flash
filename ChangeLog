@@ -1,16 +1,3 @@
-2008-08-29  Thomas Vander Stichele  <thomas at apestaart dot org>
-
-	* configure.ac:
-	* flumotion/component/encoders/Makefile.am:
-	* flumotion/component/encoders/h264 (deleted):
-	* flumotion/component/encoders/h264/h264.xml (deleted):
-	* flumotion/component/encoders/h264/__init__.py (deleted):
-	* flumotion/component/encoders/h264/Makefile.am (deleted):
-	* flumotion/component/encoders/h264/h264.py (deleted):
-	* flumotion/component/encoders/h264/h264-wizard.glade (deleted):
-	* flumotion/component/encoders/h264/wizard_gtk.py (deleted):
-	  Remove h264 encoder, should go in separate module.  See #2182.
-
 2008-08-26  Johan Dahlin  <johan@flumotion.com>
 
 	* flumotion/component/plugs/flashhttp/flashhttp_wizard.py
@@ -21,29 +8,9 @@
 
 	* flumotion/component/encoders/aac/aac.py:
 	* flumotion/component/encoders/aac/wizard_gtk.py:
-	* flumotion/component/encoders/h264/h264.xml:
-	* flumotion/component/encoders/h264/wizard_gtk.py:
 	* flumotion/component/encoders/mp3/wizard_gtk.py:
 	* flumotion/component/encoders/vp6/wizard_gtk.py:
 	Port to the latest wizard changes.
-	Make the h264 plugin actually work by adding some
-	missing files to the bundle.
-
-2008-08-18  Johan Dahlin  <johan@flumotion.com>
-
-	* flumotion/component/encoders/h264/h264.xml:
-	audio-encoder -> video-encoder
-
-2008-08-08  Julien Moutte  <julien@fluendo.com>
-
-	* configure.ac:
-	* flumotion/component/encoders/Makefile.am:
-	* flumotion/component/encoders/h264/Makefile.am:
-	* flumotion/component/encoders/h264/h264-wizard.glade:
-	* flumotion/component/encoders/h264/h264.py:
-	* flumotion/component/encoders/h264/h264.xml:
-	* flumotion/component/encoders/h264/wizard_gtk.py:
-	* flumotion/component/muxers/flv/flv.xml: Add initial H.264 support.
 
 2008-08-08  Johan Dahlin  <johan@flumotion.com>
 
