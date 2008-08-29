@@ -1,3 +1,16 @@
+2008-08-29  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* configure.ac:
+	* flumotion/component/encoders/Makefile.am:
+	* flumotion/component/encoders/h264 (deleted):
+	* flumotion/component/encoders/h264/h264.xml (deleted):
+	* flumotion/component/encoders/h264/__init__.py (deleted):
+	* flumotion/component/encoders/h264/Makefile.am (deleted):
+	* flumotion/component/encoders/h264/h264.py (deleted):
+	* flumotion/component/encoders/h264/h264-wizard.glade (deleted):
+	* flumotion/component/encoders/h264/wizard_gtk.py (deleted):
+	  Remove h264 encoder, should go in separate module.  See #2182.
+
 2008-08-26  Johan Dahlin  <johan@flumotion.com>
 
 	* flumotion/component/plugs/flashhttp/flashhttp_wizard.py
