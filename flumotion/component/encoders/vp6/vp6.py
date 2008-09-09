@@ -33,6 +33,14 @@ class VP6Encoder(feedcomponent.ParseLaunchComponent):
         if properties.has_key('encoder-state'):
             element.set_property('encoder-state', properties['encoder-state'])
         if properties.has_key('bitrate'):
+            # FIXME: see #2133 to follow up on why all these properties need to get set
+            # to get a better bitrate
+            element.set_property('bitrate-control', 'cbr')
+            element.set_property('drop-frames', 1)
+            element.set_property('keyframe-distance', 250)
+            element.set_property('spatial-resampling', 1)
+            element.set_property('low-resampling-watermark', 30)
+            element.set_property('high-resampling-watermark', 40)
             element.set_property('bitrate', properties['bitrate'])
 
     def do_setup(self):
