@@ -1,6 +1,6 @@
 <registry>
   <plugs>
-    <plug socket="flumotion.component.plugs.lifecycle.ComponentLifecycle"
+    <plug socket="flumotion.component.plugs.base.ComponentPlug"
           type="flash-http-plug">
       <entries>
         <entry type="default"

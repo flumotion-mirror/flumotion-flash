@@ -17,8 +17,8 @@
 
 from zope.interface import implements
 
-from flumotion.admin.gtk.interfaces import IHTTPConsumerPlugin
-from flumotion.admin.gtk.models import HTTPServer, HTTPPlug
+from flumotion.admin.assistant.interfaces import IHTTPConsumerPlugin
+from flumotion.admin.assistant.models import HTTPServer, HTTPPlug
 
 __version__ = "$Rev$"
 

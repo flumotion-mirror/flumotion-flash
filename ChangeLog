@@ -1,3 +1,9 @@
+2009-01-29  Xavier Queralt Mateu  <xqueralt@flumotion.com>
+
+	* flumotion/component/plugs/flashhttp/flashhttp.xml:
+	* flumotion/component/plugs/flashhttp/flashhttp_wizard.py:
+	Updated some imports to agree with the real modules under admin.
+
 2008-09-09  Thomas Vander Stichele  <thomas at apestaart dot org>
 
 	* flumotion/component/encoders/vp6/vp6.py:
