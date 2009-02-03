@@ -22,7 +22,7 @@
 
       <properties>
         <property name="bitrate" type="int"
-                  _description="Bitrate to encode at (in bps)" />
+                  _description="Bitrate to encode at (in kbps)" />
         <property name="encoder-state" type="string"
                   _description="Path to an .mcf file containing VP6 encoder settings" />
       </properties>

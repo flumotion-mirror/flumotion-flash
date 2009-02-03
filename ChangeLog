@@ -1,3 +1,8 @@
+2009-02-03  Pedro Gracia  <pedro@flumotion.com>
+
+	* flumotion/component/encoders/vp6/vp6.xml:
+	Correction in vp6 bitrate property.
+
 2009-01-29  Xavier Queralt Mateu  <xqueralt@flumotion.com>
 
 	* flumotion/component/plugs/flashhttp/flashhttp.xml:
