@@ -36,7 +36,7 @@ class VP6VideoEncoder(VideoEncoder):
 
     def getProperties(self):
         properties = super(VP6VideoEncoder, self).getProperties()
-        #properties['bitrate'] *= 1000
+        properties['bitrate'] *= 1000
         return properties
 
 
