@@ -41,7 +41,7 @@ class VP6Encoder(feedcomponent.ParseLaunchComponent):
             element.set_property('spatial-resampling', 1)
             element.set_property('low-resampling-watermark', 30)
             element.set_property('high-resampling-watermark', 40)
-            element.set_property('bitrate', properties['bitrate'])
+            element.set_property('bitrate', int(properties['bitrate'] / 1000))
 
     def do_setup(self):
         if self.config['properties'].has_key('encoder-state'):

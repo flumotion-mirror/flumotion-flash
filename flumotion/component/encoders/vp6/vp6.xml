@@ -15,14 +15,14 @@
                function="VP6WizardPlugin" />
       </entries>
 
-      <wizard _description="VP6" type="video-encoder" 
+      <wizard _description="VP6" type="video-encoder"
               feeder="default" eater="default">
         <provide-format media-type="vp6" />
       </wizard>
 
       <properties>
         <property name="bitrate" type="int"
-                  _description="Bitrate to encode at (in kbps)" />
+                  _description="Bitrate to encode at (in bps)" />
         <property name="encoder-state" type="string"
                   _description="Path to an .mcf file containing VP6 encoder settings" />
       </properties>
@@ -59,4 +59,4 @@
 
   </bundles>
 
-</registry> 
+</registry>

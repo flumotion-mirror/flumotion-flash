@@ -1,7 +1,9 @@
-2009-02-03  Pedro Gracia  <pedro@flumotion.com>
+2009-02-03  Sebastien Merle  <sebastien@fluendo.com>
 
-	* flumotion/component/encoders/vp6/vp6.xml:
-	Correction in vp6 bitrate property.
+	* flumotion/component/encoders/vp6/vp6.py:
+	Fixed a bitrate unit. It was supposed to be in bps
+	but really was kbps due to a change in the underlying
+	gstreamer encoder (were using pitfdll and now fluvp6enc).
 
 2009-01-29  Xavier Queralt Mateu  <xqueralt@flumotion.com>
 
