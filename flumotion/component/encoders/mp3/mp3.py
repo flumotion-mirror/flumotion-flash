@@ -20,6 +20,7 @@ from flumotion.common import errors, gstreamer
 
 T_ = gettexter('flumotion-flash')
 
+
 class MP3Encoder(feedcomponent.ParseLaunchComponent):
     checkTimestamp = True
     checkOffset = True

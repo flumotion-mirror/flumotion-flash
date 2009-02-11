@@ -27,6 +27,7 @@ _ = gettext.gettext
 
 class FLVVideoEncoder(VideoEncoder):
     componentType = 'flv-encoder'
+
     def __init__(self):
         super(FLVVideoEncoder, self).__init__()
         self.has_quality = True
@@ -65,6 +66,7 @@ class FLVStep(VideoEncoderStep):
 
 class FLVWizardPlugin(object):
     implements(IEncoderPlugin)
+
     def __init__(self, wizard):
         self.wizard = wizard
         self.model = FLVVideoEncoder()

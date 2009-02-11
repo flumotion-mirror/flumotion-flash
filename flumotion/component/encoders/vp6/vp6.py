@@ -30,11 +30,11 @@ class VP6Encoder(feedcomponent.ParseLaunchComponent):
 
     def configure_pipeline(self, pipeline, properties):
         element = pipeline.get_by_name('encoder')
-        if properties.has_key('encoder-state'):
+        if 'encoder-state' in properties:
             element.set_property('encoder-state', properties['encoder-state'])
-        if properties.has_key('bitrate'):
-            # FIXME: see #2133 to follow up on why all these properties need to get set
-            # to get a better bitrate
+        if 'bitrate' in properties:
+            # FIXME: see #2133 to follow up on why all these properties need
+            # to get set to get a better bitrate
             element.set_property('bitrate-control', 'cbr')
             element.set_property('drop-frames', 1)
             element.set_property('keyframe-distance', 250)
@@ -44,18 +44,17 @@ class VP6Encoder(feedcomponent.ParseLaunchComponent):
             element.set_property('bitrate', int(properties['bitrate'] / 1000))
 
     def do_setup(self):
-        if self.config['properties'].has_key('encoder-state'):
+        if 'encoder-state' in self.config['properties']:
             encoderState = self.config['properties']['encoder-state']
 
             # validate encoder state file first
             if not os.path.exists(encoderState):
                 m = messages.Error(T_(N_(
-                  "The configuration property 'encoder-state' should be set to "
-                  "an absolute path to an existing MCF configuration file. "
+                  "The configuration property 'encoder-state' should be set to"
+                  " an absolute path to an existing MCF configuration file. "
                   "Please fix the configuration, %s does not exist."),
                   encoderState), id='encoder-state')
                 self.addMessage(m)
                 raise errors.ComponentSetupHandledError()
 
         return feedcomponent.ParseLaunchComponent.do_setup(self)
-

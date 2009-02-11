@@ -68,6 +68,7 @@ class MP3Step(AudioEncoderStep):
 
 class MP3WizardPlugin(object):
     implements(IEncoderPlugin)
+
     def __init__(self, wizard):
         self.wizard = wizard
         self.model = MP3AudioEncoder()

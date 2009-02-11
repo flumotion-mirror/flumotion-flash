@@ -23,18 +23,19 @@ __version__ = "$Rev$"
 
 def checkFlashPlayer():
     """Check for flash player.
-    @returns: a result containing the filename to the jar or None if it cannot be found
+    @returns: a result containing the filename to the jar or None
+              if it cannot be found
     @rtype: L{flumotion.common.messages.Result}
     """
 
-    log.debug('flashplayercheck', 'Checking for ...' )
+    log.debug('flashplayercheck', 'Checking for ...')
     filename = getFlashFilename('video')
     if not filename:
         msg = 'not found'
     else:
         msg = filename
 
-    log.debug('flashplayercheck', 'filename - %s' % (msg,))
+    log.debug('flashplayercheck', 'filename - %s' % (msg, ))
     result = Result()
     result.succeed(filename)
     log.debug('flashplayercheck', 'done, returning')

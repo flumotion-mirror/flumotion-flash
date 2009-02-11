@@ -1,3 +1,24 @@
+2009-02-11  Xavier Queralt Mateu  <xqueralt@flumotion.com>
+
+	* Makefile.am:
+	Include the rules to build rpm packages.
+	* flumotion-flash.spec.in:
+	Added a dependency to gstreamer-fluendo-mcaacenc
+	* flumotion/component/encoders/aac/aac.py:
+	* flumotion/component/encoders/aac/wizard_gtk.py:
+	* flumotion/component/encoders/flv/admin_gtk.py:
+	* flumotion/component/encoders/flv/flv.py:
+	* flumotion/component/encoders/mp3/mp3.py:
+	* flumotion/component/encoders/mp3/wizard_gtk.py:
+	* flumotion/component/encoders/vp6/vp6.py:
+	* flumotion/component/encoders/vp6/wizard_gtk.py:
+	* flumotion/component/muxers/flv/flv.py:
+	* flumotion/component/plugs/flashhttp/flashhttp.py:
+	* flumotion/component/plugs/flashhttp/flashhttp_wizard.py:
+	* flumotion/component/plugs/flashhttp/flashplayer_location.py.in:
+	* flumotion/component/plugs/flashhttp/workercheck.py:
+	Make flumotion-flash pep8 clean
+
 2009-02-03  Xavier Queralt Mateu  <xqueralt@flumotion.com>
 
 	* flumotion/component/encoders/vp6/wizard_gtk.py:

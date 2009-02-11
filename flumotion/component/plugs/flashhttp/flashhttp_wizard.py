@@ -22,15 +22,16 @@ from flumotion.admin.assistant.models import HTTPServer, HTTPPlug
 
 __version__ = "$Rev$"
 
-# Copied from posixpath.py
+
 def slashjoin(a, *p):
     """Join two or more pathname components, inserting '/' as needed"""
+    # Copied from posixpath.py
     path = a
     for b in p:
         if b.startswith('/'):
             path = b
         elif path == '' or path.endswith('/'):
-            path +=  b
+            path += b
         else:
             path += '/' + b
     return path
@@ -60,6 +61,7 @@ class FlashHTTPServer(HTTPServer):
     Most of the interesting logic here is actually in a plug.
     """
     componentType = 'http-server'
+
     def __init__(self, streamer, audioProducer, videoProducer, mountPoint):
         """
         @param streamer: streamer
@@ -108,6 +110,7 @@ class FlashHTTPServer(HTTPServer):
 
 class FlashHTTPWizardPlugin(object):
     implements(IHTTPConsumerPlugin)
+
     def __init__(self, wizard):
         self.wizard = wizard
 
@@ -116,6 +119,7 @@ class FlashHTTPWizardPlugin(object):
             worker,
             'flumotion.component.plugs.flashhttp.workercheck',
             'checkFlashPlayer')
+
         def check(found):
             return bool(found)
         d.addCallback(check)

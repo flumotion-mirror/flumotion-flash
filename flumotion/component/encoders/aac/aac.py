@@ -14,6 +14,7 @@
 
 from flumotion.component import feedcomponent
 
+
 class AACEncoder(feedcomponent.ParseLaunchComponent):
     checkTimestamp = True
     checkOffset = True

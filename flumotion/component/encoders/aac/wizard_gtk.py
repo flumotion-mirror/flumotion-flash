@@ -66,6 +66,7 @@ class AACStep(AudioEncoderStep):
 
 class AACWizardPlugin(object):
     implements(IEncoderPlugin)
+
     def __init__(self, wizard):
         self.wizard = wizard
         self.model = AACAudioEncoder()

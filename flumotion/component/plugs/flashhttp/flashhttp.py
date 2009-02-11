@@ -106,6 +106,7 @@ class FlashHTTPPlug(ComponentPlug):
     """I am a component plug for a http-server which plugs in a
     http resource containing a flash file.
     """
+
     def start(self, component):
         """
         @type component: L{HTTPFileStreamer}
@@ -115,7 +116,7 @@ class FlashHTTPPlug(ComponentPlug):
                 "A FlashHTTPPlug %s must be plugged into a "
                 "HTTPStreamer component, not a %s" % (
                 self, component.__class__.__name__))
-        log.debug('flashhttpplug', 'Attaching to %r' % (component,))
+        log.debug('flashhttpplug', 'Attaching to %r' % (component, ))
         resource = FlashDirectoryResource(component.getMountPoint(),
                                           self.args['properties'])
         component.setRootResource(resource)
@@ -131,11 +132,11 @@ def test():
     properties = {'has-audio': True,
                   'has-video': True,
                   'codebase': '/',
-                  'width' : 320,
-                  'height' : 240,
-                  'stream-url' : sys.argv[1],
+                  'width': 320,
+                  'height': 240,
+                  'stream-url': sys.argv[1],
                   'buffer-size': 40,
-                  'framerate' : 1}
+                  'framerate': 1}
     root = FlashDirectoryResource('/', properties)
     site = Site(root)
 

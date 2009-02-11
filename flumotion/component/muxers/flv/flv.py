@@ -14,6 +14,7 @@
 
 from flumotion.component import feedcomponent
 
+
 class FLVMuxer(feedcomponent.MultiInputParseLaunchComponent):
     checkOffset = True
 

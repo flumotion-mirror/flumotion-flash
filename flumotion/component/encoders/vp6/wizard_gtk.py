@@ -27,6 +27,7 @@ _ = gettext.gettext
 
 class VP6VideoEncoder(VideoEncoder):
     componentType = 'vp6-encoder'
+
     def __init__(self):
         super(VP6VideoEncoder, self).__init__()
         self.has_quality = True
@@ -65,6 +66,7 @@ class VP6Step(VideoEncoderStep):
 
 class VP6WizardPlugin(object):
     implements(IEncoderPlugin)
+
     def __init__(self, wizard):
         self.wizard = wizard
         self.model = VP6VideoEncoder()

@@ -14,14 +14,15 @@
 
 from flumotion.component import feedcomponent
 
+
 class FLVEncoder(feedcomponent.ParseLaunchComponent):
     checkTimestamp = True
     checkOffset = True
 
     def get_pipeline_string(self, properties):
-        return "ffmpegcolorspace ! ffenc_flv name=encoder" 
+        return "ffmpegcolorspace ! ffenc_flv name=encoder"
 
     def configure_pipeline(self, pipeline, properties):
         element = pipeline.get_by_name('encoder')
-        if properties.has_key('bitrate'):
+        if 'bitrate' in properties:
             element.set_property('bitrate', properties['bitrate'])

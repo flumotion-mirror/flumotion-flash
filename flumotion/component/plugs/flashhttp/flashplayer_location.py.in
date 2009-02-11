@@ -16,9 +16,10 @@ import os
 
 FFP_PREFIX = "@FFP_PREFIX@"
 
+
 def getFlashFilename(kind):
     if kind not in ['audio', 'video']:
-        raise ValueError("kind must be audio or video, not %s" % (kind,))
+        raise ValueError("kind must be audio or video, not %s" % (kind, ))
 
     directories = ['/usr/local', '/usr']
     prefix = FFP_PREFIX[:]
@@ -30,7 +31,7 @@ def getFlashFilename(kind):
         # ant install_applet
         name = os.path.join(directory, 'share', 'flumotion-flash-player',
                             'swf',
-                            'flu-player-%s.swf' % (kind,))
+                            'flu-player-%s.swf' % (kind, ))
         if os.path.exists(name):
             return name
     return None
