@@ -1,5 +1,13 @@
 2009-02-11  Xavier Queralt Mateu  <xqueralt@flumotion.com>
 
+	reviewed by: jlegoff
+
+	* flumotion/component/encoders/aac/wizard_gtk.py:
+	Block the next step when the libstdc++5 is not installed on the
+	worker. Fixes #2075
+
+2009-02-11  Xavier Queralt Mateu  <xqueralt@flumotion.com>
+
 	* Makefile.am:
 	Include the rules to build rpm packages.
 	* flumotion-flash.spec.in:

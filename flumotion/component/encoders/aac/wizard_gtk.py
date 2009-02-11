@@ -16,10 +16,11 @@ import gettext
 
 from zope.interface import implements
 
-from flumotion.common.i18n import gettexter
-from flumotion.admin.gtk.basesteps import AudioEncoderStep
 from flumotion.admin.assistant.models import AudioEncoder
 from flumotion.admin.assistant.interfaces import IEncoderPlugin
+from flumotion.admin.gtk.basesteps import AudioEncoderStep
+from flumotion.common import errors, messages
+from flumotion.common.i18n import gettexter, N_
 
 __version__ = "$Rev$"
 _ = gettext.gettext
@@ -61,7 +62,31 @@ class AACStep(AudioEncoderStep):
 
     def workerChanged(self, worker):
         self.model.worker = worker
-        self.wizard.requireElements(worker, 'flumcaacenc')
+        self._runChecks(worker)
+
+    def _runChecks(self, worker):
+        self.wizard.waitForTask('aac checks')
+        msg = messages.Info(T_(N_('Checking for libstdc++5 library...')),
+            mid='aac-check')
+        self.wizard.add_msg(msg)
+
+        def libraryFound(result):
+            self.wizard.taskFinished(blockNext=not result)
+            if result:
+                self.wizard.requireElements(worker, 'flumcaacenc')
+            else:
+                msg = messages.Error(
+                    T_(N_('libstdc++5 is required by the aac encoder but does '
+                          'not seem to be installed on the worker.\n'
+                          'Please install it in order to go forward.')),
+                    mid='aac-check')
+                self.wizard.add_msg(msg)
+
+        d = self.wizard.runInWorker(worker, 'flumotion.worker.checks.check',
+                                    'checkFile', '/usr/lib/libstdc++.so.5')
+        d.addCallback(libraryFound)
+
+        return d
 
 
 class AACWizardPlugin(object):
