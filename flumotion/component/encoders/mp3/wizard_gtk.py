@@ -54,7 +54,7 @@ class MP3Step(AudioEncoderStep):
     # WizardStep
 
     def setup(self):
-        self.bitrate.set_range(5, 128)
+        self.bitrate.set_range(16, 320)
         self.bitrate.set_value(64)
 
         self.bitrate.data_type = int
