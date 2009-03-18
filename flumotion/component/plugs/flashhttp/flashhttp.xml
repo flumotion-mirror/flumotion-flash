@@ -13,9 +13,11 @@
       <wizard _description="Stream to Flash" type="http-consumer" 
               feeder="default" eater="default">
         <accept-format media-type="muxer:flv"/>
+        <accept-format media-type="muxer:mp3"/>
         <accept-format media-type="audio:mp3"/>
         <accept-format media-type="audio:aac"/>
         <accept-format media-type="video:vp6"/>
+        <accept-format media-type="video:h264"/>
       </wizard>
       <properties>
         <property name="html-template" type="string" 

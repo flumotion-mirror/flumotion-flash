@@ -1,3 +1,19 @@
+2009-03-18  Xavier Queralt Mateu  <xqueralt@flumotion.com>
+
+	reviewed by: jlegoff
+
+	* configure.ac:
+	* flumotion/component/muxers/Makefile.am:
+	* flumotion/component/plugs/flashhttp/flashhttp.xml:
+	* flumotion/component/muxers/mp3 (added):
+	* flumotion/component/muxers/mp3/__init__.py (added):
+	* flumotion/component/muxers/mp3/mp3.py (added):
+	* flumotion/component/muxers/mp3/Makefile.am (added):
+	* flumotion/component/muxers/mp3/mp3.xml (added):
+	New muxer to allow mp3 audio without a container. It actually does
+	nothing to the stream and acts as an identity component.
+	Fixes #2074
+
 2009-02-19  Xavier Queralt Mateu  <xqueralt@flumotion.com>
 
 	* flumotion/component/encoders/mp3/wizard_gtk.py:
