@@ -1,3 +1,13 @@
+2009-03-23  Xavier Queralt Mateu  <xqueralt@flumotion.com>
+
+	* flumotion/component/encoders/aac/wizard_gtk.py:
+	Remove the informative message when the libstdc++5 check is done.
+	* flumotion/component/muxers/mp3/Makefile.am:
+	* flumotion/component/muxers/mp3/__init__.py:
+	* flumotion/component/muxers/mp3/mp3.py:
+	Apparently the new files added on the last commit had the same
+	content twice. Deleting these duplicated contents.
+
 2009-03-18  Xavier Queralt Mateu  <xqueralt@flumotion.com>
 
 	reviewed by: jlegoff

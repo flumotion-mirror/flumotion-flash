@@ -72,6 +72,7 @@ class AACStep(AudioEncoderStep):
 
         def libraryFound(result):
             self.wizard.taskFinished(blockNext=not result)
+            self.wizard.clear_msg('aac-check')
             if result:
                 self.wizard.requireElements(worker, 'flumcaacenc')
             else:
