@@ -9,7 +9,7 @@ URL:            http://www.fluendo.com/
 Source:         %{name}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
-Requires:	flumotion >= 0.4.0
+Requires:	flumotion >= 0.5.3
 Requires:       gstreamer-fluendo-flvmux
 Requires:       gstreamer-fluendo-vp6enc
 Requires:       gstreamer-fluendo-mcaacenc
@@ -17,7 +17,7 @@ Requires:       gstreamer-fluendo-mcaacenc
 BuildRequires:	gettext
 BuildRequires:	python >= 2.3
 BuildRequires:	python-twisted
-BuildRequires:	flumotion >= 0.4.0
+BuildRequires:	flumotion >= 0.5.3
 BuildRequires:	epydoc
 BuildRequires:  pkgconfig
 
@@ -46,6 +46,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/flumotion
 
 %changelog
+* Fri Mar 27 2009 Xavier Queralt Mateu <xqueralt@flumotion.com>
+- updated requirements to flumotion 0.5.3
+
 * Wed Feb 11 2009 Xavier Queralt Mateu <xqueralt@flumotion.com>
 - adding dependencies for flumotion's aac encoder
 

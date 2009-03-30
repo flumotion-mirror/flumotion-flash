@@ -1,3 +1,14 @@
+2009-03-30  Xavier Queralt Mateu,,,  <xqueralt@flumotion.com>
+
+	reviewed by: sebastien
+
+	* flumotion-flash.spec.in:
+	Update requirement of flumotion to 0.5.3
+	* flumotion/component/encoders/mp3/mp3.py:
+	* flumotion/component/encoders/mp3/wizard_gtk.py:
+	Use fluendo's mp3 encoder when lame is not available.
+	Fixes #4054
+
 2009-03-23  Xavier Queralt Mateu  <xqueralt@flumotion.com>
 
 	* flumotion/component/encoders/aac/wizard_gtk.py:

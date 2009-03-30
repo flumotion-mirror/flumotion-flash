@@ -26,13 +26,18 @@ class MP3Encoder(feedcomponent.ParseLaunchComponent):
     checkOffset = True
 
     def get_pipeline_string(self, properties):
-        if not gstreamer.element_factory_exists('lame'):
-            raise errors.MissingElementError('lame')
+        if gstreamer.element_factory_exists('lame'):
+            encoder = 'lame'
+        elif gstreamer.element_factory_exists('flump3enc'):
+            encoder = 'flump3enc'
+        else:
+            raise errors.MissingElementError('flump3enc')
 
         samplerate = properties.get('samplerate', 44100)
         return "audioconvert ! audioresample " \
-            "! audio/x-raw-int,rate=%d ! lame name=encoder " \
-            "! audio/mpeg,rate=%d ! mp3parse" % (samplerate, samplerate)
+            "! audio/x-raw-int,rate=%d ! %s name=encoder " \
+            "! audio/mpeg,rate=%d ! mp3parse" % (samplerate,
+                                                 encoder, samplerate)
 
     def configure_pipeline(self, pipeline, properties):
         self.debug('configure_pipeline')

@@ -49,8 +49,6 @@ class MP3Step(AudioEncoderStep):
     # don't complain about our glade magic
     __pychecker__ = '--no-classattr'
 
-
-
     # WizardStep
 
     def setup(self):
@@ -63,7 +61,16 @@ class MP3Step(AudioEncoderStep):
 
     def workerChanged(self, worker):
         self.model.worker = worker
-        self.wizard.requireElements(worker, 'mp3parse', 'lame')
+
+        def checkDone(elements):
+            if not elements:
+                return
+
+            self.wizard.clear_msg('elementmp3parse-lame')
+            self.wizard.requireElements(worker, 'mp3parse', 'flump3enc')
+
+        d = self.wizard.requireElements(worker, 'mp3parse', 'lame')
+        d.addCallback(checkDone)
 
 
 class MP3WizardPlugin(object):
