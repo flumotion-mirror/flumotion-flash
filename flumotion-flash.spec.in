@@ -9,15 +9,15 @@ URL:            http://www.fluendo.com/
 Source:         %{name}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
-Requires:	flumotion >= 0.5.3
-Requires:       gstreamer-fluendo-flvmux
-Requires:       gstreamer-fluendo-vp6enc
-Requires:       gstreamer-fluendo-mcaacenc
+Requires:	flumotion >= @FLU_REQ@
+Requires:       gstreamer-fluendo-flvmux >= 0.10.5
+Requires:       gstreamer-fluendo-vp6enc >= 0.10.2
+Requires:       gstreamer-fluendo-mcaacenc >= 0.10.5
 
 BuildRequires:	gettext
 BuildRequires:	python >= 2.3
 BuildRequires:	python-twisted
-BuildRequires:	flumotion >= 0.5.3
+BuildRequires:	flumotion >= @FLU_REQ@
 BuildRequires:	epydoc
 BuildRequires:  pkgconfig
 
@@ -46,6 +46,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/flumotion
 
 %changelog
+* Wed Apr 22 2009 Xavier Queralt Mateu <xqueralt@flumotion.com>
+- updated requirements to flumotion 0.5.4 and the new fluendo codecs
+
 * Fri Mar 27 2009 Xavier Queralt Mateu <xqueralt@flumotion.com>
 - updated requirements to flumotion 0.5.3
 

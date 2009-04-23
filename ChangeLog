@@ -1,4 +1,14 @@
-2009-03-30  Xavier Queralt Mateu,,,  <xqueralt@flumotion.com>
+2009-04-23  Xavier Queralt Mateu  <xqueralt@flumotion.com>
+	* configure.ac:
+	Releasing 0.5.1 and updating the requirements of flumotion to 0.5.4
+	* flumotion-flash.spec.in:
+	Updated the dependencies
+	* pkg/ubuntu-intrepid (added):
+	* pkg/ubuntu-intrepid/control (added):
+	* pkg/ubuntu-intrepid/changelog (added):
+	Add a new directory for ubuntu intrepid packages
+
+2009-03-30  Xavier Queralt Mateu  <xqueralt@flumotion.com>
 
 	reviewed by: sebastien
 
