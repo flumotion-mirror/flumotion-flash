@@ -16,7 +16,6 @@ Requires:       gstreamer-fluendo-mcaacenc >= 0.10.5
 
 BuildRequires:	gettext
 BuildRequires:	python >= 2.3
-BuildRequires:	python-twisted
 BuildRequires:	flumotion >= @FLU_REQ@
 BuildRequires:	epydoc
 BuildRequires:  pkgconfig
@@ -46,6 +45,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/flumotion
 
 %changelog
+* Fri Apr 24 2009 Jan Urbanski <jurbanski@flumotion.com>
+- remove the twisted-python build requirement, requiring flumotion is enough 
+
 * Wed Apr 22 2009 Xavier Queralt Mateu <xqueralt@flumotion.com>
 - updated requirements to flumotion 0.5.4 and the new fluendo codecs
 
