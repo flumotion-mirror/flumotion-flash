@@ -1,5 +1,14 @@
 2009-04-24  Jan Urbanski  <jurbanski@flumotion.com>
 
+	* flumotion/component/encoders/aac/aac.py:
+	* flumotion/component/encoders/mp3/mp3.py:
+	Use legacyresample instead of audioresample.
+	Check if the machine has legacyresample. If not, fall back to
+	audioresample (which was not broken at the time legacyresample wasn't
+	around)
+
+2009-04-24  Jan Urbanski  <jurbanski@flumotion.com>
+
 	* flumotion-flash.spec.in:
 	Remove the twisted-python build requirement, requiring flumotion is
 	enough. See r18401.

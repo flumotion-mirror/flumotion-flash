@@ -15,6 +15,8 @@
 from flumotion.component import feedcomponent
 
 
+from flumotion.common import gstreamer
+
 class AACEncoder(feedcomponent.ParseLaunchComponent):
     checkTimestamp = True
     checkOffset = True
@@ -22,10 +24,15 @@ class AACEncoder(feedcomponent.ParseLaunchComponent):
     def get_pipeline_string(self, properties):
         # v2 supports only 16000, 22050, 24000, 32000, 44100, 48000 KHz
         samplerate = properties.get('samplerate', 44100)
-        return "audioconvert ! audioresample " \
+
+        resampler = 'audioresample'
+        if gstreamer.element_factory_exists('legacyresample'):
+            resampler = 'legacyresample'
+
+        return "audioconvert ! %s " \
             "! audio/x-raw-int,rate=%d " \
             "! flumcaacenc header-type=0 he=2 name=encoder " \
-            "! audio/mpeg,rate=%d" % (samplerate, samplerate)
+            "! audio/mpeg,rate=%d" % (resampler, samplerate, samplerate)
 
     def configure_pipeline(self, pipeline, properties):
         self.debug('configure_pipeline')

@@ -33,10 +33,14 @@ class MP3Encoder(feedcomponent.ParseLaunchComponent):
         else:
             raise errors.MissingElementError('flump3enc')
 
+        resampler = 'audioresample'
+        if gstreamer.element_factory_exists('legacyresample'):
+            resampler = 'legacyresample'
+
         samplerate = properties.get('samplerate', 44100)
-        return "audioconvert ! audioresample " \
+        return "audioconvert ! %s " \
             "! audio/x-raw-int,rate=%d ! %s name=encoder " \
-            "! audio/mpeg,rate=%d ! mp3parse" % (samplerate,
+            "! audio/mpeg,rate=%d ! mp3parse" % (resampler, samplerate,
                                                  encoder, samplerate)
 
     def configure_pipeline(self, pipeline, properties):
