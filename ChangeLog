@@ -1,3 +1,8 @@
+2009-05-12  Sebastien Merle  <sebastien@fluendo.com>
+
+	* flumotion/component/encoders/vp6/vp6.py:
+	Reverted the changed made for #2133.
+
 2009-04-24  Jan Urbanski  <jurbanski@flumotion.com>
 
 	* flumotion/component/encoders/aac/aac.py:
