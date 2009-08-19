@@ -49,10 +49,12 @@ class FlashDirectoryResource(Resource):
         self._properties = properties
         self._index_name = index_name
 
+        self._index_content = self._getHTMLResource()
         self._addChildren()
 
     def _addChildren(self):
-        self.putChild(self._index_name, self._getHTMLResource())
+        self.putChild(self._index_name, self._index_content)
+        self.putChild('', self._index_content)
         self.putChild("fluflashplayer.swf", self._getSWFResource())
         self.putChild("fluflashembed.js", self._getJSResource())
         self.putChild("flustream.flv.m3u", self._getM3UResource())
@@ -92,14 +94,6 @@ class FlashDirectoryResource(Resource):
     def _getLocalFile(self, filename):
         return os.path.join(os.path.dirname(os.path.abspath(__file__)),
                             filename)
-
-    # Resource
-
-    def getChildWithDefault(self, pathEl, request):
-        # Maps /index.html to /
-        if request.uri == self._mount_point_root:
-            return self._getHTMLResource()
-        return Resource.getChildWithDefault(self, pathEl, request)
 
 
 class FlashHTTPPlug(ComponentPlug):

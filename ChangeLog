@@ -1,3 +1,10 @@
+2009-08-19  Xavier Queralt  <xqueralt@flumotion.com>
+
+	* flumotion/component/plugs/flashhttp/flashhttp.py:
+	Map the root path to the index page by adding a new child instead of
+	checking it for each request. This way the parameters the url can have
+	are ignored and don't interfere.
+
 2009-05-12  Sebastien Merle  <sebastien@fluendo.com>
 
 	* flumotion/component/encoders/vp6/vp6.py:
