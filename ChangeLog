@@ -1,3 +1,10 @@
+=== release 0.5.2 ===
+
+2009-08-25  Josep Joan Ribas  <jribas@flumotion.com>
+
+	* configure.ac:
+	Releasing 0.5.2
+
 2009-08-19  Xavier Queralt  <xqueralt@flumotion.com>
 
 	* flumotion/component/plugs/flashhttp/flashhttp.py:
