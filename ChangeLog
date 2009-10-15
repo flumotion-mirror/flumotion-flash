@@ -1,3 +1,11 @@
+2009-10-15  Xavier Queralt  <xqueralt@flumotion.com>
+
+	* flumotion/component/plugs/flashhttp/flashhttp.xml:
+	Improve the wizard description of flash player plug
+	* flumotion/component/plugs/flashhttp/flashhttp_wizard.py:
+	Update the flash-plug wizard entry to be compatible with the new plug
+	area introduced in r8183
+
 2009-08-25  Josep Joan Ribas  <jribas@flumotion.com>
 
 	* configure.ac:

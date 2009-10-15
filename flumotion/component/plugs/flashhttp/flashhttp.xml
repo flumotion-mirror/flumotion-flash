@@ -10,7 +10,7 @@
                location="flumotion/component/plugs/flashhttp/flashhttp_wizard.py"
                function="FlashHTTPWizardPlugin" />
       </entries>
-      <wizard _description="Stream to Flash" type="http-consumer" 
+      <wizard _description="Publish embedded Flash player page" type="http-consumer" 
               feeder="default" eater="default">
         <accept-format media-type="muxer:flv"/>
         <accept-format media-type="muxer:mp3"/>

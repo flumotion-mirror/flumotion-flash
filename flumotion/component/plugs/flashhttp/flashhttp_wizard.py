@@ -15,10 +15,14 @@
 """Wizard plugin for the flashhttp plug
 """
 
+import gettext
 from zope.interface import implements
 
-from flumotion.admin.assistant.interfaces import IHTTPConsumerPlugin
+from flumotion.admin.assistant.interfaces import IHTTPConsumerPlugin, IHTTPConsumerPluginLine
 from flumotion.admin.assistant.models import HTTPServer, HTTPPlug
+from flumotion.ui.plugarea import WizardPlugLine
+
+_ = gettext.gettext
 
 __version__ = "$Rev$"
 
@@ -108,6 +112,24 @@ class FlashHTTPServer(HTTPServer):
         return properties
 
 
+class FlashHTTPPlugLine(WizardPlugLine):
+    implements(IHTTPConsumerPluginLine)
+    gladeFile = ''
+    inactiveMessage = \
+        _('Flumotion flash player should be installed to enable this option')
+
+    def __init__(self, wizard, description):
+        WizardPlugLine.__init__(self, wizard, None, description)
+        self.setActive(True)
+
+    def plugActiveChanged(self, active):
+        pass
+
+    def getConsumer(self, streamer, audioProducer, videoProducer):
+        mountPoint = slashjoin(streamer.properties.mount_point, "flash/")
+        return FlashHTTPServer(streamer, audioProducer,
+                               videoProducer, mountPoint)
+
 class FlashHTTPWizardPlugin(object):
     implements(IHTTPConsumerPlugin)
 
@@ -125,8 +147,5 @@ class FlashHTTPWizardPlugin(object):
         d.addCallback(check)
         return d
 
-    def getConsumer(self, streamer, audioProducer, videoProducer):
-        mountPoint = slashjoin(streamer.properties.mount_point,
-                                "flash/")
-        return FlashHTTPServer(streamer, audioProducer,
-                               videoProducer, mountPoint)
+    def getPlugWizard(self, description):
+        return FlashHTTPPlugLine(self.wizard, description)
