@@ -1,3 +1,8 @@
+2010-01-21  Josep Joan Ribas  <jribas@flumotion.com>
+
+	* flumotion/component/muxers/flv/flv.xml:
+	Change flv muxer description in wizard
+
 2009-11-04  Xavier Queralt  <xqueralt@flumotion.com>
 
 	* configure.ac:
