@@ -60,6 +60,9 @@ class AACStep(AudioEncoderStep):
 
         self.add_proxy(self.model.properties, ['bitrate'])
 
+        if self.wizard.getStep('Encoding').getMuxerFormat() == 'aac':
+            self.model.properties.headers = True
+
     def workerChanged(self, worker):
         self.model.worker = worker
         self._runChecks(worker)

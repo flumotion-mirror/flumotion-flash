@@ -1,3 +1,20 @@
+2010-01-21  Xavier Queralt Mateu <xqueralt@flumotion.com>
+
+	reviewed by: jribass
+
+	* flumotion/component/encoders/aac/aac.py:
+	* flumotion/component/encoders/aac/aac.xml:
+	* flumotion/component/encoders/aac/wizard_gtk.py:
+	* flumotion/component/muxers/Makefile.am:
+	* flumotion/component/muxers/aac (added):
+	* flumotion/component/muxers/aac/__init__.py (added):
+	* flumotion/component/muxers/aac/Makefile.am (added):
+	* flumotion/component/muxers/aac/aac.py (added):
+	* flumotion/component/muxers/aac/aac.xml (added):
+	New muxer to allow aac audio without a container. Enable ADTS headers
+	when AAC format is selected in conversion step.
+	Closes #6915
+
 2010-01-21  Josep Joan Ribas  <jribas@flumotion.com>
 
 	* flumotion/component/muxers/flv/flv.xml:

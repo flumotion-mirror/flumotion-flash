@@ -13,9 +13,8 @@
 # Headers in this file shall remain intact.
 
 from flumotion.component import feedcomponent
-
-
 from flumotion.common import gstreamer
+
 
 class AACEncoder(feedcomponent.ParseLaunchComponent):
     checkTimestamp = True
@@ -24,6 +23,8 @@ class AACEncoder(feedcomponent.ParseLaunchComponent):
     def get_pipeline_string(self, properties):
         # v2 supports only 16000, 22050, 24000, 32000, 44100, 48000 KHz
         samplerate = properties.get('samplerate', 44100)
+        
+        ht = properties.get('headers', False) and 1 or 0
 
         resampler = 'audioresample'
         if gstreamer.element_factory_exists('legacyresample'):
@@ -31,8 +32,8 @@ class AACEncoder(feedcomponent.ParseLaunchComponent):
 
         return "audioconvert ! %s " \
             "! audio/x-raw-int,rate=%d " \
-            "! flumcaacenc header-type=0 he=2 name=encoder " \
-            "! audio/mpeg,rate=%d" % (resampler, samplerate, samplerate)
+            "! flumcaacenc header-type=%d he=2 name=encoder " \
+            "! audio/mpeg,rate=%d" % (resampler, samplerate, ht, samplerate)
 
     def configure_pipeline(self, pipeline, properties):
         self.debug('configure_pipeline')

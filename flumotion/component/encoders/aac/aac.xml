@@ -26,6 +26,8 @@
                   _description="Bitrate to encode at (in bps)" />
         <property name="samplerate" type="int"
                   _description="Samplerate to encode at (in Hz; defaults to 44100 Hz)" />
+        <property name="headers" type="bool"
+                  _description="Wether enable or not ADTS headers (disabled by default)" />
       </properties>
 
     </component>
