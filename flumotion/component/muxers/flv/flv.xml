@@ -12,6 +12,8 @@
       <entries>
         <entry type="component" location="flv.py"
                function="FLVMuxer" />
+        <entry type="wizard" location="wizard_gtk.py"
+               function="FLVWizardPlugin" />
       </entries>
 
       <wizard _description="Flash Video (FLV)" type="muxer" 
@@ -29,7 +31,7 @@
 
   <bundles>
 
-    <bundle project="flash" name="flvmuxer-component">
+    <bundle project="flash" name="flvmuxer-base">
         <dependencies>
             <dependency name="component" />
         </dependencies>
@@ -37,6 +39,31 @@
         <directories>
             <directory name="flumotion/component/muxers/flv">
                 <filename location="__init__.py" />
+            </directory>
+        </directories>
+    </bundle>
+
+    <bundle project="flash" name="flvmuxer-wizard">
+        <dependencies>
+            <dependency name="flvmuxer-base" />
+            <dependency name="muxers-base" />
+        </dependencies>
+
+        <directories>
+            <directory name="flumotion/component/muxers/flv">
+                <filename location="wizard_gtk.py" />
+            </directory>
+        </directories>
+    </bundle>
+
+
+    <bundle project="flash" name="flvmuxer-component">
+        <dependencies>
+            <dependency name="flvmuxer-base" />
+        </dependencies>
+
+        <directories>
+            <directory name="flumotion/component/muxers/flv">
                 <filename location="flv.py" />
             </directory>
         </directories>
