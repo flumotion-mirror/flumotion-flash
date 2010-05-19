@@ -21,7 +21,7 @@ from flumotion.component import feedcomponent
 T_ = gettexter('flumotion')
 
 
-class VP6Encoder(feedcomponent.ParseLaunchComponent):
+class VP6Encoder(feedcomponent.EncoderComponent):
     checkTimestamp = True
     checkOffset = True
 

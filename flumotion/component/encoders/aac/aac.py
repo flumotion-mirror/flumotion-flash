@@ -16,7 +16,7 @@ from flumotion.component import feedcomponent
 from flumotion.common import gstreamer
 
 
-class AACEncoder(feedcomponent.ParseLaunchComponent):
+class AACEncoder(feedcomponent.EncoderComponent):
     checkTimestamp = True
     checkOffset = True
 

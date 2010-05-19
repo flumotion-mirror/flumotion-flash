@@ -15,7 +15,7 @@
 from flumotion.component import feedcomponent
 
 
-class FLVEncoder(feedcomponent.ParseLaunchComponent):
+class FLVEncoder(feedcomponent.EncoderComponent):
     checkTimestamp = True
     checkOffset = True
 
