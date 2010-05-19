@@ -1,5 +1,10 @@
 2010-05-19  Xavier Queralt Mateu  <xqueralt@flumotion.com>
 
+	* flumotion-flash.spec.in:
+	Use the new @PACKAGE_VERSION_RELEASE@ for the release tag
+
+2010-05-19  Xavier Queralt Mateu  <xqueralt@flumotion.com>
+
 	reviewed by: jribas
 
 	* flumotion/component/encoders/aac/aac.py:
