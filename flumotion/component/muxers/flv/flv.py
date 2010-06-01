@@ -12,11 +12,30 @@
 
 # Headers in this file shall remain intact.
 
+import gst
+import gobject
 from flumotion.component import feedcomponent
-
+from par_setter import FluParSetter
 
 class FLVMuxer(feedcomponent.MuxerComponent):
     checkOffset = True
 
+    def init(self):
+        gobject.type_register(FluParSetter)
+        gst.element_register(FluParSetter, "fluparsetter", gst.RANK_MARGINAL)
+
     def get_muxer_string(self, properties):
+        self.square_pixels = properties.get('square-pixels', False)
         return 'fluflvmux broadcast=true name=muxer'
+
+    def get_link_pad(self, muxer, srcpad, caps):
+        linkpad = muxer.get_compatible_pad(srcpad, caps)
+        if not self.square_pixels:
+            return linkpad
+        if caps.to_string().startswith("video"):
+            setter = gst.element_factory_make("fluparsetter")
+            self.pipeline.add(setter)
+            setter.get_pad("src").link(linkpad)
+            setter.set_state(gst.STATE_PLAYING)
+            return setter.get_pad("sink")
+        return linkpad

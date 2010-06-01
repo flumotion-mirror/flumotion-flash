@@ -26,6 +26,10 @@
         <provide-format media-type="flv"/>
       </wizard>
 
+      <properties>
+        <property name="square-pixels" type="bool" required="false"
+		  description="Whether to force pixel aspect ratio to 1/1"/>
+      </properties>
     </component>
   </components>
 
@@ -65,6 +69,7 @@
         <directories>
             <directory name="flumotion/component/muxers/flv">
                 <filename location="flv.py" />
+                <filename location="par_setter.py" />
             </directory>
         </directories>
     </bundle>
