@@ -1,5 +1,10 @@
 2010-06-01  Julien Le Goff  <jlegoff@flumotion.com>
 
+	* flumotion/component/muxers/flv/flv.py:
+	Drop unnecessary gstreamer initialization.
+
+2010-06-01  Julien Le Goff  <jlegoff@flumotion.com>
+
 	reviewed by: Xavier Queralt  <xqueralt@flumotion.com> 
 
 	* flumotion/component/muxers/flv/flv.py:
