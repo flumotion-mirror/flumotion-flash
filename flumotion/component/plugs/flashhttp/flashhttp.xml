@@ -1,7 +1,8 @@
 <registry>
   <plugs>
     <plug socket="flumotion.component.plugs.base.ComponentPlug"
-          type="flash-http-plug">
+          type="flash-http-plug"
+          _description="Serve an embedded flash player from an HTTP server">
       <entries>
         <entry type="default"
                location="flumotion/component/plugs/flashhttp/flashhttp.py"
@@ -21,15 +22,15 @@
       </wizard>
       <properties>
         <property name="html-template" type="string" 
-                  description="HTML template to use to serve the flash" />
+                  _description="HTML template to use to serve the flash" />
         <property name="index" type="string" 
-                  description="The name of the index file, default is index.html" />
+                  _description="The name of the index file, default is index.html" />
         <property name="has-audio" type="bool" required="true"  
-                  description="If audio should be streamed" />
+                  _description="If audio should be streamed" />
         <property name="has-video" type="bool" required="true"  
-                  description="If video should be streamed" />
+                  _description="If video should be streamed" />
         <property name="stream-url" type="string" required="true"  
-                  description="url to the stream we're displaying" />
+                  _description="url to the stream we're displaying" />
       </properties>
     </plug>
   </plugs>

@@ -28,7 +28,7 @@
 
       <properties>
         <property name="square-pixels" type="bool" required="false"
-		  description="Whether to force pixel aspect ratio to 1/1"/>
+		  _description="Whether to force pixel aspect ratio to 1/1"/>
       </properties>
     </component>
   </components>
