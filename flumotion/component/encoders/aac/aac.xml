@@ -24,6 +24,8 @@
       <properties>
         <property name="bitrate" type="int"
                   _description="Bitrate to encode at (in bps)" />
+        <property name="high-efficiency-version" type="int"
+                  _description="Version of AAC HE to use (default: 2, low-complexity: 0)" />
         <property name="samplerate" type="int"
                   _description="Samplerate to encode at (in Hz; defaults to 44100 Hz)" />
         <property name="headers" type="bool"

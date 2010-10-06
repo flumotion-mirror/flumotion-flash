@@ -1,3 +1,12 @@
+2010-10-06  Marc-André Lureau  <mlureau@flumotion.com>
+
+	reviewed by: Andoni Morales
+
+	* flumotion/component/encoders/aac/aac.py:
+	* flumotion/component/encoders/aac/aac.xml:
+        Add "high-efficiency-version" property.
+	(default to 2: high-efficienty v2, as before)
+
 2010-07-21  Xavier Queralt  <xqueralt@flumotion.com>
 
 	* flumotion/component/muxers/flv/flv.xml:
