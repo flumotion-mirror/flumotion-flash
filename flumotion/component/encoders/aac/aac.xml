@@ -28,6 +28,8 @@
                   _description="Version of AAC HE to use (default: 2, low-complexity: 0)" />
         <property name="samplerate" type="int"
                   _description="Samplerate to encode at (in Hz; defaults to 44100 Hz)" />
+        <property name="channels" type="int"
+                  _description="Number of output channels" />
         <property name="headers" type="bool"
                   _description="Wether enable or not ADTS headers (disabled by default)" />
       </properties>

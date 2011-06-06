@@ -28,14 +28,16 @@ class AACEncoder(feedcomponent.EncoderComponent):
 
         he = properties.get('high-efficiency-version', 2)
 
+        channels = properties.get('channels', 2)
+
         resampler = 'audioresample'
         if gstreamer.element_factory_exists('legacyresample'):
             resampler = 'legacyresample'
 
         return "audioconvert ! %s " \
-            "! audio/x-raw-int,rate=%d " \
+            "! audio/x-raw-int,rate=%d,channels=%d " \
             "! flumcaacenc header-type=%d name=encoder he=%d " \
-            "! audio/mpeg,rate=%d" % (resampler, samplerate, ht, he, samplerate)
+            "! audio/mpeg,rate=%d" % (resampler, channels, samplerate, ht, he, samplerate)
 
     def configure_pipeline(self, pipeline, properties):
         self.debug('configure_pipeline')
