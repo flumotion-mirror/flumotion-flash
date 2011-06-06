@@ -1,6 +1,11 @@
 2011-06-06  Xavier Queralt  <xqueralt@flumotion.com>
 
 	* flumotion/component/encoders/aac/aac.py:
+	Fix an error in last commit
+
+2011-06-06  Xavier Queralt  <xqueralt@flumotion.com>
+
+	* flumotion/component/encoders/aac/aac.py:
 	* flumotion/component/encoders/aac/aac.xml:
 	Let the channels to be configurable so the caps negotiation doesn't
 	end always in a mono output

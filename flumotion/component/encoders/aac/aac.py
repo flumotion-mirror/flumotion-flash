@@ -37,7 +37,7 @@ class AACEncoder(feedcomponent.EncoderComponent):
         return "audioconvert ! %s " \
             "! audio/x-raw-int,rate=%d,channels=%d " \
             "! flumcaacenc header-type=%d name=encoder he=%d " \
-            "! audio/mpeg,rate=%d" % (resampler, channels, samplerate, ht, he, samplerate)
+            "! audio/mpeg,rate=%d" % (resampler, samplerate, channels, ht, he, samplerate)
 
     def configure_pipeline(self, pipeline, properties):
         self.debug('configure_pipeline')
