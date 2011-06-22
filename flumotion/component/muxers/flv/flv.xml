@@ -29,6 +29,8 @@
       <properties>
         <property name="square-pixels" type="bool" required="false"
 		  _description="Whether to force pixel aspect ratio to 1/1"/>
+		<property name="fluendo-muxer" type="string" required="false"
+		  _description="Whether to use the fluendo flv muxer or the one in gst-plugins-good. True by default"/>
       </properties>
     </component>
   </components>

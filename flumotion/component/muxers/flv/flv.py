@@ -17,12 +17,17 @@ import gobject
 from flumotion.component import feedcomponent
 from par_setter import FluParSetter
 
+
 class FLVMuxer(feedcomponent.MuxerComponent):
     checkOffset = True
 
     def get_muxer_string(self, properties):
         self.square_pixels = properties.get('square-pixels', False)
-        return 'fluflvmux broadcast=true name=muxer'
+        flu_muxer = properties.get('fluendo-muxer', True)
+        if flu_muxer:
+            return 'fluflvmux broadcast=true name=muxer'
+        else:
+            return 'flvmux streamable=true name=muxer'
 
     def get_link_pad(self, muxer, srcpad, caps):
         linkpad = muxer.get_compatible_pad(srcpad, caps)
