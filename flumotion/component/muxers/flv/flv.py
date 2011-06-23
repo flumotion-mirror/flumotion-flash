@@ -24,7 +24,7 @@ class FLVMuxer(feedcomponent.MuxerComponent):
     def get_muxer_string(self, properties):
         self.square_pixels = properties.get('square-pixels', False)
         flu_muxer = properties.get('fluendo-muxer', True)
-        if flu_muxer:
+        if flu_muxer == True:
             return 'fluflvmux broadcast=true name=muxer'
         else:
             return 'flvmux streamable=true name=muxer'

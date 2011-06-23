@@ -1,3 +1,9 @@
+2011-06-23  Xavier Francisco  <xfrancisco@flumotion.com>
+
+	* flumotion/component/muxers/flv/flv.py:
+	Add the possibility to select the fluendo muxer or the on in
+	gst-plugins-good
+
 2011-06-06  Xavier Queralt  <xqueralt@flumotion.com>
 
 	* flumotion/component/encoders/aac/aac.py:
