@@ -1,0 +1,705 @@
+2011-06-23  Xavier Francisco  <xfrancisco@flumotion.com>
+
+	* flumotion/component/muxers/flv/flv.py:
+	Add the possibility to select the fluendo muxer or the on in
+	gst-plugins-good
+
+2011-06-06  Xavier Queralt  <xqueralt@flumotion.com>
+
+	* flumotion/component/encoders/aac/aac.py:
+	Fix an error in last commit
+
+2011-06-06  Xavier Queralt  <xqueralt@flumotion.com>
+
+	* flumotion/component/encoders/aac/aac.py:
+	* flumotion/component/encoders/aac/aac.xml:
+	Let the channels to be configurable so the caps negotiation doesn't
+	end always in a mono output
+
+2010-10-06  Marc-André Lureau  <mlureau@flumotion.com>
+
+	reviewed by: Andoni Morales
+
+	* flumotion/component/encoders/aac/aac.py:
+	* flumotion/component/encoders/aac/aac.xml:
+        Add "high-efficiency-version" property.
+	(default to 2: high-efficienty v2, as before)
+
+2010-07-21  Xavier Queralt  <xqueralt@flumotion.com>
+
+	* flumotion/component/muxers/flv/flv.xml:
+	* flumotion/component/plugs/flashhttp/flashhttp.xml:
+	Change deprecated attribute 'description' by '_description' and add
+	some missing descriptions too
+
+2010-06-03  Julien Le Goff  <jlegoff@flumotion.com>
+
+	* flumotion/component/muxers/flv/Makefile.am:
+	Add par_setter to dist.
+
+2010-06-01  Julien Le Goff  <jlegoff@flumotion.com>
+
+	* flumotion/component/muxers/flv/flv.py:
+	Drop unnecessary gstreamer initialization.
+
+2010-06-01  Julien Le Goff  <jlegoff@flumotion.com>
+
+	reviewed by: Xavier Queralt  <xqueralt@flumotion.com> 
+
+	* flumotion/component/muxers/flv/flv.py:
+	* flumotion/component/muxers/flv/flv.xml:
+	* flumotion/component/muxers/flv/par_setter.py:
+	* flumotion/component/muxers/flv/par_setter.py (added):
+	Add a property to dynamically force the pixel aspect ratio to 1/1
+	in the flv muxer by modifying the width and height in the caps.
+
+2010-05-19  Xavier Queralt Mateu  <xqueralt@flumotion.com>
+
+	* flumotion-flash.spec.in:
+	Use the new @PACKAGE_VERSION_RELEASE@ for the release tag
+
+2010-05-19  Xavier Queralt Mateu  <xqueralt@flumotion.com>
+
+	reviewed by: jribas
+
+	* flumotion/component/encoders/aac/aac.py:
+	* flumotion/component/encoders/flv/flv.py:
+	* flumotion/component/encoders/mp3/mp3.py:
+	* flumotion/component/encoders/vp6/vp6.py:
+	* flumotion/component/muxers/flv/flv.py:
+	Reconfigurable encoders and muxers
+
+2010-01-21  Xavier Queralt Mateu  <xqueralt@flumotion.com>
+
+	* configure.ac:
+	Add muxers/aac/Makefile to configure.ac for generation
+	* flumotion/component/muxers/flv/Makefile.am:
+	Include the wizard_gtk.py file into dist
+
+2010-01-21  Xavier Queralt Mateu  <xqueralt@flumotion.com>
+
+	* flumotion/component/muxers/flv/flv.xml:
+	* flumotion/component/muxers/flv/wizard_gtk.py (added):
+	Add a check for the fluflvmuxer so it can be used from the conversion
+	Step (See pub:r8454)
+
+2010-01-21  Xavier Queralt Mateu <xqueralt@flumotion.com>
+
+	reviewed by: jribass
+
+	* flumotion/component/encoders/aac/aac.py:
+	* flumotion/component/encoders/aac/aac.xml:
+	* flumotion/component/encoders/aac/wizard_gtk.py:
+	* flumotion/component/muxers/Makefile.am:
+	* flumotion/component/muxers/aac (added):
+	* flumotion/component/muxers/aac/__init__.py (added):
+	* flumotion/component/muxers/aac/Makefile.am (added):
+	* flumotion/component/muxers/aac/aac.py (added):
+	* flumotion/component/muxers/aac/aac.xml (added):
+	New muxer to allow aac audio without a container. Enable ADTS headers
+	when AAC format is selected in conversion step.
+	Closes #6915
+
+2010-01-21  Josep Joan Ribas  <jribas@flumotion.com>
+
+	* flumotion/component/muxers/flv/flv.xml:
+	Change flv muxer description in wizard
+
+2009-11-04  Xavier Queralt  <xqueralt@flumotion.com>
+
+	* configure.ac:
+	Adapt to changes from pub:r8195
+
+2009-10-15  Xavier Queralt  <xqueralt@flumotion.com>
+
+	* flumotion/component/plugs/flashhttp/flashhttp.xml:
+	Improve the wizard description of flash player plug
+	* flumotion/component/plugs/flashhttp/flashhttp_wizard.py:
+	Update the flash-plug wizard entry to be compatible with the new plug
+	area introduced in r8183
+
+2009-08-25  Josep Joan Ribas  <jribas@flumotion.com>
+
+	* configure.ac:
+	Back to dev.
+
+=== release 0.5.2 ===
+
+2009-08-25  Josep Joan Ribas  <jribas@flumotion.com>
+
+	* configure.ac:
+	Releasing 0.5.2
+
+2009-08-19  Xavier Queralt  <xqueralt@flumotion.com>
+
+	* flumotion/component/plugs/flashhttp/flashhttp.py:
+	Map the root path to the index page by adding a new child instead of
+	checking it for each request. This way the parameters the url can have
+	are ignored and don't interfere.
+
+2009-05-12  Sebastien Merle  <sebastien@fluendo.com>
+
+	* flumotion/component/encoders/vp6/vp6.py:
+	Reverted the changed made for #2133.
+
+2009-04-24  Jan Urbanski  <jurbanski@flumotion.com>
+
+	* flumotion/component/encoders/aac/aac.py:
+	* flumotion/component/encoders/mp3/mp3.py:
+	Use legacyresample instead of audioresample.
+	Check if the machine has legacyresample. If not, fall back to
+	audioresample (which was not broken at the time legacyresample wasn't
+	around)
+
+2009-04-24  Jan Urbanski  <jurbanski@flumotion.com>
+
+	* flumotion-flash.spec.in:
+	Remove the twisted-python build requirement, requiring flumotion is
+	enough. See r18401.
+
+2009-04-23  Xavier Queralt Mateu  <xqueralt@flumotion.com>
+
+	* configure.ac:
+	Back to dev.
+
+
+=== release 0.5.1 ===
+
+2009-04-23  Xavier Queralt Mateu  <xqueralt@flumotion.com>
+	* configure.ac:
+	Releasing 0.5.1 and updating the requirements of flumotion to 0.5.4
+	* flumotion-flash.spec.in:
+	Updated the dependencies
+	* pkg/ubuntu-intrepid (added):
+	* pkg/ubuntu-intrepid/control (added):
+	* pkg/ubuntu-intrepid/changelog (added):
+	Add a new directory for ubuntu intrepid packages
+
+2009-03-30  Xavier Queralt Mateu  <xqueralt@flumotion.com>
+
+	reviewed by: sebastien
+
+	* flumotion-flash.spec.in:
+	Update requirement of flumotion to 0.5.3
+	* flumotion/component/encoders/mp3/mp3.py:
+	* flumotion/component/encoders/mp3/wizard_gtk.py:
+	Use fluendo's mp3 encoder when lame is not available.
+	Fixes #4054
+
+2009-03-23  Xavier Queralt Mateu  <xqueralt@flumotion.com>
+
+	* flumotion/component/encoders/aac/wizard_gtk.py:
+	Remove the informative message when the libstdc++5 check is done.
+	* flumotion/component/muxers/mp3/Makefile.am:
+	* flumotion/component/muxers/mp3/__init__.py:
+	* flumotion/component/muxers/mp3/mp3.py:
+	Apparently the new files added on the last commit had the same
+	content twice. Deleting these duplicated contents.
+
+2009-03-18  Xavier Queralt Mateu  <xqueralt@flumotion.com>
+
+	reviewed by: jlegoff
+
+	* configure.ac:
+	* flumotion/component/muxers/Makefile.am:
+	* flumotion/component/plugs/flashhttp/flashhttp.xml:
+	* flumotion/component/muxers/mp3 (added):
+	* flumotion/component/muxers/mp3/__init__.py (added):
+	* flumotion/component/muxers/mp3/mp3.py (added):
+	* flumotion/component/muxers/mp3/Makefile.am (added):
+	* flumotion/component/muxers/mp3/mp3.xml (added):
+	New muxer to allow mp3 audio without a container. It actually does
+	nothing to the stream and acts as an identity component.
+	Fixes #2074
+
+2009-02-19  Xavier Queralt Mateu  <xqueralt@flumotion.com>
+
+	* flumotion/component/encoders/mp3/wizard_gtk.py:
+	Increase the allowed range for the bitrate to 320 kbps.
+	Fixes #2874
+
+2009-02-11  Xavier Queralt Mateu  <xqueralt@flumotion.com>
+
+	reviewed by: jlegoff
+
+	* flumotion/component/encoders/aac/wizard_gtk.py:
+	Block the next step when the libstdc++5 is not installed on the
+	worker. Fixes #2075
+
+2009-02-11  Xavier Queralt Mateu  <xqueralt@flumotion.com>
+
+	* Makefile.am:
+	Include the rules to build rpm packages.
+	* flumotion-flash.spec.in:
+	Added a dependency to gstreamer-fluendo-mcaacenc
+	* flumotion/component/encoders/aac/aac.py:
+	* flumotion/component/encoders/aac/wizard_gtk.py:
+	* flumotion/component/encoders/flv/admin_gtk.py:
+	* flumotion/component/encoders/flv/flv.py:
+	* flumotion/component/encoders/mp3/mp3.py:
+	* flumotion/component/encoders/mp3/wizard_gtk.py:
+	* flumotion/component/encoders/vp6/vp6.py:
+	* flumotion/component/encoders/vp6/wizard_gtk.py:
+	* flumotion/component/muxers/flv/flv.py:
+	* flumotion/component/plugs/flashhttp/flashhttp.py:
+	* flumotion/component/plugs/flashhttp/flashhttp_wizard.py:
+	* flumotion/component/plugs/flashhttp/flashplayer_location.py.in:
+	* flumotion/component/plugs/flashhttp/workercheck.py:
+	Make flumotion-flash pep8 clean
+
+2009-02-03  Xavier Queralt Mateu  <xqueralt@flumotion.com>
+
+	* flumotion/component/encoders/vp6/wizard_gtk.py:
+	Convert the bitrate property of vp6 to bps according the error
+	explained on the previous change.
+
+2009-02-03  Sebastien Merle  <sebastien@fluendo.com>
+
+	* flumotion/component/encoders/vp6/vp6.py:
+	Fixed a bitrate unit. It was supposed to be in bps
+	but really was kbps due to a change in the underlying
+	gstreamer encoder (were using pitfdll and now fluvp6enc).
+
+2009-01-29  Xavier Queralt Mateu  <xqueralt@flumotion.com>
+
+	* flumotion/component/plugs/flashhttp/flashhttp.xml:
+	* flumotion/component/plugs/flashhttp/flashhttp_wizard.py:
+	Updated some imports to agree with the real modules under admin.
+
+2008-09-09  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion/component/encoders/vp6/vp6.py:
+	  Set properties based on Julien's recommendations.  See #2133.
+
+2008-08-26  Johan Dahlin  <johan@flumotion.com>
+
+	* flumotion/component/plugs/flashhttp/flashhttp_wizard.py
+	(FlashHTTPServer.getProperties): If the streamer has a hostname
+	set, reuse that in the server.
+
+2008-08-18  Johan Dahlin  <johan@flumotion.com>
+
+	* flumotion/component/encoders/aac/aac.py:
+	* flumotion/component/encoders/aac/wizard_gtk.py:
+	* flumotion/component/encoders/mp3/wizard_gtk.py:
+	* flumotion/component/encoders/vp6/wizard_gtk.py:
+	Port to the latest wizard changes.
+
+2008-08-08  Johan Dahlin  <johan@flumotion.com>
+
+	* flumotion/component/encoders/vp6/flv*:
+	Remove old files.
+	* flumotion/component/encoders/vp6/vp6.xml:
+	Add vp6-component which contains an __init__.py a vp6.py
+
+2008-08-01  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion/component/encoders/flv/Makefile.am:
+	  Fix admin_gtk.py
+	* flumotion/component/encoders/aac/aac.py:
+	* flumotion/component/encoders/mp3/mp3.py:
+	  Change rate property name to samplerate.
+	* flumotion/component/encoders/aac/wizard_gtk.py:
+	* flumotion/component/encoders/mp3/wizard_gtk.py:
+	* flumotion/component/encoders/vp6/wizard_gtk.py:
+	  Add pychecker suppressions for our widget magic.
+
+2008-08-01  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion/component/encoders/aac/aac.xml:
+	* flumotion/component/encoders/flv/flv.xml:
+	* flumotion/component/encoders/mp3/mp3.xml:
+	* flumotion/component/encoders/vp6/vp6.xml:
+	* flumotion/component/muxers/flv/flv.xml:
+	  Fix _description everywhere.
+
+2008-08-01  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion/component/encoders/flv/admin_gtk.py (added):
+	* flumotion/component/encoders/flv/flv_wizard.py (deleted):
+	  Rename.
+
+2008-07-31  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* configure.ac:
+	  Bump to 0.5.0.1
+
+2008-07-31  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion/component/encoders/vp6/Makefile.am:
+	* flumotion/component/encoders/vp6/wizard_gtk.py (added):
+	* flumotion/component/encoders/vp6/admin_gtk.py (deleted):
+	* flumotion/component/encoders/vp6/flv_wizard.py (deleted):
+	  Further moving and fixing, pass distcheck again.
+
+2008-07-31  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion/component/encoders/flv/flv.xml:
+	* flumotion/component/encoders/flv/vp6.py (deleted):
+	* flumotion/component/encoders/flv/vp6_wizard.py (deleted):
+	* flumotion/component/encoders/flv/vp6-wizard.glade (deleted):
+	  Further splitting/cutting/renaming
+
+2008-07-31  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion/component/encoders/vp6/vp6.xml:
+	* flumotion/component/encoders/vp6/admin_gtk.py (added):
+	* flumotion/component/encoders/vp6/vp6.xml (added):
+	* flumotion/component/encoders/vp6/vp6_wizard.py (deleted):
+	* flumotion/component/encoders/vp6/flv.xml (deleted):
+	  Further splitting/cutting/renaming
+
+2008-07-31  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* configure.ac:
+	* flumotion/component/encoders/Makefile.am:
+	* flumotion/component/encoders/flv/Makefile.am:
+	* flumotion/component/encoders/vp6/Makefile.am:
+	* flumotion/component/encoders/vp6 (added):
+	  First pass at splitting off vp6 from flv dir.
+
+2008-07-31  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion/component/encoders/aac/Makefile.am:
+	* flumotion/component/encoders/aac/aac.xml:
+	* flumotion/component/encoders/mp3/Makefile.am:
+	* flumotion/component/encoders/mp3/mp3.xml:
+	* flumotion/component/encoders/mp3/wizard_gtk.py (added):
+	* flumotion/component/encoders/aac/wizard_gtk.py (added):
+	* flumotion/component/encoders/mp3/mp3_wizard.py (deleted):
+	* flumotion/component/encoders/aac/aac_wizard.py (deleted):
+	  rename to wizard_gtk.py
+
+2008-07-31  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion/component/encoders/aac/aac_wizard.py:
+	  Fix title and translation.
+
+2008-07-31  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion-flash.spec.in:
+	  Add requirements.
+
+2008-07-31  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion/component/encoders/mp3/mp3.py:
+	  Check for lame element.
+
+2008-07-31  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion/component/encoders/flv/flv_wizard.py:
+	* flumotion/component/encoders/flv/vp6_wizard.py:
+	* flumotion/component/encoders/mp3/mp3_wizard.py:
+	  Fix title and translation.
+
+2008-07-18  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* Makefile.am:
+	* configure.ac:
+	* flumotion/test/Makefile.am:
+	* env.in (added):
+	* env (deleted):
+	  Generate.
+
+2008-07-02  Johan Dahlin  <johan@flumotion.com>
+
+	* flumotion/component/encoders/aac/aac_wizard.py:
+	* flumotion/component/encoders/mp3/mp3_wizard.py:
+	Do not add a warning, requireElement is already
+	adding an error.
+
+2008-06-29  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion/component/encoders/flv/vp6-wizard.glade:
+	  Add the unit.
+
+2008-06-27  Julien Moutte  <julien@fluendo.com>
+
+	* flumotion/component/encoders/aac/aac.py: AAC+ v1 and v2 are
+	supported by the Flash Player, let's use v2 right away in the
+	component.
+
+2008-06-14  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion/component/encoders/aac/aac.py:
+	  Also remove imports for i18n since the message is gone.
+
+2008-06-14  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion/component/encoders/aac/aac.py:
+	  Remove backwards compatibility code as there is nothing to
+	  be backwards-compatible with.
+	* flumotion/component/encoders/aac/aac_wizard.py:
+	  Simple cleanups.
+
+2008-06-13  Julien Moutte  <julien@fluendo.com>
+
+	* Makefile.am:
+	* configure.ac:
+	* flumotion/component/encoders/Makefile.am:
+	* flumotion/component/encoders/aac/Makefile.am:
+	* flumotion/component/encoders/aac/__init__.py:
+	* flumotion/component/encoders/aac/aac.py:
+	* flumotion/component/encoders/aac/aac.xml:
+	* flumotion/component/encoders/aac/aac_wizard.py:
+	* flumotion/component/muxers/flv/flv.xml:
+	* flumotion/component/plugs/flashhttp/flashhttp.xml: Initial 
+	import of AAC encoder component.
+
+2008-06-04  Johan Dahlin  <johan@flumotion.com>
+
+	* flumotion/component/encoders/flv/vp6.py:
+	* flumotion/component/encoders/mp3/mp3.py:
+	* flumotion/component/encoders/mp3/mp3_wizard.py:
+	Update to the lastest flumotion import changes
+
+2008-05-08  Johan Dahlin  <johan@flumotion.com>
+
+	* flumotion/component/encoders/flv/flv_wizard.py:
+	* flumotion/component/encoders/flv/vp6_wizard.py:
+	* flumotion/component/encoders/mp3/mp3_wizard.py:
+	glade_file -> gladeFile and section_name -> sectionName
+
+2008-05-07  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion/component/encoders/mp3/mp3.xml:
+	  describe property
+
+2008-05-06  Johan Dahlin  <johan@flumotion.com>
+
+	* flumotion/component/encoders/flv/flv_wizard.py:
+	* flumotion/component/encoders/mp3/mp3_wizard.py:
+	* flumotion/component/plugs/flashhttp/flashhttp_wizard.py:
+	Update to latest wizard API
+
+2008-04-18  Johan Dahlin  <johan@flumotion.com>
+
+	* flumotion/component/encoders/mp3/mp3_wizard.py
+	(MP3Step.worker_changed.checkElements): Add a message and check for 
+	lame as well
+	here.
+
+2008-04-18  Johan Dahlin  <johan@flumotion.com>
+
+	* flumotion/component/plugs/flashhttp/flashhttp_wizard.py:
+	Now when #923 is fixed, do the same here, reuse the hostname from
+	the streamer
+
+2008-04-17  Johan Dahlin  <johan@flumotion.com>
+
+	* Makefile.am:
+	* autoregen.sh:
+	* pkg/debian-common/rules:
+	* pkg/ubuntu-gutsy/changelog:
+	* pkg/ubuntu-gutsy/control:
+	Add initial ubuntu gutsy package
+
+	* flumotion/component/plugs/flashhttp/Makefile.am:
+	Install in the right location plugs/flashhttp instead of
+	misc/flashhttpplug
+
+2008-04-03  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion/component/encoders/flv/flv-wizard.glade:
+	  Add kbit/s in the UI.
+
+2008-03-06  Johan Dahlin  <johan@flumotion.com>
+
+	* flumotion/component/encoders/flv/flv_wizard.py:
+	* flumotion/component/encoders/flv/vp6_wizard.py:
+	* flumotion/component/plugs/flashhttp/flashhttp_wizard.py:
+	Mark the wizard plugins with interfaces.
+	Add a docstring,
+	remove GPL header.
+
+2008-02-29  Johan Dahlin  <johan@flumotion.com>
+
+	* flumotion/component/encoders/flv/vp6_wizard.py:
+	The steps should not be called windows media!
+
+2008-02-25  Johan Dahlin  <johan@flumotion.com>
+
+	* configure.ac:
+	* flumotion/component/plugs/flashhttp/Makefile.am:
+	* flumotion/component/plugs/flashhttp/flashhttp.py:
+	* flumotion/component/plugs/flashhttp/flashhttp.xml:
+	* flumotion/component/plugs/flashhttp/flashhttp_wizard.py:
+	* flumotion/component/plugs/flashhttp/flashplayer_location.py.in:
+	* flumotion/component/plugs/flashhttp/workercheck.py:
+	Do not require flumotion-flash-player at configure time.
+	Instead check for it at runtime.
+
+2008-02-25  Johan Dahlin  <johan@flumotion.com>
+
+	* flumotion/component/plugs/flashhttp/flashhttp_wizard.py:
+	Remove the now unused socket class attribute.
+
+2008-02-22  Johan Dahlin  <johan@flumotion.com>
+
+	* flumotion/component/plugs/flashhttp/Makefile.am:
+	* flumotion/component/plugs/flashhttp/flashhttp.py:
+	* flumotion/component/plugs/flashhttp/flashhttp.xml:
+	* flumotion/component/plugs/flashhttp/flashhttp_wizard.py:
+	Add a proper flumotion http consumer wizard plugin
+
+2008-02-12  Johan Dahlin  <johan@flumotion.com>
+
+	* flumotion/component/muxers/flv/flv.xml: Add
+	a provided-format.
+
+2008-02-08  Johan Dahlin  <johan@flumotion.com>
+
+	* configure.ac:
+	* flumotion/component/Makefile.am:
+	* flumotion/component/encoders/flv/flv.xml:
+	* flumotion/component/plugs/Makefile.am:
+	* flumotion/component/plugs/__init__.py:
+	* flumotion/component/plugs/flashhttp/Makefile.am:
+	* flumotion/component/plugs/flashhttp/__init__.py:
+	* flumotion/component/plugs/flashhttp/flashhttp.py:
+	* flumotion/component/plugs/flashhttp/flashhttp.xml:
+	* flumotion/component/plugs/flashhttp/flashplayer.html.template:
+	* flumotion/component/plugs/flashhttp/flashplayer_location.py.in:
+	* flumotion/component/plugs/flashhttp/fluflashembed.js:
+	Add a dependency of flumotion-flash-player.
+	Disable flv video encoder in the wizard, only support vp6 for now.
+	Add a flashhttp plug with a js/html/m3u and flash file served.
+	Work in progress, is not quite working yet.
+
+2008-01-30  Johan Dahlin  <johan@flumotion.com>
+
+	* flumotion/component/encoders/flv/flv_wizard.py:
+	* flumotion/component/encoders/flv/vp6_wizard.py:
+	* flumotion/component/encoders/mp3/mp3_wizard.py:
+	Update to new wizard API
+
+2008-01-29  Johan Dahlin  <johan@flumotion.com>
+
+	* flumotion/component/encoders/flv/Makefile.am:
+	* flumotion/component/encoders/flv/flv-wizard.glade:
+	* flumotion/component/encoders/flv/flv.xml:
+	* flumotion/component/encoders/flv/flv_wizard.py:
+	* flumotion/component/encoders/flv/vp6-wizard.glade:
+	* flumotion/component/encoders/flv/vp6.py:
+	* flumotion/component/encoders/flv/vp6_wizard.py:
+	* flumotion/component/encoders/mp3/Makefile.am:
+	* flumotion/component/encoders/mp3/mp3.xml:
+	* flumotion/component/encoders/mp3/mp3_wizard.py:
+	* flumotion/component/muxers/flv/flv.xml:
+
+	Add initial flv, mp3 and vp6 encoders and flx muxer wizard support
+
+2007-12-18  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion/test/Makefile.am:
+	  Set TRIAL_ENV to make testsuite work again.
+
+2007-12-18  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion/component/encoders/mp3/mp3.py:
+	  Also specify sample rate on the src pad of lame; we don't want
+	  lame to resample for us, it's annoying when we want to respect
+	  the allowed Flash sample rates.
+
+2007-10-03  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion/component/encoders/mp3/mp3.py:
+	  Bitrate should be specified in bit/sec.
+	  Add a warning message if it is specified wrongly so admins
+	  can fix their config, but still accept it for now.
+
+2007-04-03  Julien MOUTTE  <julien@moutte.net>
+
+	* flumotion/component/encoders/flv/flv.py: Stupid me !
+	Fix Flash 7.
+
+2007-04-03  Julien MOUTTE  <julien@moutte.net>
+
+	* flumotion/component/encoders/flv/vp6.py: We need to chain
+	up in do_setup. Thanks Mike ;-)
+
+2007-04-03  Julien MOUTTE  <julien@moutte.net>
+
+	* flumotion/component/encoders/flv/flv.xml: Rename the property
+	to please thomasvs.
+	* flumotion/component/encoders/flv/vp6.py: Check for the 
+	encoder state configuration file in do_setup.
+
+2007-04-03  Julien MOUTTE  <julien@moutte.net>
+
+	* flumotion/component/encoders/flv/Makefile.am:
+	* flumotion/component/encoders/flv/flv.py:
+	* flumotion/component/encoders/flv/flv.xml:
+	* flumotion/component/encoders/flv/vp6.py: Add a VP6 encoder
+	component.
+
+2007-03-14  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion/component/encoders/mp3/mp3.py:
+	  We verified that lame and mp3parse handle timestamp disconts,
+	  and we fixed audioresample to handle them, and we tested
+	  with dropping repeaters that stuff stays in sync.
+	  So we remove audiorate again.
+
+2007-03-13  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion/component/encoders/flv/flv.py:
+	* flumotion/component/encoders/mp3/mp3.py:
+	* flumotion/component/muxers/flv/flv.py:
+	  check timestamps/offsets
+
+2007-02-19  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* flumotion/component/encoders/mp3/mp3.py:
+	  Remove unneeded if statement.
+	  Add audiorate, to compensate for lame's inability to deal with
+	  dropped audio frames until lame gets fixed.
+	  Tested with flumotion-launch audiotest-producer ! mp3-encoder !
+	  flv-muxer ! disk-consumer directory=. rotate-type=none
+	  to verify that it negotiates correctly.
+
+2007-02-09  Michael Smith  <msmith@fluendo.com>
+
+	* Makefile.am:
+	* env:
+	  Added new required file
+
+	* flumotion/test/setup.py:
+	  Removed generated file from svn
+
+=== release 0.4.0 ===
+
+2007-02-09  Michael Smith  <msmith@fluendo.com>
+
+	* configure.ac:
+	  Release 0.4.0
+
+2007-02-07  Michael Smith  <msmith@fluendo.com>
+
+	* flumotion/test/Makefile.am:
+	* misc/Makefile.am:
+	  Cargo-cult some more autotools magic to make setup.py work right.
+
+=== release 0.2.0 ===
+
+2007-02-06  Michael Smith  <msmith@fluendo.com>
+
+	* flumotion/component/muxers/flv/flv.py:
+	  Change FLV muxer to use MultiInputParseLaunchComponent, so this
+	  isn't deadlock-prone.
+
+2007-01-05  Julien MOUTTE  <julien@moutte.net>
+
+	* flumotion-flash.spec.in: Remove noarch from spec.
+
+2006-12-30  Julien MOUTTE  <julien@moutte.net>
+
+	* flumotion/component/encoders/mp3/mp3.py:
+	* flumotion/component/encoders/mp3/mp3.xml: Add an audiorate
+	property.
+
+2006-12-29  Julien MOUTTE  <julien@moutte.net>
+
+	* flumotion/component/muxers/flv/flv.xml: Components have to
+	have unique names...
+
