@@ -12,7 +12,7 @@ SUBDIRS = flumotion common misc
 
 EXTRA_DIST = \
 	env.in \
-	LICENSE.Flumotion \
+	LICENSE.LGPL \
 	flumotion-flash.spec
 
 PYCHECKER_WHITELIST = flumotion/component/*/*/*.py
