@@ -1,16 +1,19 @@
-AC_INIT(flumotion-flash, 0.5.2.1,
-   https://code.area51.fluendo.com/private/trac/newticket?component=flumotion-flash,
-   flumotion-flash)
+AC_INIT(flumotion-flash, m4_esyscmd([ test -z "$VERSION" && VERSION=0.10.0;
+                         common/version-gen $VERSION .tarball-version]),
+   [flumotion-devel@lists.fluendo.com],
+   [flumotion-flash], [http://www.flumotion.net/])
+
 
 AM_INIT_AUTOMAKE([-Wno-portability])
 
 AS_VERSION
+AC_SUBST(PACKAGE_VERSION_SPEC, `echo $VERSION | tr '-' '_'`)
 AS_NANO
 
 AC_SUBST_FILE(AUTHORS)
 AUTHORS=$srcdir/AUTHORS
 
-AC_SUBST(FLU_REQ, 0.5.4)
+AC_SUBST(FLU_REQ, 0.10.0)
 GST_010_SUPPORTED=yes
 AC_SUBST(GST_010_SUPPORTED)
 
@@ -114,3 +117,11 @@ flumotion/project/Makefile
 flumotion/project/flash.py
 flumotion-flash.spec
 )
+
+echo
+echo "    $PACKAGE_STRING ($PACKAGE_VERSION_RELEASE)"
+echo
+echo "    pychecker:              $PYCHECKER"
+echo "    epydoc:                 $EPYDOC"
+echo
+echo "Now type \"make\" to build flumotion"

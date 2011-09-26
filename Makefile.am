@@ -12,6 +12,8 @@ SUBDIRS = flumotion common misc
 
 EXTRA_DIST = \
 	env.in \
+        .version \
+        RELEASE \
 	LICENSE.LGPL \
 	flumotion-flash.spec
 
@@ -23,5 +25,9 @@ COVERAGE_MODULES = \
 	flumotion.component.encoders.mp3 \
 	flumotion.component.encoders.aac \
 	flumotion.component.encoders.flv
+
+BUILT_SOURCES = $(top_srcdir)/.version
+$(top_srcdir)/.version:
+	echo $(VERSION) > $@-t && mv $@-t $@
 
 dist: changelog

@@ -1,0 +1,59 @@
+Release notes for Flumotion Flash 0.10.0 "Yamazaki Single Malt"
+
+The Flumotion team announces
+a new release of the stable 0.10 branch
+of the Flumotion components for Flash Video Format.
+
+Overview
+
+This module contains a set of flumotion components to stream in Flash
+Video Format.
+
+  * h264-encoder: Encodes a raw video feed using H264 codec
+  * vp6-encoder: Encodes a raw video feed using On2 TrueMotion's VP6 codec
+  * flv-encoder: Encodes a raw video feed using Sorenson Spark / H.263 cidec
+  * mp3-encoder: An audio encoder that encodes to MP3
+  * acc-encoder: An audio encoder that encodes to AAC
+  * flv-muxer:  Muxes encode feeds into an FLV feed
+
+These components require Fluendo's gstreamer codec plugins.
+
+Download
+
+You can find source releases of flumotion in the download directory:
+http://flumotion.net/src/flumotion-flash/
+
+You can also find deb packages for lucid in our ppa:
+https://launchpad.net/~flumotion-dev
+
+Flumotion Homepage
+
+More details can be found on the project's website: http://flumotion.net/
+
+Support and Bugs
+
+We use an issue tracker for bug reports and feature requests (requires login):
+https://code.fluendo.com/flumotion/trac/newticket
+
+Developers
+
+You can browse the repository of SVN code from our tracker.
+
+All code is in git and can be checked out from there.
+https://code.flumotion.com/cgit/flumotion-flash/
+
+
+Contributors to this release
+
+      * Andoni Morales Alastruey
+      * Johan Dahlin
+      * Josep Joan Ribas
+      * Julien Le Goff
+      * Julien Moutte
+      * Marc-André Lureau
+      * Michael Smith
+      * Pedro Gracia
+      * Sebastien Merle
+      * Thomas Vander Stichele
+      * Xavier Francisco
+      * Xavier Queralt
