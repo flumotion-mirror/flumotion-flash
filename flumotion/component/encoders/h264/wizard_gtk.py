@@ -38,6 +38,7 @@ class H264VideoEncoder(VideoEncoder):
 
     def getProperties(self):
         properties = super(H264VideoEncoder, self).getProperties()
+        properties.bitrate *= 1000
         return properties
 
 
