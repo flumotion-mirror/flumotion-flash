@@ -77,7 +77,7 @@ class H264Encoder(feedcomponent.ParseLaunchComponent):
             element.set_property(prop, value)
 
         if prop == 'byte-stream':
-            if value == True:
+            if value is True:
                 self.debug("Setting byte-stream format")
                 element.set_property('es', 1)
 
@@ -109,7 +109,7 @@ class H264Encoder(feedcomponent.ParseLaunchComponent):
                 #FIXME: Supposing we have a PAL input with 25fps
                 element.set_property('max-keyframe-distance', 75)
 
-        if prop == 'sync-on-offset' and value == True:
+        if prop == 'sync-on-offset' and value is True:
             self._synced = False
             self._tsToOffset = {}
             sp = element.get_pad("sink")
@@ -124,9 +124,10 @@ class H264Encoder(feedcomponent.ParseLaunchComponent):
             self._tsToOffset[buffer.timestamp] = buffer.offset
             return True
         elif offset == gst.BUFFER_OFFSET_NONE:
-            m = message.Warning(T_(N_(
+            m = messages.Warning(T_(N_(
                 "Can't sync on keyframes, the input source does not write the"
                 " buffer offset.")))
+            self.addMessage(m)
             pad.remove_buffer_probe(self._sinkID)
             pad.get_peer().remove_buffer_probe(self._srcID)
             return True
@@ -139,7 +140,7 @@ class H264Encoder(feedcomponent.ParseLaunchComponent):
 
         return False
 
-    def _srcPadProbe(self, pad, buffer):
+    def _srcPadProbe(self, _, buffer):
         buffer.offset = self._tsToOffset.pop(buffer.timestamp)
         # HACK: Use OFFSET_END to write the keyframes' offset
         buffer.offset_end = (buffer.offset - 1) / self._kfDistance
