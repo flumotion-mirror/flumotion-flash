@@ -3,6 +3,7 @@ include $(top_srcdir)/common/python.mk
 SUBDIRS = \
 	aac \
 	flv \
+	h264 \
 	mp3 \
 	vp6
 

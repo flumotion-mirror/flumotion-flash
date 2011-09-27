@@ -36,8 +36,6 @@ AS_PATH_PYTHON(2.3)
 dnl useful when we compile our own python modules
 dnl AM_CHECK_PYTHON_HEADERS(,[AC_MSG_ERROR(could not find Python headers)])
 
-export PYTHONPATH=$PYGTK_DIR:$PYTHONPATH
-
 dnl check for epydoc
 AC_CHECK_PROG(EPYDOC, epydoc, yes, no)
 AM_CONDITIONAL(HAVE_EPYDOC, test "x$EPYDOC" = "xyes")
@@ -102,6 +100,7 @@ flumotion/component/Makefile
 flumotion/component/encoders/Makefile
 flumotion/component/encoders/aac/Makefile
 flumotion/component/encoders/mp3/Makefile
+flumotion/component/encoders/h264/Makefile
 flumotion/component/encoders/flv/Makefile
 flumotion/component/encoders/vp6/Makefile
 flumotion/component/muxers/Makefile
