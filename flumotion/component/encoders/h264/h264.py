@@ -79,6 +79,8 @@ class H264Encoder(feedcomponent.EncoderComponent):
                 'sync-on-offset')
         for p in props:
             self._set_property(p, properties.get(p), element)
+        # Default to a maximum of 4 threads
+        self._set_property('threads', properties.get('threads', 4), element)
         # for max-bitrate use in this order: 'max-bitrate', 'bitrate' or None
         self._set_property('max-bitrate',
             properties.get('max-bitrate', properties.get('bitrate', None)),

@@ -38,6 +38,8 @@
                   _description="Output H264 byte-stream format (default:false)"/>
         <property name="bitrate-mode" type="string"
                   _description="Bitrate mode (default:cbr)" />
+        <property name="threads" type="int"
+                  _description="Maximum number of threads used by the encoder (default: 4)" />
       </properties>
 
     </component>
