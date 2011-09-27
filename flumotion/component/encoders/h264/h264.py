@@ -87,6 +87,6 @@ class H264Encoder(feedcomponent.ParseLaunchComponent):
             # seconds and the GStreamer component doesn't set it. For live
             # we want to have at least on keyframe each 3 seconds
             # See priv#7131
-            if value in ['flash_low', 'flash_high']:
+            if value in [23, 24]:
                 #FIXME: Supposing we have a PAL input with 25fps
                 element.set_property('max-keyframe-distance', 75)
