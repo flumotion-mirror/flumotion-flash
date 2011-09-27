@@ -36,7 +36,7 @@ class H264Encoder(feedcomponent.EncoderComponent):
     bitrate_mode = ['cbr', 'cqt', 'vbr']
 
     def get_pipeline_string(self, properties):
-        return "ffmpegcolorspace ! flumch264enc name=encoder"
+        return "ffmpegcolorspace ! flumch264enc max-keyframe-distance=125 name=encoder"
 
     def configure_pipeline(self, pipeline, properties):
         self.debug('configure_pipeline')
