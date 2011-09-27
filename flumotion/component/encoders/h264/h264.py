@@ -38,11 +38,6 @@ class H264Encoder(feedcomponent.ParseLaunchComponent):
     def configure_pipeline(self, pipeline, properties):
         self.debug('configure_pipeline')
         element = pipeline.get_by_name('encoder')
-        # The properties' order must be respected because some profiles
-        # might need to overwrite the keyframe-distance.
-        props = ('bitrate', 'byte-stream', 'keyframe-distance')
-        for p in props:
-            self._set_property(p, properties.get(p), element)
         #FIXME: Default profile should be 'base' but we use 'flash_high'
         profile = properties.get('profile')
         if profile is None:
@@ -52,10 +47,10 @@ class H264Encoder(feedcomponent.ParseLaunchComponent):
             self.addMessage(m)
             profile = 'flash_high'
         self._set_property('profile', profile, element)
-
-    def _set_keyframe_distance_property(self, value, element):
-        for p in ['max-keyframe-distance', 'min-keyframe-distance']:
-                element.set_property(p, value)
+        props = ('bitrate', 'byte-stream', 'max-keyframe-distance',
+                'min-keyframe-distance')
+        for p in props:
+            self._set_property(p, properties.get(p), element)
 
     def _set_property(self, prop, value, element):
         if value is None:
@@ -68,7 +63,7 @@ class H264Encoder(feedcomponent.ParseLaunchComponent):
             if value == True:
                 self.debug("Setting byte-stream format")
                 element.set_property('es', 1)
-        if prop == 'keyframe-distance':
+        if prop in ('max-keyframe-distance', 'min-keyframe-distance'):
             if gstreamer.get_plugin_version('flumch264enc') <= (0, 10, 5, 0):
                 m = messages.Warning(
                     T_(N_("Versions up to and including %s of the '%s' "
@@ -76,11 +71,8 @@ class H264Encoder(feedcomponent.ParseLaunchComponent):
                         '0.10.5', 'flumch264enc'))
                 self.addMessage(m)
                 return
-            if value == 0:
-                self.debug("Using automatic keyframe-distance")
-                return
-            self.debug("Setting keyframe-distance to %s", value)
-            self._set_keyframe_distance_property(value, element)
+            self.debug("Setting %s to %s", prop, value)
+            element.set_property(prop, value)
         if prop == 'profile':
             if value not in self.profiles:
                 m = messages.Error(T_(N_(
@@ -92,8 +84,9 @@ class H264Encoder(feedcomponent.ParseLaunchComponent):
             value = self.profiles[value]
             element.set_property(prop, value)
             # Adobe recommends using a keyframe distance equivalent to 10
-            # seconds and the GStreamer component doesn't set it.
+            # seconds and the GStreamer component doesn't set it. For live
+            # we want to have at least on keyframe each 3 seconds
             # See priv#7131
             if value in ['flash_low', 'flash_high']:
                 #FIXME: Supposing we have a PAL input with 25fps
-                element.set_property('max-keyframe-distance', 250)
+                element.set_property('max-keyframe-distance', 75)

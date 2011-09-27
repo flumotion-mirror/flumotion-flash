@@ -24,8 +24,10 @@
       <properties>
         <property name="bitrate" type="int"
                   _description="Bitrate to encode at (in bps)" />
-        <property name="keyframe-distance" type="int"
-                  _description="Distance between keyframes in number of frames" />
+        <property name="max-keyframe-distance" type="int"
+                  _description="Maximum distance between keyframes in number of frames" />
+        <property name="min-keyframe-distance" type="int"
+                  _description="Minimum distance between keyframes in number of frames" />
         <property name="profile" type="string"
                   _description="Encoder configuration profile (default:base)"/>
         <property name="byte-stream" type="bool"
