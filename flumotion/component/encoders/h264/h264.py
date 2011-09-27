@@ -23,7 +23,7 @@ from flumotion.common.i18n import N_, gettexter
 
 T_ = gettexter()
 
-class H264Encoder(feedcomponent.ParseLaunchComponent):
+class H264Encoder(feedcomponent.EncoderComponent):
     checkTimestamp = True
     checkOffset = True
 
