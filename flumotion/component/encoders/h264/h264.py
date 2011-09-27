@@ -15,6 +15,8 @@
 #
 # Headers in this file shall remain intact.
 
+import gst
+
 from flumotion.common import gstreamer, messages, errors
 from flumotion.component import feedcomponent
 from flumotion.common.i18n import N_, gettexter
@@ -37,6 +39,7 @@ class H264Encoder(feedcomponent.ParseLaunchComponent):
     def configure_pipeline(self, pipeline, properties):
         self.debug('configure_pipeline')
         element = pipeline.get_by_name('encoder')
+
         #FIXME: Default profile should be 'base' but we use 'flash_high'
         profile = properties.get('profile')
         if profile is None:
@@ -46,8 +49,21 @@ class H264Encoder(feedcomponent.ParseLaunchComponent):
             self.addMessage(m)
             profile = 'flash_high'
         self._set_property('profile', profile, element)
+
+        maxKFDistance = properties.get('max-keyframe-distance')
+        minKFDistance = properties.get('min-keyframe-distance')
+        self._kfDistance = 0
+        if maxKFDistance == minKFDistance:
+            self._kfDistance = maxKFDistance
+        if properties.get('sync-on-offset', False) and self._kfDistance == 0:
+            m = messages.Error(T_(N_(
+                "The sync-on-offset property can only be set if "
+                "max-keyframe-distance and "
+                "min-keyframe-distance both set with the same value.")))
+            self.addMessage(m)
+
         props = ('bitrate', 'byte-stream', 'max-keyframe-distance',
-                'min-keyframe-distance')
+                'min-keyframe-distance', 'sync-on-offset')
         for p in props:
             self._set_property(p, properties.get(p), element)
 
@@ -55,13 +71,16 @@ class H264Encoder(feedcomponent.ParseLaunchComponent):
         if value is None:
             self.debug('No %s set, using default value', prop)
             return
+
         if prop == 'bitrate':
             self.debug("Setting bitrate to %s", value)
             element.set_property(prop, value)
+
         if prop == 'byte-stream':
             if value == True:
                 self.debug("Setting byte-stream format")
                 element.set_property('es', 1)
+
         if prop in ('max-keyframe-distance', 'min-keyframe-distance'):
             if gstreamer.get_plugin_version('flumch264enc') <= (0, 10, 5, 0):
                 m = messages.Warning(
@@ -72,6 +91,7 @@ class H264Encoder(feedcomponent.ParseLaunchComponent):
                 return
             self.debug("Setting %s to %s", prop, value)
             element.set_property(prop, value)
+
         if prop == 'profile':
             if value not in self.profiles:
                 m = messages.Error(T_(N_(
@@ -88,3 +108,39 @@ class H264Encoder(feedcomponent.ParseLaunchComponent):
             if value in ['flash_high', 'flash_low']:
                 #FIXME: Supposing we have a PAL input with 25fps
                 element.set_property('max-keyframe-distance', 75)
+
+        if prop == 'sync-on-offset' and value == True:
+            self._synced = False
+            self._tsToOffset = {}
+            sp = element.get_pad("sink")
+            self._sinkID = sp.add_buffer_probe(self._sinkPadProbe)
+            sp = element.get_pad("src")
+            self._srcID = sp.add_buffer_probe(self._srcPadProbe)
+
+    def _sinkPadProbe(self, pad, buffer):
+        offset = buffer.offset
+
+        if self._synced:
+            self._tsToOffset[buffer.timestamp] = buffer.offset
+            return True
+        elif offset == gst.BUFFER_OFFSET_NONE:
+            m = message.Warning(T_(N_(
+                "Can't sync on keyframes, the input source does not write the"
+                " buffer offset.")))
+            pad.remove_buffer_probe(self._sinkID)
+            pad.get_peer().remove_buffer_probe(self._srcID)
+            return True
+        # Offset start at 1
+        elif not self._synced and (offset - 1) % self._kfDistance == 0:
+            self.info("Syncing encoder with frame:%s" % offset)
+            self._synced = True
+            self._tsToOffset[buffer.timestamp] = buffer.offset
+            return True
+
+        return False
+
+    def _srcPadProbe(self, pad, buffer):
+        buffer.offset = self._tsToOffset.pop(buffer.timestamp)
+        # HACK: Use OFFSET_END to write the keyframes' offset
+        buffer.offset_end = (buffer.offset - 1) / self._kfDistance
+        return True

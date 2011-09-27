@@ -28,6 +28,8 @@
                   _description="Maximum distance between keyframes in number of frames" />
         <property name="min-keyframe-distance" type="int"
                   _description="Minimum distance between keyframes in number of frames" />
+        <property name="sync-on-offset" type="bool"
+                  _description="Sync the encoder to start encoding with the first frame multiple of the keyframe distance" />
         <property name="profile" type="string"
                   _description="Encoder configuration profile (default:base)"/>
         <property name="byte-stream" type="bool"
