@@ -82,7 +82,9 @@ class H264Encoder(feedcomponent.ParseLaunchComponent):
             self.debug("Setting h264 '%s' profile", value)
             value = self.profiles[value]
             element.set_property(prop, value)
-            # Adobe recommends using a keyframe distance of 300 frames
-            # and the GStreamer component doesn't change it. See priv#7131
+            # Adobe recommends using a keyframe distance equivalent to 10
+            # seconds and the GStreamer component doesn't set it.
+            # See priv#7131
             if value in ['flash_low', 'flash_high']:
-                self._set_keyframe_distance_property(300, element)
+                #FIXME: Supposing we have a PAL in put with 25fps
+                element.set_property('max-keyframe-distance', 250)
