@@ -15,7 +15,7 @@
 #
 # Headers in this file shall remain intact.
 
-from flumotion.common import messages, errors
+from flumotion.common import gstreamer, messages, errors
 from flumotion.component import feedcomponent
 from flumotion.common.i18n import N_, gettexter
 
@@ -38,16 +38,36 @@ class H264Encoder(feedcomponent.ParseLaunchComponent):
     def configure_pipeline(self, pipeline, properties):
         self.debug('configure_pipeline')
         element = pipeline.get_by_name('encoder')
+        # The properties' order must be respected because some profiles
+        # might need to overwrite the keyframe-distance.
         props = ('bitrate', 'keyframe-distance', 'profile')
         for p in props:
             self._set_property(p, properties.get(p), element)
+
+    def _set_keyframe_distance_property(self, value, element):
+        for p in ['max-keyframe-distance', 'min-keyframe-distance']:
+                element.set_property(p, value)
 
     def _set_property(self, prop, value, element):
         if value is None:
             self.debug('No %s set, using default value', prop)
             return
-        if prop in ['bitrate', 'keyframe-distance']:
-            self.debug("Setting %s to %s", prop, value)
+        if prop == 'bitrate':
+            self.debug("Setting bitrate to %s", value)
+            element.set_property(prop, value)
+        if prop == 'keyframe-distance':
+            if gstreamer.get_plugin_version('flumch264enc') <= (0, 10, 5, 0):
+                m = messages.Warning(
+                    T_(N_("Versions up to and including %s of the '%s' "
+                        "cannot set this property.\n"),
+                        '0.10.5', 'flumch264enc'))
+                self.addMessage(m)
+                return
+            if value == 0:
+                self.debug("Using automatic keyframe-distance")
+                return
+            self.debug("Setting keyframe-distance to %s", value)
+            self._set_keyframe_distance_property(value, element)
         if prop == 'profile':
             if value not in self.profiles:
                 m = messages.Error(T_(N_(
@@ -57,4 +77,8 @@ class H264Encoder(feedcomponent.ParseLaunchComponent):
                 raise errors.ComponentSetupHandledError()
             self.debug("Setting h264 '%s' profile", value)
             value = self.profiles[value]
-        element.set_property(prop, value)
+            element.set_property(prop, value)
+            # Adobe recommends using a keyframe distance of 300 frames
+            # and the GStreamer component doesn't change it. See priv#7131
+            if value in ['flash_low', 'flash_high']:
+                self._set_keyframe_distance_property(300, element)
