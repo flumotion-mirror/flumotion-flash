@@ -23,13 +23,12 @@ class H264Encoder(feedcomponent.ParseLaunchComponent):
     checkOffset = True
 
     def get_pipeline_string(self, properties):
-        self.debug("Blah...")
-        return "ffmpegcolorspace ! x264enc me=3 subme=6 name=encoder"
+        return "ffmpegcolorspace ! flumch264enc name=encoder"
 
     def configure_pipeline(self, pipeline, properties):
-        self.debug('configure_pipeline blah blah')
+        self.debug('configure_pipeline')
         element = pipeline.get_by_name('encoder')
-        props = ('bitrate', 'speed', 'threads')
+        props = ('bitrate',)
         for p in props:
             self._set_property(p, properties.get(p), element)
 
@@ -38,18 +37,9 @@ class H264Encoder(feedcomponent.ParseLaunchComponent):
             self.debug('No %s set, using default value' % prop)
             return
         if prop == 'bitrate':
-            # GStreamer 0.10 has bitrate in kbps, inconsistent
-            # with all other elements, so fix it up
-            v = int(value/1000)
+            v = int(value)
             self.debug("Setting bitrate to %s" % value)
             element.set_property(prop, value)
-            return
-        if prop == 'speed':
-            me = 3
-            subme = 6
-            self.debug("Setting me, subme to %d, %d" %(me, subme))
-            element.set_property('me', me)
-            element.set_property('subme', subme)
             return
         self.debug("Setting %s to %d" %(prop, value))
         element.set_property(prop, value)

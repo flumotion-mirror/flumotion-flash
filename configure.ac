@@ -36,8 +36,6 @@ AS_PATH_PYTHON(2.3)
 dnl useful when we compile our own python modules
 dnl AM_CHECK_PYTHON_HEADERS(,[AC_MSG_ERROR(could not find Python headers)])
 
-export PYTHONPATH=$PYGTK_DIR:$PYTHONPATH
-
 dnl check for epydoc
 AC_CHECK_PROG(EPYDOC, epydoc, yes, no)
 AM_CONDITIONAL(HAVE_EPYDOC, test "x$EPYDOC" = "xyes")

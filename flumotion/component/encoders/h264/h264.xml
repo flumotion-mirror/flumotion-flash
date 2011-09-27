@@ -24,10 +24,6 @@
       <properties>
         <property name="bitrate" type="int"
                   _description="Bitrate to encode at (in bps)" />
-        <property name="speed" type="int"
-                  _description="Encoding speed." />
-        <property name="threads" type="int"
-                  _description="Number of threads used for the encoding" />
       </properties>
 
     </component>

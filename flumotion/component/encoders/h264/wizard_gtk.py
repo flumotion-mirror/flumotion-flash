@@ -30,15 +30,8 @@ _ = gettext.gettext
 
 class H264VideoEncoder(VideoEncoder):
     componentType = 'h264-encoder'
-#    def __init__(self):
-#        super(H264VideoEncoder, self).__init__()
-#        self.has_quality = True
-#        self.has_bitrate = False
-#
-#        self.properties.bitrate = 256
 
     def init(self):
-        self.has_quality = True
         self.has_bitrate = False
 
         self.properties.bitrate = 256
@@ -63,14 +56,12 @@ class H264Step(VideoEncoderStep):
 
     def setup(self):
         self.bitrate.data_type = int
-        self.threads.data_type = int
-        self.speed.data_type = int
 
-        self.add_proxy(self.model.properties, ['bitrate', 'speed', 'threads'])
+        self.add_proxy(self.model.properties, ['bitrate'])
 
     def workerChanged(self, worker):
         self.model.worker = worker
-        self.wizard.requireElements(worker, 'x264enc')
+        self.wizard.requireElements(worker, 'flumch264enc')
 
 
 class H264WizardPlugin(object):
