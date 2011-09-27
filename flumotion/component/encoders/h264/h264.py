@@ -34,6 +34,7 @@ class H264Encoder(feedcomponent.EncoderComponent):
             'flash_high']
 
     bitrate_mode = ['cbr', 'cqt', 'vbr']
+    sync_on_offset= False
 
     def get_pipeline_string(self, properties):
         return "ffmpegcolorspace ! flumch264enc max-keyframe-distance=125 name=encoder"
@@ -129,12 +130,16 @@ class H264Encoder(feedcomponent.EncoderComponent):
                 element.set_property('max-keyframe-distance', 75)
 
         if prop == 'sync-on-offset' and value is True:
-            self._synced = False
-            self._tsToOffset = {}
+            self.sync_on_offset = True
+            self._forceResync()
             sp = element.get_pad("sink")
             self._sinkID = sp.add_buffer_probe(self._sinkPadProbe)
             sp = element.get_pad("src")
             self._srcID = sp.add_buffer_probe(self._srcPadProbe)
+
+    def _forceResync(self):
+        self._synced = False
+        self._tsToOffset = {}
 
     def _sinkPadProbe(self, pad, buffer):
         offset = buffer.offset
@@ -169,6 +174,8 @@ class H264Encoder(feedcomponent.EncoderComponent):
     def modify_property_Bitrate(self, value):
         if not self.checkPropertyType('bitrate', value, int):
             return False
+        if self.sync_on_offset:
+            self._forceResync()
         self.modify_element_property('encoder', 'bitrate', value)
         return True
 
