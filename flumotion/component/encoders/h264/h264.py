@@ -36,17 +36,7 @@ class H264Encoder(feedcomponent.EncoderComponent):
     bitrate_mode = ['cbr', 'cqt', 'vbr']
 
     def get_pipeline_string(self, properties):
-        if properties.get('sync-on-offset', False):
-            # put a videorate element before the encoder to ensure continuity of
-            # input frames: in case the queue before drops some incoming frames,
-            # we still want to have timely aligned fragments.
-            # Ex: without videorate, if kf distance is 25, and the
-            # 25th frame is dropped, the fragment will end with the
-            # 26th frame, and the next fragment will start at the
-            # 27th. With videorate, an extra 25th frame is inserted instead.
-            return "ffmpegcolorspace ! videorate ! flumch264enc name=encoder"
-        else:
-            return "ffmpegcolorspace ! flumch264enc name=encoder"
+        return "ffmpegcolorspace ! flumch264enc name=encoder"
 
     def configure_pipeline(self, pipeline, properties):
         self.debug('configure_pipeline')
