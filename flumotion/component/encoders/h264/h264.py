@@ -164,3 +164,11 @@ class H264Encoder(feedcomponent.EncoderComponent):
         # HACK: Use OFFSET_END to write the keyframes' offset
         buffer.offset_end = (buffer.offset - 1) / self._kfDistance
         return True
+
+
+    def modify_property_Bitrate(self, value):
+        if not self.checkPropertyType('bitrate', value, int):
+            return False
+        self.modify_element_property('encoder', 'bitrate', value)
+        return True
+
