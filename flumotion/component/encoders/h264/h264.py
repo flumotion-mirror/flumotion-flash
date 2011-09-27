@@ -25,12 +25,11 @@ class H264Encoder(feedcomponent.ParseLaunchComponent):
     checkTimestamp = True
     checkOffset = True
 
-    profiles = {
-            'base' : 0, 'cif' : 1, 'main' : 2, 'svcd' : 3, 'd1' : 4,
-            'high' : 5, 'dvd' : 6, 'hddvd' : 7, 'bd' : 8, 'bdmain' : 9,
-            'psp' : 10, '720p' : 11, '1080i' : 12, 'ipod' : 13, 'avchd' : 14,
-            'iphone' : 15, '1seg' : 16, 'psp_480_270' : 20, 'psp_640_480': 21,
-            'divx' : 22, 'flash_low' : 23, 'flash_high' : 24}
+    profiles = [
+            'base', 'cif', 'main', 'svcd', 'd1', 'high', 'dvd', 'hddvd', 'bd',
+            'bdmain', 'psp', '720p', '1080i', 'ipod', 'avchd', 'iphone',
+            '1seg', 'psp_480_270', 'psp_640_480', 'divx', 'flash_low',
+            'flash_high']
 
     def get_pipeline_string(self, properties):
         return "ffmpegcolorspace ! flumch264enc name=encoder"
@@ -81,12 +80,11 @@ class H264Encoder(feedcomponent.ParseLaunchComponent):
                 self.addMessage(m)
                 raise errors.ComponentSetupHandledError()
             self.debug("Setting h264 '%s' profile", value)
-            value = self.profiles[value]
             element.set_property(prop, value)
             # Adobe recommends using a keyframe distance equivalent to 10
             # seconds and the GStreamer component doesn't set it. For live
             # we want to have at least on keyframe each 3 seconds
             # See priv#7131
-            if value in [23, 24]:
+            if value in ['flash_high', 'flash_low']:
                 #FIXME: Supposing we have a PAL input with 25fps
                 element.set_property('max-keyframe-distance', 75)
