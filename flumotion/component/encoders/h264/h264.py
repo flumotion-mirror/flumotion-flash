@@ -40,9 +40,18 @@ class H264Encoder(feedcomponent.ParseLaunchComponent):
         element = pipeline.get_by_name('encoder')
         # The properties' order must be respected because some profiles
         # might need to overwrite the keyframe-distance.
-        props = ('bitrate', 'byte-stream', 'keyframe-distance', 'profile')
+        props = ('bitrate', 'byte-stream', 'keyframe-distance')
         for p in props:
             self._set_property(p, properties.get(p), element)
+        #FIXME: Default profile should be 'base' but we use 'flash_high'
+        profile = properties.get('profile')
+        if profile is None:
+            m = messages.Warning(
+                T_(N_("Encoding profile not specified. Using 'flash_high' "
+                    "as default.\n")))
+            self.addMessage(m)
+            profile = 'flash_high'
+        self._set_property('profile', profile, element)
 
     def _set_keyframe_distance_property(self, value, element):
         for p in ['max-keyframe-distance', 'min-keyframe-distance']:
@@ -86,5 +95,5 @@ class H264Encoder(feedcomponent.ParseLaunchComponent):
             # seconds and the GStreamer component doesn't set it.
             # See priv#7131
             if value in ['flash_low', 'flash_high']:
-                #FIXME: Supposing we have a PAL in put with 25fps
+                #FIXME: Supposing we have a PAL input with 25fps
                 element.set_property('max-keyframe-distance', 250)
