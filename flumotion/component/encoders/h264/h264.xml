@@ -33,7 +33,7 @@
         <property name="sync-on-offset" type="bool"
                   _description="Sync the encoder to start encoding with the first frame multiple of the keyframe distance" />
         <property name="profile" type="string"
-                  _description="Encoder configuration profile (default:base)"/>
+                  _description="Encoder configuration profile (default:flash_high)"/>
         <property name="byte-stream" type="bool"
                   _description="Output H264 byte-stream format (default:false)"/>
         <property name="bitrate-mode" type="string"
