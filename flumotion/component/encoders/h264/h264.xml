@@ -28,6 +28,8 @@
                   _description="Distance between keyframes in number of frames" />
         <property name="profile" type="string"
                   _description="Encoder configuration profile (default:base)"/>
+        <property name="byte-stream" type="bool"
+                  _description="Output H264 byte-stream format (default:false)"/>
       </properties>
 
     </component>

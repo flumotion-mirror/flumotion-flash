@@ -33,7 +33,19 @@ class H264Encoder(feedcomponent.ParseLaunchComponent):
             'divx' : 22, 'flash_low' : 23, 'flash_high' : 24}
 
     def get_pipeline_string(self, properties):
-        return "ffmpegcolorspace ! flumch264enc name=encoder"
+        pipeline = "ffmpegcolorspace ! flumch264enc name=encoder"
+        v = gstreamer.get_plugin_version('h264parse')
+        if v[3] != 10 and v <= (0, 10, 17, 0):
+                m = messages.Warning(
+                    T_(N_("Versions up to and including %s of the '%s' "
+                        "cannot set this property.\n"),
+                        '0.10.17', 'h264parse'))
+                self.addMessage(m)
+                return
+
+        if properties.get("byte-stream", False):
+            pipeline += " ! h264parse output-format=1 "
+        return pipeline
 
     def configure_pipeline(self, pipeline, properties):
         self.debug('configure_pipeline')
