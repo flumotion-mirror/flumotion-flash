@@ -24,6 +24,8 @@
       <properties>
         <property name="bitrate" type="int"
                   _description="Bitrate to encode at (in bps)" />
+        <property name="max-bitrate" type="int"
+                  _description="Max bitrate for the vbr mode (in bps)" />
         <property name="max-keyframe-distance" type="int"
                   _description="Maximum distance between keyframes in number of frames" />
         <property name="min-keyframe-distance" type="int"

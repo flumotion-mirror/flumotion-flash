@@ -69,6 +69,10 @@ class H264Encoder(feedcomponent.EncoderComponent):
                 'sync-on-offset')
         for p in props:
             self._set_property(p, properties.get(p), element)
+        # for max-bitrate use in this order: 'max-bitrate', 'bitrate' or None
+        self._set_property('max-bitrate',
+            properties.get('max-bitrate', properties.get('bitrate', None)),
+            element)
 
     def _set_property(self, prop, value, element):
         if value is None:
@@ -77,6 +81,9 @@ class H264Encoder(feedcomponent.EncoderComponent):
 
         if prop == 'bitrate':
             self.debug("Setting bitrate to %s", value)
+            element.set_property(prop, value)
+        if prop == 'max-bitrate':
+            self.debug("Setting max bitrate to %s", value)
             element.set_property(prop, value)
         if prop == 'bitrate-mode':
             if value not in self.bitrate_mode:
