@@ -42,14 +42,13 @@ class H264Encoder(feedcomponent.EncoderComponent):
         self.debug('configure_pipeline')
         element = pipeline.get_by_name('encoder')
 
-        #FIXME: Default profile should be 'base' but we use 'flash_high'
         profile = properties.get('profile')
         if profile is None:
             m = messages.Warning(
-                T_(N_("Encoding profile not specified. Using 'flash_high' "
+                T_(N_("Encoding profile not specified. Using 'main' "
                     "as default.\n")))
             self.addMessage(m)
-            profile = 'flash_high'
+            profile = 'main'
         self._set_property('profile', profile, element)
 
         maxKFDistance = properties.get('max-keyframe-distance')
