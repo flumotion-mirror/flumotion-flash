@@ -16,7 +16,7 @@
                function="AACWizardPlugin" />
       </entries>
 
-      <wizard _description="AAC" type="audio-encoder" 
+      <wizard _description="Fluendo AAC" type="audio-encoder"
               feeder="default" eater="default">
         <provide-format media-type="aac"/>
       </wizard>

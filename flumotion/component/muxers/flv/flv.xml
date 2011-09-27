@@ -16,7 +16,7 @@
                function="FLVWizardPlugin" />
       </entries>
 
-      <wizard _description="Flash Video (FLV)" type="muxer" 
+      <wizard _description="Fluendo FLV" type="muxer"
               feeder="default" eater="default">
         <accept-format media-type="flv"/>
         <accept-format media-type="vp6"/>

@@ -16,7 +16,7 @@
                function="MP3WizardPlugin" />
       </entries>
 
-      <wizard _description="MP3" type="audio-encoder" 
+      <wizard _description="MP3" type="audio-encoder"
               feeder="default" eater="default">
         <provide-format media-type="mp3"/>
       </wizard>

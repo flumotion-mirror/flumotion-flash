@@ -14,7 +14,7 @@
                function="MP3Muxer" />
       </entries>
 
-      <wizard _description="MP3" type="muxer" 
+      <wizard _description="MP3" type="muxer"
               feeder="default" eater="default">
         <accept-format media-type="audio:mp3"/>
         <provide-format media-type="mp3"/>

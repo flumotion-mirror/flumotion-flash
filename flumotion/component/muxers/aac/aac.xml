@@ -14,7 +14,7 @@
                function="AACMuxer" />
       </entries>
 
-      <wizard _description="AAC (ADTS)" type="muxer" 
+      <wizard _description="AAC (ADTS)" type="muxer"
               feeder="default" eater="default">
         <accept-format media-type="audio:aac"/>
         <provide-format media-type="aac"/>

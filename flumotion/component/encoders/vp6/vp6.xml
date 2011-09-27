@@ -15,7 +15,7 @@
                function="VP6WizardPlugin" />
       </entries>
 
-      <wizard _description="VP6" type="video-encoder"
+      <wizard _description="Fluendo VP6" type="video-encoder"
               feeder="default" eater="default">
         <provide-format media-type="vp6" />
       </wizard>
