@@ -147,7 +147,7 @@ class H264Encoder(feedcomponent.EncoderComponent):
                 " buffer offset.")))
             self.addMessage(m)
             pad.remove_buffer_probe(self._sinkID)
-            pad.get_peer().remove_buffer_probe(self._srcID)
+            pad.get_parent().get_pad("src").remove_buffer_probe(self._srcID)
             return True
         # Offset start at 1
         elif not self._synced and (offset - 1) % self._kfDistance == 0:
