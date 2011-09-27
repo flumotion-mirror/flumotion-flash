@@ -9,9 +9,12 @@ URL:            http://www.fluendo.net/
 Source:         %{name}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
+Obsoletes:	flumotion-h264
+
 Requires:	flumotion >= @FLU_REQ@
 Requires:       gstreamer-fluendo-flvmux >= 0.10.5
 Requires:       gstreamer-fluendo-vp6enc >= 0.10.2
+Requires:       gstreamer-fluendo-mch264enc
 Requires:       gstreamer-fluendo-mcaacenc >= 0.10.5
 
 BuildRequires:	gettext
@@ -45,6 +48,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/flumotion
 
 %changelog
+* Tue Sep 27 2011 Xavier Queralt <xqueralt@flumotion.com>
+- From now this project replaces flumotion-h264
+
 * Fri Apr 24 2009 Jan Urbanski <jurbanski@flumotion.com>
 - remove the twisted-python build requirement, requiring flumotion is enough 
 
