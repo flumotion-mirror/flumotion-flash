@@ -33,26 +33,14 @@ class H264Encoder(feedcomponent.ParseLaunchComponent):
             'divx' : 22, 'flash_low' : 23, 'flash_high' : 24}
 
     def get_pipeline_string(self, properties):
-        pipeline = "ffmpegcolorspace ! flumch264enc name=encoder"
-        v = gstreamer.get_plugin_version('h264parse')
-        if v[3] != 10 and v <= (0, 10, 17, 0):
-                m = messages.Warning(
-                    T_(N_("Versions up to and including %s of the '%s' "
-                        "cannot set this property.\n"),
-                        '0.10.17', 'h264parse'))
-                self.addMessage(m)
-                return
-
-        if properties.get("byte-stream", False):
-            pipeline += " ! h264parse output-format=1 "
-        return pipeline
+        return "ffmpegcolorspace ! flumch264enc name=encoder"
 
     def configure_pipeline(self, pipeline, properties):
         self.debug('configure_pipeline')
         element = pipeline.get_by_name('encoder')
         # The properties' order must be respected because some profiles
         # might need to overwrite the keyframe-distance.
-        props = ('bitrate', 'keyframe-distance', 'profile')
+        props = ('bitrate', 'byte-stream', 'keyframe-distance', 'profile')
         for p in props:
             self._set_property(p, properties.get(p), element)
 
@@ -67,6 +55,10 @@ class H264Encoder(feedcomponent.ParseLaunchComponent):
         if prop == 'bitrate':
             self.debug("Setting bitrate to %s", value)
             element.set_property(prop, value)
+        if prop == 'byte-stream':
+            if value == True:
+                self.debug("Setting byte-stream format")
+                element.set_property('es', 1)
         if prop == 'keyframe-distance':
             if gstreamer.get_plugin_version('flumch264enc') <= (0, 10, 5, 0):
                 m = messages.Warning(
