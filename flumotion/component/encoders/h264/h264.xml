@@ -34,6 +34,8 @@
                   _description="Encoder configuration profile (default:base)"/>
         <property name="byte-stream" type="bool"
                   _description="Output H264 byte-stream format (default:false)"/>
+        <property name="bitrate-mode" type="string"
+                  _description="Bitrate mode (default:cbr)" />
       </properties>
 
     </component>

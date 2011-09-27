@@ -33,6 +33,8 @@ class H264Encoder(feedcomponent.EncoderComponent):
             '1seg', 'psp_480_270', 'psp_640_480', 'divx', 'flash_low',
             'flash_high']
 
+    bitrate_mode = ['cbr', 'cqt', 'vbr']
+
     def get_pipeline_string(self, properties):
         return "ffmpegcolorspace ! flumch264enc name=encoder"
 
@@ -62,8 +64,9 @@ class H264Encoder(feedcomponent.EncoderComponent):
                 "min-keyframe-distance both set with the same value.")))
             self.addMessage(m)
 
-        props = ('bitrate', 'byte-stream', 'max-keyframe-distance',
-                'min-keyframe-distance', 'sync-on-offset')
+        props = ('bitrate', 'bitrate-mode', 'byte-stream',
+                'max-keyframe-distance', 'min-keyframe-distance',
+                'sync-on-offset')
         for p in props:
             self._set_property(p, properties.get(p), element)
 
@@ -75,7 +78,15 @@ class H264Encoder(feedcomponent.EncoderComponent):
         if prop == 'bitrate':
             self.debug("Setting bitrate to %s", value)
             element.set_property(prop, value)
-
+        if prop == 'bitrate-mode':
+            if value not in self.bitrate_mode:
+                m = messages.Error(T_(N_(
+                    "The bitrate mode '%s' does not match any of the encoder's "
+                    "available modes"), value), mid='profile')
+                self.addMessage(m)
+                raise errors.ComponentSetupHandledError()
+            self.debug("Setting bitrate mode to %s", value)
+            element.set_property(prop, value)
         if prop == 'byte-stream':
             if value is True:
                 self.debug("Setting byte-stream format")
