@@ -1,26 +1,26 @@
 Name:           @PACKAGE@
 Version:        @PACKAGE_VERSION_SPEC@
 Release:        @PACKAGE_VERSION_RELEASE@%{?dist}
-Summary:        Flumotion Flash Streaming support.
+Summary:        Flumotion Flash Streaming support
 
 Group:          Applications/Internet
-License:	LGPL
+License:        LGPLv2
 URL:            http://www.fluendo.net/
 Source:         %{name}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
-Obsoletes:	flumotion-h264
+Obsoletes:      flumotion-h264
 
-Requires:	flumotion >= @FLU_REQ@
+Requires:       flumotion >= @FLU_REQ@
 Requires:       gstreamer-fluendo-flvmux >= 0.10.5
 Requires:       gstreamer-fluendo-vp6enc >= 0.10.2
 Requires:       gstreamer-fluendo-mch264enc
 Requires:       gstreamer-fluendo-mcaacenc >= 0.10.5
 
-BuildRequires:	gettext
-BuildRequires:	python >= 2.3
-BuildRequires:	flumotion >= @FLU_REQ@
-BuildRequires:	epydoc
+BuildRequires:  gettext
+BuildRequires:  python >= 2.3
+BuildRequires:  flumotion >= @FLU_REQ@
+BuildRequires:  epydoc
 BuildRequires:  pkgconfig
 
 %description
@@ -52,7 +52,7 @@ rm -rf $RPM_BUILD_ROOT
 - From now this project replaces flumotion-h264
 
 * Fri Apr 24 2009 Jan Urbanski <jurbanski@flumotion.com>
-- remove the twisted-python build requirement, requiring flumotion is enough 
+- remove the twisted-python build requirement, requiring flumotion is enough
 
 * Wed Apr 22 2009 Xavier Queralt Mateu <xqueralt@flumotion.com>
 - updated requirements to flumotion 0.5.4 and the new fluendo codecs
