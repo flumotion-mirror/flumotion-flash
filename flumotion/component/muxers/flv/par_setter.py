@@ -18,6 +18,7 @@
 import gst
 import gobject
 
+
 class FluParSetter(gst.Element):
     '''
     I force the pixel aspect ratio to be 1/1 by modifying width and height
@@ -62,7 +63,7 @@ class FluParSetter(gst.Element):
 
         struc.set_value("width", width)
         struc.set_value("height", height)
-        struc.set_value("pixel-aspect-ratio", gst.Fraction(1,1))
+        struc.set_value("pixel-aspect-ratio", gst.Fraction(1, 1))
 
         caps = gst.Caps()
         caps.append_structure(struc)

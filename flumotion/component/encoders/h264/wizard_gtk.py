@@ -67,6 +67,7 @@ class H264Step(VideoEncoderStep):
 
 class H264WizardPlugin(object):
     implements(IEncoderPlugin)
+
     def __init__(self, wizard):
         self.wizard = wizard
         self.model = H264VideoEncoder()

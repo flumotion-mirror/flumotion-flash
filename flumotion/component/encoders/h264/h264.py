@@ -21,6 +21,7 @@ from flumotion.common.i18n import N_, gettexter
 
 T_ = gettexter()
 
+
 class H264Encoder(feedcomponent.EncoderComponent):
     checkTimestamp = True
     checkOffset = True
@@ -35,7 +36,8 @@ class H264Encoder(feedcomponent.EncoderComponent):
     sync_on_offset= False
 
     def get_pipeline_string(self, properties):
-        return "ffmpegcolorspace ! flumch264enc max-keyframe-distance=125 name=encoder"
+        return ("ffmpegcolorspace ! flumch264enc max-keyframe-distance=125"
+                " name=encoder")
 
     def configure_pipeline(self, pipeline, properties):
         self.debug('configure_pipeline')
@@ -82,7 +84,8 @@ class H264Encoder(feedcomponent.EncoderComponent):
         if prop == 'bitrate-mode':
             if value not in self.bitrate_mode:
                 m = messages.Error(T_(N_(
-                    "The bitrate mode '%s' does not match any of the encoder's "
+                    "The bitrate mode '%s' does not match any "
+                    "of the encoder's "
                     "available modes"), value), mid='profile')
                 self.addMessage(m)
                 raise errors.ComponentSetupHandledError()
@@ -126,4 +129,3 @@ class H264Encoder(feedcomponent.EncoderComponent):
             return False
         self.modify_element_property('encoder', 'bitrate', value)
         return True
-

@@ -21,7 +21,8 @@
 import gettext
 from zope.interface import implements
 
-from flumotion.admin.assistant.interfaces import IHTTPConsumerPlugin, IHTTPConsumerPluginLine
+from flumotion.admin.assistant.interfaces import (IHTTPConsumerPlugin,
+                                                  IHTTPConsumerPluginLine)
 from flumotion.admin.assistant.models import HTTPServer, HTTPPlug
 from flumotion.ui.plugarea import WizardPlugLine
 
@@ -132,6 +133,7 @@ class FlashHTTPPlugLine(WizardPlugLine):
         mountPoint = slashjoin(streamer.properties.mount_point, "flash/")
         return FlashHTTPServer(streamer, audioProducer,
                                videoProducer, mountPoint)
+
 
 class FlashHTTPWizardPlugin(object):
     implements(IHTTPConsumerPlugin)

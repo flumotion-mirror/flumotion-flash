@@ -26,7 +26,7 @@ class AACEncoder(feedcomponent.EncoderComponent):
     def get_pipeline_string(self, properties):
         # v2 supports only 16000, 22050, 24000, 32000, 44100, 48000 KHz
         samplerate = properties.get('samplerate', 44100)
-        
+
         ht = properties.get('headers', False) and 1 or 0
 
         he = properties.get('high-efficiency-version', 2)
@@ -40,7 +40,8 @@ class AACEncoder(feedcomponent.EncoderComponent):
         return "audioconvert ! %s " \
             "! audio/x-raw-int,rate=%d,channels=%d " \
             "! flumcaacenc header-type=%d name=encoder he=%d " \
-            "! audio/mpeg,rate=%d" % (resampler, samplerate, channels, ht, he, samplerate)
+            "! audio/mpeg,rate=%d" % (resampler, samplerate, channels,
+                                      ht, he, samplerate)
 
     def configure_pipeline(self, pipeline, properties):
         self.debug('configure_pipeline')
