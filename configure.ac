@@ -7,7 +7,7 @@ AC_INIT(flumotion-flash, m4_esyscmd([ test -z "$VERSION" && VERSION=0.11.0.1;
 AM_INIT_AUTOMAKE([-Wno-portability])
 
 AS_VERSION
-AC_SUBST(PACKAGE_VERSION_SPEC, `echo $VERSION | tr '-' '_'`)
+AC_SUBST(PACKAGE_VERSION_SPEC, `echo $VERSION`)
 AS_NANO
 
 AC_SUBST_FILE(AUTHORS)
