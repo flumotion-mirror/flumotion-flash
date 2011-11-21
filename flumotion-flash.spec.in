@@ -27,7 +27,7 @@ BuildRequires:  pkgconfig
 Flumotion Flash Streaming support.
 
 %prep
-%setup -q
+%setup -q -n @PACKAGE_TARNAME@-@PACKAGE_VERSION@
 
 %build
 %configure
