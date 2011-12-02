@@ -76,13 +76,17 @@ flumotion/extern/command/test_command.py
 # Misc ignores
 data/flumotion-admin.desktop
 flumotion/component/plugs/cortado/cortado_location.py
+flumotion/component/plugs/flashhttp/flashplayer_location.py
 flumotion/configure/installed.py
 flumotion/configure/uninstalled.py
 flumotion/extern/fdpass/.deps/
 flumotion/extern/fdpass/fdpass.so
 flumotion/extern/fdpass/fdpass_so-fdpass.o
 flumotion/project/flumotion.locale.xml
+flumotion/project/flash.py
+flumotion/test/setup.py
 misc/flumotion-verify-config
+misc/setup.py
 pkgconfig/flumotion-uninstalled.pc
 pkgconfig/flumotion.pc
 
